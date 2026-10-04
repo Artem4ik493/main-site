@@ -154,7 +154,7 @@ a:hover,button:hover{filter:brightness(1.12)}
 .activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.activity-card{border:1px solid var(--line);border-radius:22px;padding:22px;background:var(--panel);position:relative;overflow:hidden}.timeline{display:grid;gap:16px}.timeline-row{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:start}.timeline-row time{font:600 10px 'JetBrains Mono';color:#6f7d91;padding-top:3px}.timeline-row div{border-left:1px solid rgba(104,167,255,.25);padding-left:16px}.timeline-row b{font-size:13px}.timeline-row span{display:block;color:var(--muted);font-size:12px;margin-top:3px}.bars{display:grid;gap:14px}.bar-label{display:flex;justify-content:space-between;font:600 10px 'JetBrains Mono';color:#aab7ca}.bar{height:7px;margin-top:7px;background:#151b26;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;width:var(--w);border-radius:inherit;background:linear-gradient(90deg,#68a7ff,#a47cff);box-shadow:0 0 16px rgba(104,167,255,.4);animation:barIn 1.3s var(--ease) both}.bar:nth-child(2) i{animation-delay:.12s}@keyframes barIn{from{width:0}to{width:var(--w)}}
 @media(max-width:760px){.world-map{height:300px}.world-top{align-items:flex-start;flex-direction:column}.packet-nav,.activity-grid{grid-template-columns:1fr}.world-help{left:18px;bottom:15px}.interactive-world{padding-bottom:75px}}
 </style>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3G3dM4e2n8v0W4JQfM9e7W6QJY4cM=" crossorigin=""><link rel="stylesheet" href="/effects.css"></head>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="/effects.css"></head>
 <body>
 <nav id="nav">
   <div class="nav-inner">
@@ -371,7 +371,7 @@ let queued=false,x=-999,y=-999;addEventListener('pointermove',e=>{x=e.clientX;y=
 document.querySelectorAll('.card,.project-card,.stack-card,.panel,.tool-card,.contact-card').forEach(el=>{el.classList.add('motion-tilt');if(getComputedStyle(el).position==='static')el.style.position='relative';el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;el.style.setProperty('--rx',((.5-py)*5)+'deg');el.style.setProperty('--ry',((px-.5)*5)+'deg');el.style.setProperty('--px',px*100+'%');el.style.setProperty('--py',py*100+'%')});el.addEventListener('pointerleave',()=>{el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')})});
 })();
 </script><script src="/effects.js" defer></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (()=> {
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
