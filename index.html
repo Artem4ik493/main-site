@@ -111,6 +111,39 @@ footer{padding:35px 0 50px;color:#657082;font:600 11px 'JetBrains Mono',monospac
   .footer-row{flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.card{transition:none}}
+
+/* Motion system */
+@property --spin{syntax:"<angle>";initial-value:0deg;inherits:false}
+html{scroll-behavior:smooth}body{isolation:isolate}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.13' filter='url(%23n)'/%3E%3C/svg%3E")}
+.motion-progress{position:fixed;top:0;left:0;height:2px;width:var(--scroll,0%);background:linear-gradient(90deg,#68a7ff,#a47cff);z-index:10000;box-shadow:0 0 16px #68a7ff}
+.motion-glow{position:fixed;width:450px;height:450px;left:0;top:0;transform:translate3d(calc(var(--mx,-999px) - 50%),calc(var(--my,-999px) - 50%),0);border-radius:50%;background:radial-gradient(circle,rgba(104,167,255,.075),transparent 65%);pointer-events:none;z-index:2}
+a,button{transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease}
+a:hover,button:hover{filter:brightness(1.12)}
+.motion-tilt{transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--lift,0px));transition:transform .28s ease,box-shadow .28s ease;will-change:transform}
+.motion-tilt:hover{--lift:-5px;box-shadow:0 22px 70px rgba(44,82,165,.17)}
+.motion-tilt::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(450px circle at var(--px,50%) var(--py,50%),rgba(104,167,255,.12),transparent 50%);opacity:0;transition:opacity .25s}
+.motion-tilt:hover::after{opacity:1}
+@keyframes motionFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes motionPulse{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes motionDash{to{stroke-dashoffset:-48}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.motion-glow{display:none}}
+
+.network-showcase{max-width:1160px;margin:42px auto 70px;padding:0 24px}
+.network-shell{position:relative;overflow:hidden;border:1px solid rgba(104,167,255,.22);border-radius:28px;background:radial-gradient(ellipse at 50% 45%,rgba(69,99,189,.16),transparent 64%),rgba(11,15,23,.9);padding:26px;box-shadow:0 25px 90px rgba(0,0,0,.2)}
+.network-shell::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(104,167,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(104,167,255,.045) 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(to bottom,black,transparent);pointer-events:none}
+.network-heading{display:flex;justify-content:space-between;gap:16px;align-items:center;position:relative;font:600 12px 'JetBrains Mono',monospace;color:#a8b9d3;letter-spacing:.09em}
+.network-label{color:#57d68b;display:flex;gap:9px;align-items:center}.network-label::before{content:"";width:7px;height:7px;background:currentColor;border-radius:50%;box-shadow:0 0 15px currentColor;animation:motionPulse 2s infinite}
+.network-map{width:100%;height:auto;max-height:390px;display:block;position:relative;overflow:visible}
+.network-map .link{fill:none;stroke:#5684c6;stroke-width:1.5;stroke-dasharray:5 9;animation:motionDash 2s linear infinite;opacity:.6}
+.network-map .ring{fill:none;stroke:#6ba7ff;stroke-width:1;opacity:.22}
+.network-map .node{fill:#101a30;stroke:#77b2ff;stroke-width:2;filter:drop-shadow(0 0 9px #417ed5)}
+.network-map .core{fill:#76afff;filter:drop-shadow(0 0 15px #76afff)}
+.network-map text{fill:#b7c7df;font:12px 'JetBrains Mono',monospace}
+.network-map .packet{fill:#b8d7ff;filter:drop-shadow(0 0 6px #6ba7ff)}
+.network-footer{display:flex;gap:18px;flex-wrap:wrap;color:#8596b0;font:11px 'JetBrains Mono',monospace}
+@media(max-width:600px){.network-showcase{padding:0 16px;margin:20px auto 45px}.network-shell{padding:18px}.network-heading{font-size:10px}.network-map text{font-size:13px}}
+
 </style>
 </head>
 <body>
@@ -209,6 +242,25 @@ footer{padding:35px 0 50px;color:#657082;font:600 11px 'JetBrains Mono',monospac
     </div>
   </div>
 </section>
+
+<section class="network-showcase" aria-label="Демонстрационная визуализация архитектуры сети">
+<div class="network-shell">
+<div class="network-heading"><span>NETWORK / ARCHITECTURE VISUALIZER</span><span class="network-label">SIMULATION</span></div>
+<svg class="network-map" viewBox="0 0 900 390" role="img" aria-label="Схематичная сеть: центральный шлюз, VPN, серверы, автоматизация и мониторинг">
+<defs><radialGradient id="halo"><stop stop-color="#68a7ff" stop-opacity=".19"/><stop offset="1" stop-color="#68a7ff" stop-opacity="0"/></radialGradient><path id="p1" d="M450 193 L170 96"/><path id="p2" d="M450 193 L730 96"/><path id="p3" d="M450 193 L160 300"/><path id="p4" d="M450 193 L740 300"/></defs>
+<circle cx="450" cy="193" r="155" fill="url(#halo)"/><circle class="ring" cx="450" cy="193" r="95"/><circle class="ring" cx="450" cy="193" r="145"/>
+<use href="#p1" class="link"/><use href="#p2" class="link"/><use href="#p3" class="link"/><use href="#p4" class="link"/>
+<g><circle class="node" cx="450" cy="193" r="29"/><circle class="core" cx="450" cy="193" r="8"/><text x="450" y="245" text-anchor="middle">CORE GATEWAY</text></g>
+<g><circle class="node" cx="170" cy="96" r="18"/><text x="170" y="61" text-anchor="middle">VPN / TUNNEL</text></g>
+<g><circle class="node" cx="730" cy="96" r="18"/><text x="730" y="61" text-anchor="middle">LINUX / VPS</text></g>
+<g><circle class="node" cx="160" cy="300" r="18"/><text x="160" y="344" text-anchor="middle">AUTOMATION</text></g>
+<g><circle class="node" cx="740" cy="300" r="18"/><text x="740" y="344" text-anchor="middle">MONITORING</text></g>
+<circle class="packet" r="4"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle>
+<circle class="packet" r="4"><animateMotion dur="4.1s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion></circle>
+<circle class="packet" r="4"><animateMotion dur="3.6s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion></circle>
+<circle class="packet" r="4"><animateMotion dur="4.6s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion></circle>
+</svg><div class="network-footer"><span>● ENCRYPTED LINKS</span><span>↗ ANIMATED DATA FLOW</span><span>DEMO · НЕ LIVE-ТЕЛЕМЕТРИЯ</span></div>
+</div></section>
 </main>
 
 <footer>
@@ -220,5 +272,14 @@ const revealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.
 document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
 </script>
-</body>
+<script>
+(()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const progress=document.createElement('div');progress.className='motion-progress';document.body.append(progress);
+const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.setProperty('--scroll',(max>0?scrollY/max*100:0)+'%')};addEventListener('scroll',update,{passive:true});update();
+if(reduced||matchMedia('(pointer:coarse)').matches)return;
+const glow=document.createElement('div');glow.className='motion-glow';document.body.append(glow);
+let queued=false,x=-999,y=-999;addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;if(!queued){queued=true;requestAnimationFrame(()=>{glow.style.setProperty('--mx',x+'px');glow.style.setProperty('--my',y+'px');queued=false})}},{passive:true});
+document.querySelectorAll('.card,.project-card,.stack-card,.panel,.tool-card,.contact-card').forEach(el=>{el.classList.add('motion-tilt');if(getComputedStyle(el).position==='static')el.style.position='relative';el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;el.style.setProperty('--rx',((.5-py)*5)+'deg');el.style.setProperty('--ry',((px-.5)*5)+'deg');el.style.setProperty('--px',px*100+'%');el.style.setProperty('--py',py*100+'%')});el.addEventListener('pointerleave',()=>{el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')})});
+})();
+</script></body>
 </html>
