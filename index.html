@@ -145,7 +145,7 @@ a:hover,button:hover{filter:brightness(1.12)}
 @media(max-width:600px){.network-showcase{padding:0 16px;margin:20px auto 45px}.network-shell{padding:18px}.network-heading{font-size:10px}.network-map text{font-size:13px}}
 
 </style>
-</head>
+<link rel="stylesheet" href="/effects.css"></head>
 <body>
 <nav id="nav">
   <div class="nav-inner">
@@ -281,5 +281,5 @@ const glow=document.createElement('div');glow.className='motion-glow';document.b
 let queued=false,x=-999,y=-999;addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;if(!queued){queued=true;requestAnimationFrame(()=>{glow.style.setProperty('--mx',x+'px');glow.style.setProperty('--my',y+'px');queued=false})}},{passive:true});
 document.querySelectorAll('.card,.project-card,.stack-card,.panel,.tool-card,.contact-card').forEach(el=>{el.classList.add('motion-tilt');if(getComputedStyle(el).position==='static')el.style.position='relative';el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;el.style.setProperty('--rx',((.5-py)*5)+'deg');el.style.setProperty('--ry',((px-.5)*5)+'deg');el.style.setProperty('--px',px*100+'%');el.style.setProperty('--py',py*100+'%')});el.addEventListener('pointerleave',()=>{el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')})});
 })();
-</script></body>
+</script><script src="/effects.js" defer></script></body>
 </html>
