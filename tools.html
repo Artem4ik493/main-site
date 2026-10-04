@@ -45,7 +45,7 @@ a:hover,button:hover{filter:brightness(1.12)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.motion-glow{display:none}}
 
 </style>
-</head>
+<link rel="stylesheet" href="/effects.css"></head>
 <body>
 <nav><div class="nav-inner"><a class="logo" href="/index.html">artem4ik493<span>.</span>ru</a><div class="nav-links"><a href="/index.html">home</a><a class="active" href="/tools.html">tools</a><a href="https://uptime.artem4ik493.ru/status/artem4ik493">status</a></div></div></nav>
 <main>
@@ -78,4 +78,4 @@ const glow=document.createElement('div');glow.className='motion-glow';document.b
 let queued=false,x=-999,y=-999;addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;if(!queued){queued=true;requestAnimationFrame(()=>{glow.style.setProperty('--mx',x+'px');glow.style.setProperty('--my',y+'px');queued=false})}},{passive:true});
 document.querySelectorAll('.card,.project-card,.stack-card,.panel,.tool-card,.contact-card').forEach(el=>{el.classList.add('motion-tilt');if(getComputedStyle(el).position==='static')el.style.position='relative';el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;el.style.setProperty('--rx',((.5-py)*5)+'deg');el.style.setProperty('--ry',((px-.5)*5)+'deg');el.style.setProperty('--px',px*100+'%');el.style.setProperty('--py',py*100+'%')});el.addEventListener('pointerleave',()=>{el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')})});
 })();
-</script></body></html>
+</script><script src="/effects.js" defer></script></body></html>
