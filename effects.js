@@ -10,7 +10,7 @@ if(reduce.matches)return;
 const glow=document.createElement('div');glow.className='fx-cursor';document.body.append(glow);
 if(fine){
  addEventListener('pointermove',e=>{glow.style.setProperty('--mx',e.clientX+'px');glow.style.setProperty('--my',e.clientY+'px');glow.style.opacity='1'},{passive:true});
- document.querySelectorAll('.card,.project-card,.panel,.tool-card,.tool,.stat,.contact-card,.profile-card,.network-shell').forEach(card=>{
+ document.querySelectorAll('.card,.project-card,.panel,.tool-card,.tool,.stat,.contact-card,.profile-card,.network-shell,.world-shell').forEach(card=>{
   card.classList.add('fx-tilt');
   card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;card.style.setProperty('--fx-x',x*100+'%');card.style.setProperty('--fx-y',y*100+'%');card.style.transform='perspective(1000px) rotateX('+((.5-y)*4)+'deg) rotateY('+((x-.5)*4)+'deg) translateY(-4px)'},{passive:true});
   card.addEventListener('pointerleave',()=>card.style.transform='');
