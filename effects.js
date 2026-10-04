@@ -10,10 +10,40 @@ if(reduce.matches)return;
 const glow=document.createElement('div');glow.className='fx-cursor';document.body.append(glow);
 if(fine){
  addEventListener('pointermove',e=>{glow.style.setProperty('--mx',e.clientX+'px');glow.style.setProperty('--my',e.clientY+'px');glow.style.opacity='1'},{passive:true});
- document.querySelectorAll('.card,.project-card,.panel,.tool-card,.tool,.stat,.contact-card,.profile-card,.network-shell,.world-shell').forEach(card=>{
-  card.classList.add('fx-tilt');
-  card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;card.style.setProperty('--fx-x',x*100+'%');card.style.setProperty('--fx-y',y*100+'%');card.style.transform='perspective(1000px) rotateX('+((.5-y)*4)+'deg) rotateY('+((x-.5)*4)+'deg) translateY(-4px)'},{passive:true});
-  card.addEventListener('pointerleave',()=>card.style.transform='');
+
+ // Cursor trail: lightweight canvas particles that follow the pointer.
+ const trail=document.createElement('canvas');trail.className='fx-trail';document.body.append(trail);
+ const tc=trail.getContext('2d'),particles=[];let tx=innerWidth/2,ty=innerHeight/2,lastTrail=0;
+ const resizeTrail=()=>{const d=Math.min(devicePixelRatio||1,2);trail.width=innerWidth*d;trail.height=innerHeight*d;tc.setTransform(d,0,0,d,0,0)};
+ addEventListener('resize',resizeTrail,{passive:true});resizeTrail();
+ addEventListener('pointermove',e=>{
+   tx=e.clientX;ty=e.clientY;
+   const now=performance.now();
+   if(now-lastTrail>16){lastTrail=now;for(let i=0;i<2;i++)particles.push({x:tx+(Math.random()-.5)*5,y:ty+(Math.random()-.5)*5,vx:(Math.random()-.5)*.8,vy:(Math.random()-.5)*.8,r:Math.random()*2.2+.8,a:.75,life:1});}
+ },{passive:true});
+ const drawTrail=()=>{
+   tc.clearRect(0,0,innerWidth,innerHeight);
+   for(let i=particles.length-1;i>=0;i--){const p=particles[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.008;p.r*=.985;p.a*=.94;p.life-=.028;
+     if(p.life<=0){particles.splice(i,1);continue}
+     const g=tc.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*5);g.addColorStop(0,'rgba(190,220,255,'+(p.a*.8)+')');g.addColorStop(1,'rgba(104,167,255,0)');
+     tc.fillStyle=g;tc.beginPath();tc.arc(p.x,p.y,p.r*5,0,Math.PI*2);tc.fill();
+   }
+   requestAnimationFrame(drawTrail);
+ };requestAnimationFrame(drawTrail);
+
+ const interactive=document.querySelectorAll('.card,.project,.panel,.tool-card,.tool,.stat,.contact-card,.profile-card,.network-shell,.world-shell,.activity-card,.control-card');
+ interactive.forEach(card=>{
+   card.classList.add('fx-tilt','fx-interactive-card');
+   card.addEventListener('pointermove',e=>{
+     const r=card.getBoundingClientRect(),x=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),y=Math.max(0,Math.min(1,(e.clientY-r.top)/r.height));
+     const rx=(.5-y)*5,ry=(x-.5)*5,dx=(x-.5)*6,dy=(y-.5)*6;
+     card.style.setProperty('--fx-x',x*100+'%');card.style.setProperty('--fx-y',y*100+'%');
+     card.style.setProperty('--fx-dx',dx.toFixed(2)+'px');card.style.setProperty('--fx-dy',dy.toFixed(2)+'px');
+     card.style.setProperty('--fx-rx',rx.toFixed(2)+'deg');card.style.setProperty('--fx-ry',ry.toFixed(2)+'deg');
+     card.classList.add('fx-hovering');
+   },{passive:true});
+   card.addEventListener('pointerleave',()=>{card.style.setProperty('--fx-rx','0deg');card.style.setProperty('--fx-ry','0deg');card.style.setProperty('--fx-dx','0px');card.style.setProperty('--fx-dy','0px');card.classList.remove('fx-hovering')});
+   card.addEventListener('pointerdown',()=>{card.classList.add('fx-pressed');setTimeout(()=>card.classList.remove('fx-pressed'),180)});
  });
 }
 document.querySelectorAll('a.btn,.nav-cta').forEach(el=>el.addEventListener('click',e=>{
