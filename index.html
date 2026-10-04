@@ -144,6 +144,15 @@ a:hover,button:hover{filter:brightness(1.12)}
 .network-footer{display:flex;gap:18px;flex-wrap:wrap;color:#8596b0;font:11px 'JetBrains Mono',monospace}
 @media(max-width:600px){.network-showcase{padding:0 16px;margin:20px auto 45px}.network-shell{padding:18px}.network-heading{font-size:10px}.network-map text{font-size:13px}}
 
+
+/* Interactive world / packet navigation */
+.interactive-world{padding:70px 0 110px}.world-shell{position:relative;border:1px solid rgba(104,167,255,.2);border-radius:30px;overflow:hidden;background:radial-gradient(circle at 50% 45%,rgba(104,167,255,.12),transparent 55%),rgba(9,13,20,.88);box-shadow:0 30px 100px rgba(0,0,0,.28)}
+.world-top{position:relative;z-index:2;padding:24px 26px;display:flex;justify-content:space-between;gap:20px;align-items:center;border-bottom:1px solid rgba(255,255,255,.07);font:600 11px 'JetBrains Mono',monospace;color:#8e9bb0;letter-spacing:.1em}.world-top strong{color:#57d68b}.world-top strong::before{content:"";display:inline-block;width:7px;height:7px;margin-right:8px;border-radius:50%;background:#57d68b;box-shadow:0 0 15px #57d68b;animation:motionPulse 1.6s infinite}
+.world-map{width:100%;height:440px;display:block;cursor:crosshair}.world-map .land{fill:#101b2c;stroke:#29466e;stroke-width:1}.world-map .route{fill:none;stroke:#68a7ff;stroke-width:1;stroke-dasharray:4 9;opacity:.5;animation:motionDash 2.4s linear infinite}.world-map .node{fill:#68a7ff;stroke:#dceaff;stroke-width:1.5;filter:drop-shadow(0 0 8px #68a7ff);cursor:pointer}.world-map .node:hover{fill:#fff;stroke:#68a7ff;stroke-width:3}.world-map .packet{fill:#d9ebff;filter:drop-shadow(0 0 8px #68a7ff)}.world-map .pulse{fill:none;stroke:#68a7ff;opacity:.4;animation:mapPulse 2s ease-out infinite}.world-map text{fill:#8799b3;font:10px 'JetBrains Mono',monospace;pointer-events:none}
+@keyframes mapPulse{0%{r:4;opacity:.8}100%{r:25;opacity:0}}
+.world-help{position:absolute;left:26px;bottom:24px;z-index:2;color:#75849a;font:10px 'JetBrains Mono',monospace}.world-help b{color:#bcd7ff}.packet-nav{margin-top:14px;display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.packet-console{border:1px solid var(--line);border-radius:20px;padding:20px;background:rgba(255,255,255,.025);font:11px/1.9 'JetBrains Mono',monospace;color:#8492a7}.packet-console .live{color:#57d68b}.packet-console .packet-line{display:flex;justify-content:space-between;gap:10px}.packet-console button{border:0;background:none;color:#bcd7ff;font:inherit;cursor:pointer}.random-jump{border:1px solid rgba(164,124,255,.24);border-radius:20px;padding:24px;background:radial-gradient(circle at 80% 20%,rgba(164,124,255,.15),transparent 55%),rgba(255,255,255,.025);display:flex;flex-direction:column;justify-content:center}.random-jump h3{margin:0 0 8px;font-size:19px}.random-jump p{margin:0;color:var(--muted);font-size:13px}.packet-btn{margin-top:18px;align-self:flex-start;padding:11px 14px;border-radius:11px;border:1px solid rgba(164,124,255,.35);background:rgba(164,124,255,.1);color:#e6dcff;font-weight:700;cursor:pointer}.packet-btn:hover{box-shadow:0 0 30px rgba(164,124,255,.16);transform:translateY(-2px)}
+.activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.activity-card{border:1px solid var(--line);border-radius:22px;padding:22px;background:var(--panel);position:relative;overflow:hidden}.timeline{display:grid;gap:16px}.timeline-row{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:start}.timeline-row time{font:600 10px 'JetBrains Mono';color:#6f7d91;padding-top:3px}.timeline-row div{border-left:1px solid rgba(104,167,255,.25);padding-left:16px}.timeline-row b{font-size:13px}.timeline-row span{display:block;color:var(--muted);font-size:12px;margin-top:3px}.bars{display:grid;gap:14px}.bar-label{display:flex;justify-content:space-between;font:600 10px 'JetBrains Mono';color:#aab7ca}.bar{height:7px;margin-top:7px;background:#151b26;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;width:var(--w);border-radius:inherit;background:linear-gradient(90deg,#68a7ff,#a47cff);box-shadow:0 0 16px rgba(104,167,255,.4);animation:barIn 1.3s var(--ease) both}.bar:nth-child(2) i{animation-delay:.12s}@keyframes barIn{from{width:0}to{width:var(--w)}}
+@media(max-width:760px){.world-map{height:300px}.world-top{align-items:flex-start;flex-direction:column}.packet-nav,.activity-grid{grid-template-columns:1fr}.world-help{left:18px;bottom:15px}.interactive-world{padding-bottom:75px}}
 </style>
 <link rel="stylesheet" href="/effects.css"></head>
 <body>
@@ -152,7 +161,7 @@ a:hover,button:hover{filter:brightness(1.12)}
     <a class="logo" href="#home" style="text-decoration:none">artem4ik493<span>.</span>ru</a>
     <button class="menu-btn" aria-label="Открыть меню" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
     <div class="nav-links">
-      <a href="#about">about</a><a href="#stack">stack</a><a href="#projects">projects</a><a href="/tools.html">tools</a>
+      <a href="#about">about</a><a href="#stack">stack</a><a href="#projects">projects</a><a href="#network">network</a><a href="#activity">activity</a><a href="/tools.html">tools</a>
       <a class="nav-cta" href="#contact">contact →</a>
     </div>
   </div>
@@ -234,6 +243,60 @@ a:hover,button:hover{filter:brightness(1.12)}
   </div>
 </section>
 
+
+<section class="interactive-world" id="network">
+<div class="container">
+<div class="section-head reveal"><div><div class="kicker">04 / global network</div><h2>Инфраструктура<br>как живая система.</h2></div><p>Карта — декоративная симуляция. Узлы, маршруты и пакеты реагируют на действия и превращают навигацию по сайту в часть интерфейса.</p></div>
+<div class="world-shell reveal">
+<div class="world-top"><span>GLOBAL PACKET ROUTING / VISUALIZER</span><strong>ONLINE · SIMULATION</strong></div>
+<svg class="world-map" id="worldMap" viewBox="0 0 1200 440" aria-label="Интерактивная карта сетевых узлов">
+<defs><radialGradient id="mapGlow"><stop stop-color="#68a7ff" stop-opacity=".18"/><stop offset="1" stop-color="#68a7ff" stop-opacity="0"/></radialGradient>
+<path id="routeA" d="M245 170 Q430 70 585 205 T900 150"/><path id="routeB" d="M300 320 Q520 180 760 285 T1040 235"/><path id="routeC" d="M585 205 Q610 310 760 285"/></defs>
+<rect width="1200" height="440" fill="url(#mapGlow)"/>
+<path class="land" d="M100 125l75-43 85 15 54 54-18 55-71 13-35 63-59-30 12-64-47-31zM365 112l61-29 72 20 24 49-42 42-61-5-34-31zM560 103l76-18 76 34 26 64-54 34-48 77-57-41 16-67-45-38zM760 105l83-26 101 37 49 55-41 48-78-6-38 54-61-43 29-59-58-25zM970 265l71-18 67 38-16 52-71 28-56-39zM420 300l72-24 54 35-20 43-82 17-53-35z"/>
+<use href="#routeA" class="route"/><use href="#routeB" class="route"/><use href="#routeC" class="route"/>
+<g class="map-node" data-target="#projects"><circle class="pulse" cx="245" cy="170" r="4"/><circle class="node" cx="245" cy="170" r="5"/><text x="255" y="164">EU / VPN</text></g>
+<g class="map-node" data-target="#stack"><circle class="pulse" cx="585" cy="205" r="4"/><circle class="node" cx="585" cy="205" r="6"/><text x="598" y="199">CORE</text></g>
+<g class="map-node" data-target="#about"><circle class="pulse" cx="900" cy="150" r="4"/><circle class="node" cx="900" cy="150" r="5"/><text x="912" y="144">LINUX</text></g>
+<g class="map-node" data-target="#contact"><circle class="pulse" cx="760" cy="285" r="4"/><circle class="node" cx="760" cy="285" r="5"/><text x="773" y="279">AUTOMATION</text></g>
+<g class="map-node" data-target="#home"><circle class="pulse" cx="1040" cy="235" r="4"/><circle class="node" cx="1040" cy="235" r="5"/><text x="1052" y="229">EDGE</text></g>
+<circle class="packet" r="4"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#routeA"/></animateMotion></circle>
+<circle class="packet" r="3"><animateMotion dur="5.2s" repeatCount="indefinite"><mpath href="#routeB"/></animateMotion></circle>
+<circle class="packet" r="3"><animateMotion dur="3.8s" repeatCount="indefinite"><mpath href="#routeC"/></animateMotion></circle>
+</svg>
+<div class="world-help"><b>CLICK NODE</b> · перейти к связанному разделу &nbsp; / &nbsp; <b>CLICK PACKET</b> · случайный маршрут</div>
+</div>
+<div class="packet-nav">
+<div class="packet-console">
+<div><span class="live">● LIVE SIMULATION</span> &nbsp; packet router</div>
+<div class="packet-line"><span>packet_id</span><button id="packetId">PKT-4A7F</button></div>
+<div class="packet-line"><span>route</span><button id="packetRoute">CORE → EDGE</button></div>
+<div class="packet-line"><span>latency</span><span id="packetLatency">24 ms</span></div>
+<div class="packet-line"><span>destination</span><span id="packetDestination">/projects</span></div>
+</div>
+<div class="random-jump"><h3>Packet Jump</h3><p>Нажми на пакет — он отправит тебя в случайную часть сайта.</p><button class="packet-btn" id="randomPacket">SEND PACKET ↗</button></div>
+</div>
+</div>
+</section>
+
+<section id="activity">
+<div class="container">
+<div class="section-head reveal"><div><div class="kicker">05 / activity</div><h2>Что происходит<br>внутри системы.</h2></div><p>Небольшой визуальный статус рабочего процесса — без притворства под реальные метрики.</p></div>
+<div class="activity-grid">
+<div class="activity-card reveal"><h3>Activity timeline</h3><div class="timeline">
+<div class="timeline-row"><time>NOW</time><div><b>Infrastructure design</b><span>Проектирование и улучшение систем</span></div></div>
+<div class="timeline-row"><time>RECENT</time><div><b>Modexa development</b><span>Telegram / Discord automation</span></div></div>
+<div class="timeline-row"><time>ONGOING</time><div><b>Network experiments</b><span>VPN · routing · secure tunnels</span></div></div>
+<div class="timeline-row"><time>ALWAYS</time><div><b>Learning</b><span>Новые инструменты и архитектуры</span></div></div>
+</div></div>
+<div class="activity-card reveal"><h3>System focus</h3><div class="bars">
+<div><div class="bar-label"><span>INFRASTRUCTURE</span><span>92%</span></div><div class="bar"><i style="--w:92%"></i></div></div>
+<div><div class="bar-label"><span>NETWORK</span><span>86%</span></div><div class="bar"><i style="--w:86%"></i></div></div>
+<div><div class="bar-label"><span>AUTOMATION</span><span>78%</span></div><div class="bar"><i style="--w:78%"></i></div></div>
+<div><div class="bar-label"><span>WEB</span><span>69%</span></div><div class="bar"><i style="--w:69%"></i></div></div>
+</div></div>
+</div></div>
+</section>
 <section id="contact" class="contact">
   <div class="container">
     <div class="contact-card reveal">
@@ -281,5 +344,13 @@ const glow=document.createElement('div');glow.className='motion-glow';document.b
 let queued=false,x=-999,y=-999;addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;if(!queued){queued=true;requestAnimationFrame(()=>{glow.style.setProperty('--mx',x+'px');glow.style.setProperty('--my',y+'px');queued=false})}},{passive:true});
 document.querySelectorAll('.card,.project-card,.stack-card,.panel,.tool-card,.contact-card').forEach(el=>{el.classList.add('motion-tilt');if(getComputedStyle(el).position==='static')el.style.position='relative';el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;el.style.setProperty('--rx',((.5-py)*5)+'deg');el.style.setProperty('--ry',((px-.5)*5)+'deg');el.style.setProperty('--px',px*100+'%');el.style.setProperty('--py',py*100+'%')});el.addEventListener('pointerleave',()=>{el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')})});
 })();
-</script><script src="/effects.js" defer></script></body>
+</script><script src="/effects.js" defer></script>
+<script>
+(()=>{const sections=['#home','#about','#stack','#projects','#network','#activity','#contact'];const names=['HOME','ABOUT','STACK','PROJECTS','NETWORK','ACTIVITY','CONTACT'];const id=document.getElementById('packetId'),route=document.getElementById('packetRoute'),lat=document.getElementById('packetLatency'),dest=document.getElementById('packetDestination');
+function jump(){const i=Math.floor(Math.random()*sections.length);document.querySelector(sections[i])?.scrollIntoView({behavior:'smooth',block:'start'});if(id)id.textContent='PKT-'+Math.random().toString(16).slice(2,6).toUpperCase();if(route)route.textContent='CORE → '+names[i];if(lat)lat.textContent=(12+Math.floor(Math.random()*67))+' ms';if(dest)dest.textContent=sections[i]}
+document.getElementById('randomPacket')?.addEventListener('click',jump);
+document.querySelectorAll('.map-node').forEach(n=>n.addEventListener('click',()=>{const t=n.dataset.target;document.querySelector(t)?.scrollIntoView({behavior:'smooth',block:'start'});if(id){id.textContent='PKT-'+Math.random().toString(16).slice(2,6).toUpperCase();route.textContent='MAP NODE → '+t.replace('#','').toUpperCase();lat.textContent=(18+Math.floor(Math.random()*52))+' ms';dest.textContent=t}}));
+document.getElementById('worldMap')?.addEventListener('click',e=>{if(!e.target.closest('.map-node'))jump()});
+})();
+</script></body>
 </html>
