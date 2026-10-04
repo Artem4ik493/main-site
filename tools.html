@@ -26,6 +26,24 @@ input,textarea{width:100%;border:1px solid var(--line);border-radius:11px;backgr
 .output{margin-top:10px;min-height:45px;border:1px dashed var(--line);border-radius:11px;padding:11px;color:var(--success);background:rgba(0,0,0,.16);font:11px 'JetBrains Mono';word-break:break-all;display:flex;align-items:center}
 footer{border-top:1px solid var(--line);padding:25px 0 40px;color:#657082;font:600 10px 'JetBrains Mono'}
 @media(max-width:850px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.container{width:min(100% - 26px,1160px)}nav{top:8px}.nav-links a:nth-child(3){display:none}.hero{padding-top:125px}.grid{grid-template-columns:1fr}}
+
+/* Motion system */
+@property --spin{syntax:"<angle>";initial-value:0deg;inherits:false}
+html{scroll-behavior:smooth}body{isolation:isolate}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.13' filter='url(%23n)'/%3E%3C/svg%3E")}
+.motion-progress{position:fixed;top:0;left:0;height:2px;width:var(--scroll,0%);background:linear-gradient(90deg,#68a7ff,#a47cff);z-index:10000;box-shadow:0 0 16px #68a7ff}
+.motion-glow{position:fixed;width:450px;height:450px;left:0;top:0;transform:translate3d(calc(var(--mx,-999px) - 50%),calc(var(--my,-999px) - 50%),0);border-radius:50%;background:radial-gradient(circle,rgba(104,167,255,.075),transparent 65%);pointer-events:none;z-index:2}
+a,button{transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease}
+a:hover,button:hover{filter:brightness(1.12)}
+.motion-tilt{transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--lift,0px));transition:transform .28s ease,box-shadow .28s ease;will-change:transform}
+.motion-tilt:hover{--lift:-5px;box-shadow:0 22px 70px rgba(44,82,165,.17)}
+.motion-tilt::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(450px circle at var(--px,50%) var(--py,50%),rgba(104,167,255,.12),transparent 50%);opacity:0;transition:opacity .25s}
+.motion-tilt:hover::after{opacity:1}
+@keyframes motionFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes motionPulse{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes motionDash{to{stroke-dashoffset:-48}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.motion-glow{display:none}}
+
 </style>
 </head>
 <body>
@@ -51,4 +69,13 @@ function formatJson(){const e=document.getElementById('json-input');try{e.value=
 function stats(){const v=document.getElementById('text-input').value;document.getElementById('text-out').textContent='Chars: '+v.length+' · Words: '+(v.trim()?v.trim().split(/\s+/).length:0)}
 function pxrem(){const v=Number(document.getElementById('px').value);document.getElementById('rem').textContent=v?((v/16).toFixed(3)+'rem'):'—'}
 </script>
-</body></html>
+<script>
+(()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const progress=document.createElement('div');progress.className='motion-progress';document.body.append(progress);
+const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.setProperty('--scroll',(max>0?scrollY/max*100:0)+'%')};addEventListener('scroll',update,{passive:true});update();
+if(reduced||matchMedia('(pointer:coarse)').matches)return;
+const glow=document.createElement('div');glow.className='motion-glow';document.body.append(glow);
+let queued=false,x=-999,y=-999;addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;if(!queued){queued=true;requestAnimationFrame(()=>{glow.style.setProperty('--mx',x+'px');glow.style.setProperty('--my',y+'px');queued=false})}},{passive:true});
+document.querySelectorAll('.card,.project-card,.stack-card,.panel,.tool-card,.contact-card').forEach(el=>{el.classList.add('motion-tilt');if(getComputedStyle(el).position==='static')el.style.position='relative';el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;el.style.setProperty('--rx',((.5-py)*5)+'deg');el.style.setProperty('--ry',((px-.5)*5)+'deg');el.style.setProperty('--px',px*100+'%');el.style.setProperty('--py',py*100+'%')});el.addEventListener('pointerleave',()=>{el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')})});
+})();
+</script></body></html>
