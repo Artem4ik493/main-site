@@ -19,3 +19,25 @@ body::after{animation:fxGridDrift 28s linear infinite;background-position:0 0}
 .network-shell,.world-shell{animation:fxShellBreath 7s ease-in-out infinite}
 @keyframes fxShellBreath{50%{box-shadow:0 30px 100px rgba(0,0,0,.28),0 0 55px rgba(104,167,255,.045)}}
 @media(prefers-reduced-motion:reduce){body::before,body::after,.network-shell,.world-shell{animation:none!important}}
+
+
+/* Unified premium surfaces */
+.world-shell,.network-side,.activity-card,.control-card,.tool-card,.service,.panel,.card,.project,.profile-card,.contact-card{
+  isolation:isolate;
+}
+.world-shell::after,.network-side::after,.activity-card::after,.control-card::after,.tool-card::after,.service::after,.panel::after,.card::after,.project::after,.profile-card::after,.contact-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.045) 48%,transparent 70%);
+  transform:translateX(-120%);transition:transform .8s cubic-bezier(.22,1,.36,1);
+}
+.world-shell:hover::after,.network-side:hover::after,.activity-card:hover::after,.control-card:hover::after,.tool-card:hover::after,.service:hover::after,.panel:hover::after,.card:hover::after,.project:hover::after,.profile-card:hover::after,.contact-card:hover::after{
+  transform:translateX(120%);
+}
+.server-row,.control-card,.tool-card,.service,.activity-card{will-change:transform}
+.server-row:active,.control-card:active,.tool-card:active,.service:active{transform:scale(.985)}
+@keyframes fxStatusBlink{0%,100%{opacity:.5}50%{opacity:1}}
+.live-dot,.online{animation:fxStatusBlink 2s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){
+  .world-shell::after,.network-side::after,.activity-card::after,.control-card::after,.tool-card::after,.service::after,.panel::after,.card::after,.project::after,.profile-card::after,.contact-card::after{display:none}
+  .live-dot,.online{animation:none}
+}
