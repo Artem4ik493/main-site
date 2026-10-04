@@ -41,3 +41,21 @@ body::after{animation:fxGridDrift 28s linear infinite;background-position:0 0}
   .world-shell::after,.network-side::after,.activity-card::after,.control-card::after,.tool-card::after,.service::after,.panel::after,.card::after,.project::after,.profile-card::after,.contact-card::after{display:none}
   .live-dot,.online{animation:none}
 }
+
+/* Cursor trail + responsive card interiors */
+.fx-trail{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.fx-cursor{z-index:1}
+.fx-interactive-card{--fx-rx:0deg;--fx-ry:0deg;--fx-dx:0px;--fx-dy:0px;overflow:hidden}
+.fx-interactive-card{transform:perspective(1000px) rotateX(var(--fx-rx)) rotateY(var(--fx-ry)) translateY(var(--fx-lift,0px))}
+.fx-interactive-card:hover{--fx-lift:-5px}
+.fx-interactive-card> :not(.fx-ripple){transition:transform .35s cubic-bezier(.22,1,.36,1),filter .35s ease}
+.fx-interactive-card> :not(.fx-ripple){transform:translate3d(calc(var(--fx-dx) * .45),calc(var(--fx-dy) * .45),0)}
+.fx-interactive-card .icon{transform:translate3d(var(--fx-dx),var(--fx-dy),18px) rotate(calc(var(--fx-ry) * -1.5)) scale(1.04)}
+.fx-interactive-card .tags{transform:translate3d(calc(var(--fx-dx) * -.55),calc(var(--fx-dy) * -.55),0)}
+.fx-interactive-card .tag{transition:transform .25s ease,background .25s ease,border-color .25s ease}
+.fx-interactive-card .tag:nth-child(1){transition-delay:0ms}.fx-interactive-card .tag:nth-child(2){transition-delay:35ms}.fx-interactive-card .tag:nth-child(3){transition-delay:70ms}
+.fx-interactive-card:hover .tag{background:rgba(104,167,255,.055);border-color:rgba(104,167,255,.22)}
+.fx-interactive-card:hover .tag:nth-child(1){transform:translateY(-2px)}.fx-interactive-card:hover .tag:nth-child(2){transform:translateY(-4px)}.fx-interactive-card:hover .tag:nth-child(3){transform:translateY(-2px)}
+.fx-interactive-card.fx-pressed{transform:perspective(1000px) rotateX(var(--fx-rx)) rotateY(var(--fx-ry)) translateY(-1px) scale(.992)}
+.fx-interactive-card::before{background:radial-gradient(500px circle at var(--fx-x,50%) var(--fx-y,50%),rgba(104,167,255,.19),transparent 58%),linear-gradient(120deg,transparent 35%,rgba(255,255,255,.025),transparent 65%)}
+@media(prefers-reduced-motion:reduce){.fx-trail{display:none!important}.fx-interactive-card,.fx-interactive-card>*,.fx-interactive-card .icon,.fx-interactive-card .tags{transform:none!important;transition:none!important}}
