@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="icon" type="image/png" href="icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #02050a;
+            --card-bg: rgba(6, 11, 20, 0.65);
+            --accent: #00f0ff;
+            --accent-blue: #1f6feb;
+            --accent-glow: rgba(0, 240, 255, 0.04);
+            --border-color: rgba(0, 240, 255, 0.15);
+            --border-hover: rgba(0, 240, 255, 0.3);
+            --text-main: #f3f4f6;
+            --text-dim: #9ca3af;
+            --danger: #ff5f56;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            min-height: 100vh;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Анимированная перспектива сетки на фоне */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+            background-color: var(--bg);
+        }
+
+        .bg-grid::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image:
+                linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: perspective(600px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+            animation: grid-scroll 10s linear infinite;
+        }
+
+        /* Затемнение сетки к краям и верху */
+        .bg-vignette {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: radial-gradient(circle at center, transparent 30%, var(--bg) 100%),
+                        linear-gradient(to bottom, var(--bg) 0%, transparent 40%, var(--bg) 100%);
+            pointer-events: none;
+        }
+
+        @keyframes grid-scroll {
+            0% { transform: perspective(600px) rotateX(60deg) translateY(0) translateZ(-200px); }
+            100% { transform: perspective(600px) rotateX(60deg) translateY(40px) translateZ(-200px); }
+        }
+
+        /* Свечение за курсором */
+        .cursor-glow {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(
+                    circle 350px at var(--gx,50%) var(--gy,50%),
+                    var(--accent-glow),
+                    transparent 70%
+                );
+        }
+
+        .wrap {
+            width: min(1200px, 100%);
+            margin: 0 auto;
+            padding-left: 5vw;
+            padding-right: 5vw;
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 20;
+            background: rgba(2,5,10,.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 28px;
+        }
+
+        .menu a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'JetBrains Mono', monospace;
+            transition: .25s;
+        }
+
+        .menu a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+        }
+
+        .hero-grid {
+            width: 100%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-family: 'JetBrains Mono', monospace;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(90px, 15vw, 180px);
+            line-height: 1;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 40px rgba(0,240,255,.2);
+        }
+
+        .subtitle {
+            font-size: 38px;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+
+        .lead {
+            margin-top: 24px;
+            color: var(--text-dim);
+            line-height: 1.8;
+            max-width: 620px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn {
+            height: 52px;
+            padding: 0 28px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .btn-main {
+            background: var(--accent-blue);
+            color: #fff;
+            border: 1px solid var(--accent-blue);
+            box-shadow: 0 0 15px rgba(31,111,235,.4);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            background: rgba(0,240,255,.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-main:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #000;
+            box-shadow: 0 0 25px var(--accent);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(0,240,255,.1);
+        }
+
+        .panel {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,.6);
+        }
+
+        .panel-header {
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-title {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .status {
+            color: var(--danger);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .panel-body {
+            padding: 25px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,.05);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+        }
+
+        .row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            color: var(--text-dim);
+        }
+
+        .value {
+            color: white;
+        }
+
+        .value.danger {
+            color: var(--danger);
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 95, 86, 0.4);
+        }
+
+        .terminal {
+            margin-top: 24px;
+            background: rgba(4,7,13,.9);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,.5);
+        }
+
+        .terminal-head {
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        .terminal-body {
+            padding: 18px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        .ok {
+            color: var(--accent);
+        }
+
+        .err {
+            color: var(--danger);
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu {
+                display: none;
+            }
+
+            h1 {
+                font-size: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-vignette"></div>
+
+<div class="cursor-glow"></div>
+
+<header>
+    <div class="wrap nav">
+        <div class="logo">artem4ik493.ru</div>
+
+        <nav class="menu">
+        </nav>
+    </div>
+</header>
+
+<main class="hero wrap">
+
+    <div class="hero-grid">
+
+        <div>
+            <span class="eyebrow">СИСТЕМА МАРШРУТИЗАЦИИ</span>
+
+            <h1>404</h1>
+
+            <div class="subtitle">
+                Узел не найден
+            </div>
+
+            <p class="lead">
+                Запрошенный адрес отсутствует в таблице маршрутизации хоста. 
+                Ресурс мог быть перемещён, удалён или никогда не существовал 
+                в данном сегменте сети.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="/" class="btn btn-main">
+                    Вернуться на главную
+                </a>
+
+            </div>
+        </div>
+
+        <div>
+
+            <div class="panel">
+
+                <div class="panel-header">
+                    <span class="panel-title">УЗЕЛ ERR-404</span>
+                    <span class="status">NOT FOUND</span>
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="row">
+                        <span class="label">ОШИБКА</span>
+                        <span class="value">ERR-404</span>
+                    </div>
+
+                    <div class="row">
+                        <span class="label">СТАТУС ТАРГЕТА</span>
+                        <span class="value">ОТКЛЮЧЕН</span>
+                    </div>
+
+                    <div class="row">
+                        <span class="label">МАРШРУТ</span>
+                        <span class="value">НЕОПРЕДЕЛЕН</span>
+                    </div>
+
+                    <div class="row">
+                        <span class="label">РЕЗУЛЬТАТ</span>
+                        <span class="value danger">СБОЙ ПОИСКА</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="terminal">
+
+                <div class="terminal-head">
+                    root@artem4ik493:~#
+                </div>
+
+                <div class="terminal-body">
+                    <div class="ok">[ОК]</div>
+                    Разрешение доменного имени...<br>
+
+                    <div class="ok">[ОК]</div>
+                    Сканирование активных портов...<br>
+
+                    <div class="err">[СБОЙ]</div>
+                    Запрошенный хэндлер не отвечает<br>
+
+                    <div class="err">[ОТКАЗ]</div>
+                    Хост недоступен (Host Unreachable)
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script>
+document.addEventListener('mousemove', (e) => {
+    document.body.style.setProperty('--gx', `${e.clientX}px`);
+    document.body.style.setProperty('--gy', `${e.clientY}px`);
+});
+</script>
+
+</body>
+</html>

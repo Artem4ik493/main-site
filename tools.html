@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Toolbox | artem4ik493</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #05070a;
+            --card: rgba(13, 17, 23, 0.9);
+            --accent: #58a6ff;
+            --accent-glow: rgba(88, 166, 255, 0.15);
+            --border: #30363d;
+            --text: #c9d1d9;
+            --text-dim: #8b949e;
+            --success: #3fb950;
+        }
+
+        * { box-sizing: border-box; transition: border-color 0.2s, transform 0.2s; }
+        
+        body {
+            margin: 0; 
+            background: var(--bg); 
+            color: var(--text);
+            font-family: 'Inter', sans-serif; 
+            padding: 100px 20px 50px;
+            line-height: 1.5;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #matrix { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: -1; 
+            opacity: 0.12; /* Чуть увеличил яркость для стиля tools */
+        }
+
+        /* Навигация */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(5, 7, 10, 0.9); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); z-index: 1000;
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; display: flex;
+            justify-content: space-between; padding: 1rem 2rem; align-items: center;
+        }
+        .logo { font-family: 'JetBrains Mono'; font-weight: 700; color: var(--accent); font-size: 1.1rem; text-decoration: none; }
+        .nav-links a {
+            color: var(--text-dim); text-decoration: none; margin-left: 20px;
+            font-family: 'JetBrains Mono'; font-size: 0.85rem;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        .container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        
+        .header-area { 
+            margin-bottom: 40px; 
+            border-left: 4px solid var(--accent); 
+            padding: 10px 20px;
+            background: rgba(88, 166, 255, 0.05);
+            border-radius: 0 8px 8px 0;
+            backdrop-filter: blur(5px);
+        }
+        .header-area h1 { font-family: 'JetBrains Mono'; font-size: 2rem; color: #fff; margin: 0; }
+        .header-area p { color: var(--text-dim); margin: 5px 0 0; font-size: 0.9rem; }
+
+        /* Сетка инструментов */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        /* Карточки */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            backdrop-filter: blur(8px); /* Усилил блюр, чтобы текст на фоне матрицы читался лучше */
+        }
+        .card:hover { 
+            border-color: var(--accent); 
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card-header {
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid var(--border);
+        }
+        .card-header h3 {
+            margin: 0; font-family: 'JetBrains Mono'; color: #fff; font-size: 0.9rem;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .card-header .desc {
+            font-size: 0.75rem; color: var(--text-dim);
+            margin-top: 4px; font-weight: 400;
+        }
+
+        .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; gap: 15px; }
+
+        /* Формы */
+        .label-style { font-size: 0.7rem; color: var(--accent); font-family: 'JetBrains Mono'; font-weight: 700; text-transform: uppercase; }
+
+        textarea, input[type="text"], input[type="number"] {
+            width: 100%; background: rgba(1, 4, 9, 0.8); border: 1px solid var(--border);
+            color: #fff; padding: 12px; border-radius: 8px;
+            font-family: 'JetBrains Mono'; font-size: 0.85rem; outline: none;
+        }
+        textarea:focus, input:focus { border-color: var(--accent); background: #0d1117; }
+        textarea { resize: none; height: 90px; }
+
+        .btn {
+            background: var(--accent); color: #05070a; border: none;
+            padding: 12px; border-radius: 8px; cursor: pointer;
+            font-family: 'JetBrains Mono'; font-weight: 700; font-size: 0.8rem;
+            width: 100%;
+        }
+        .btn:hover { filter: brightness(1.1); box-shadow: 0 0 15px var(--accent-glow); }
+        .btn-secondary { background: #21262d; color: #c9d1d9; border: 1px solid var(--border); }
+
+        .flex-row { display: flex; gap: 10px; }
+
+        .output-zone {
+            background: rgba(0, 0, 0, 0.4); padding: 12px; border-radius: 8px;
+            border: 1px dashed var(--border);
+            font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--success);
+            min-height: 42px; display: flex; align-items: center;
+        }
+
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="logo">artem4ik493.ru</a>
+        <div class="nav-links">
+            <a href="index.html">/home</a>
+            <a href="tools.html" style="color: var(--accent);">/tools</a>
+            <a href="https://uptime.artem4ik493.ru/status/artem4ik493">/status</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="header-area">
+        <h1>[SYSTEM_CORE_TOOLS]</h1>
+        <p>Автономные модули для обработки данных и анализа систем.</p>
+    </div>
+
+    <div class="grid">
+        <!-- PASS GENERATOR -->
+        <div class="card">
+            <div class="card-header">
+                <h3>PASS_GEN <span>🔑</span></h3>
+                <div class="desc">Криптостойкие пароли.</div>
+            </div>
+            <div class="card-body">
+                <div class="flex-row">
+                    <input type="number" id="pass-len" value="16" min="4" max="64" style="flex:1">
+                    <label style="cursor:pointer; font-size: 0.75rem; display: flex; align-items: center;">
+                        <input type="checkbox" id="pass-sym" checked> Sym
+                    </label>
+                </div>
+                <button class="btn" onclick="genPass()">GENERATE & COPY</button>
+                <div class="output-zone" id="pass-out" style="justify-content: center; font-weight: bold;">Нажми кнопку</div>
+            </div>
+        </div>
+
+        <!-- SHA-256 -->
+        <div class="card">
+            <div class="card-header">
+                <h3>SHA256_HASH <span>🛡️</span></h3>
+                <div class="desc">Генерация хеша строки.</div>
+            </div>
+            <div class="card-body">
+                <input type="text" id="hash-input" placeholder="Input text..." oninput="genHash()">
+                <div class="output-zone" id="hash-res" style="font-size: 0.65rem; word-break: break-all;">Waiting...</div>
+            </div>
+        </div>
+
+        <!-- BASE64 -->
+        <div class="card">
+            <div class="card-header">
+                <h3>BASE64_CODEC <span>📦</span></h3>
+                <div class="desc">Кодирование и декодирование.</div>
+            </div>
+            <div class="card-body">
+                <textarea id="b64-input" placeholder="Data..."></textarea>
+                <div class="flex-row">
+                    <button class="btn" onclick="handleB64(true)">ENCODE</button>
+                    <button class="btn btn-secondary" onclick="handleB64(false)">DECODE</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- JSON -->
+        <div class="card">
+            <div class="card-header">
+                <h3>JSON_PRETTIER <span>✨</span></h3>
+                <div class="desc">Форматирование структуры.</div>
+            </div>
+            <div class="card-body">
+                <textarea id="json-input" placeholder='{"status":"ok"}'></textarea>
+                <button class="btn" onclick="formatJSON()">PRETTIFY</button>
+            </div>
+        </div>
+
+        <!-- TEXT STATS -->
+        <div class="card">
+            <div class="card-header">
+                <h3>ANALYTICS <span>📊</span></h3>
+                <div class="desc">Статистика символов и слов.</div>
+            </div>
+            <div class="card-body">
+                <textarea id="text-input" placeholder="Paste text..." oninput="analyzeText()"></textarea>
+                <div class="output-zone" id="text-res">Chars: 0 | Words: 0</div>
+            </div>
+        </div>
+
+        <!-- UNIT CONVERTER -->
+        <div class="card">
+            <div class="card-header">
+                <h3>UNIT_CONV <span>📏</span></h3>
+                <div class="desc">PX в REM конвертер.</div>
+            </div>
+            <div class="card-body">
+                <div class="flex-row">
+                    <input type="number" id="px-in" placeholder="PX" oninput="convPx()">
+                    <input type="text" id="rem-out" placeholder="REM" readonly style="color: var(--accent);">
+                </div>
+                <p style="font-size: 0.65rem; color: var(--text-dim); margin: 0;">Base: 16px</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    /* --- СКРИПТ МАТРИЦЫ --- */
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
+    const fontSize = 14;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = new Array(columns).fill(1);
+
+    function drawMatrix() {
+        ctx.fillStyle = 'rgba(5, 7, 10, 0.1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = '#58a6ff'; // Цвет под акцент
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = chars[Math.floor(Math.random() * chars.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
+        }
+    }
+    setInterval(drawMatrix, 50);
+
+    /* --- ЛОГИКА ИНСТРУМЕНТОВ --- */
+    function genPass() {
+        const len = document.getElementById('pass-len').value;
+        const sym = document.getElementById('pass-sym').checked;
+        let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        if (sym) charset += "!@#$%^&*()_+";
+        let res = "";
+        for (let i = 0; i < len; i++) res += charset.charAt(Math.floor(Math.random() * charset.length));
+        const out = document.getElementById('pass-out');
+        out.textContent = res;
+        navigator.clipboard.writeText(res);
+    }
+
+    async function genHash() {
+        const msg = document.getElementById('hash-input').value;
+        const resBox = document.getElementById('hash-res');
+        if (!msg) { resBox.textContent = "Waiting..."; return; }
+        const msgUint8 = new TextEncoder().encode(msg);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        resBox.textContent = hashHex;
+    }
+
+    function handleB64(isEncode) {
+        const input = document.getElementById('b64-input');
+        try {
+            input.value = isEncode ? btoa(unescape(encodeURIComponent(input.value))) : decodeURIComponent(escape(atob(input.value)));
+        } catch(e) { alert("Invalid data"); }
+    }
+
+    function formatJSON() {
+        const input = document.getElementById('json-input');
+        try {
+            input.value = JSON.stringify(JSON.parse(input.value), null, 4);
+        } catch(e) { alert("Invalid JSON"); }
+    }
+
+    function analyzeText() {
+        const val = document.getElementById('text-input').value;
+        document.getElementById('text-res').textContent = `Chars: ${val.length} | Words: ${val.trim() ? val.trim().split(/\s+/).length : 0}`;
+    }
+
+    function convPx() {
+        const px = document.getElementById('px-in').value;
+        document.getElementById('rem-out').value = px ? (px / 16).toFixed(3) + 'rem' : '';
+    }
+</script>
+
+</body>
+</html>
