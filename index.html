@@ -290,7 +290,34 @@ a:hover,button:hover{filter:brightness(1.12)}
     <div class="geo-layout">
       <div class="world-shell geo-map-shell reveal">
         <div class="world-top"><span>GLOBAL NETWORK / PACKET ROUTING</span><strong>SIMULATION</strong></div>
-        <div id="networkMap" class="leaflet-map"></div>
+        <div id="networkMap" class="world-map-visual" aria-label="Стилизованная карта мира с серверами">
+  <svg viewBox="0 0 1200 600" role="img" aria-hidden="true">
+    <defs>
+      <filter id="nodeGlow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#162b42"/><stop offset="1" stop-color="#0d1a2b"/></linearGradient>
+      <linearGradient id="landEdge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#68a7ff"/><stop offset="1" stop-color="#a47cff"/></linearGradient>
+    </defs>
+    <rect width="1200" height="600" fill="#07101b"/>
+    <g class="map-grid">
+      <path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200"/>
+      <path d="M200 0V600M400 0V600M600 0V600M800 0V600M1000 0V600"/>
+    </g>
+    <g class="continents" fill="url(#land)" stroke="url(#landEdge)" stroke-width="1.2" stroke-opacity=".3">
+      <path d="M72 142 105 106 166 83 227 91 281 125 292 166 266 198 228 204 214 232 176 224 155 247 119 218 99 177 73 166Z"/>
+      <path d="M247 273 285 291 312 333 320 386 303 442 276 489 250 454 239 404 219 365 227 319Z"/>
+      <path d="M445 137 477 119 520 126 547 151 533 173 501 174 486 193 455 181 438 157Z"/>
+      <path d="M481 211 519 204 554 222 574 265 600 310 589 366 564 421 535 455 505 423 492 372 473 331 461 282Z"/>
+      <path d="M533 141 574 112 628 101 687 113 735 102 793 117 844 143 873 175 849 201 808 197 777 219 735 207 701 229 666 215 627 225 594 204 559 189Z"/>
+      <path d="M706 270 751 257 799 271 829 302 814 335 770 346 736 326 700 307Z"/>
+      <path d="M922 420 960 404 1004 416 1029 446 1005 470 965 468 930 451Z"/>
+      <path d="M109 73 132 53 160 58 173 82 151 101 124 94Z"/>
+    </g>
+    <g class="map-routes"></g>
+    <g class="map-packets"></g>
+    <g class="map-nodes"></g>
+  </svg>
+  <div class="map-hud"><span>WORLD MODEL</span><span>8 NODES</span><span>SIMULATED ROUTING</span></div>
+</div>
         <div class="map-overlay"><span>● PACKETS</span><span>◉ CORE</span><span>○ EDGE</span></div>
       </div>
       <aside class="network-side reveal">
@@ -380,7 +407,52 @@ let queued=false,x=-999,y=-999;addEventListener('pointermove',e=>{x=e.clientX;y=
 document.querySelectorAll('.card,.project-card,.stack-card,.panel,.tool-card,.contact-card').forEach(el=>{el.classList.add('motion-tilt');if(getComputedStyle(el).position==='static')el.style.position='relative';el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;el.style.setProperty('--rx',((.5-py)*5)+'deg');el.style.setProperty('--ry',((px-.5)*5)+'deg');el.style.setProperty('--px',px*100+'%');el.style.setProperty('--py',py*100+'%')});el.addEventListener('pointerleave',()=>{el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')})});
 })();
 </script><script src="/effects.js" defer></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(()=> {
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mapEl=document.getElementById('networkMap'); if(!mapEl) return;
+  const svg=mapEl.querySelector('svg'), routesEl=svg.querySelector('.map-routes'), packetsEl=svg.querySelector('.map-packets'), nodesEl=svg.querySelector('.map-nodes');
+  const nodes={
+    core:{name:'Moscow — Lipetsk',lat:52.61,lng:39.59,role:'CORE / ROUTING',core:true},
+    moscow:{name:'Moscow',lat:55.7558,lng:37.6173,role:'GATEWAY / EDGE'},
+    frankfurt:{name:'Frankfurt',lat:50.1109,lng:8.6821,role:'EU TRANSIT'},
+    stockholm:{name:'Stockholm',lat:59.3293,lng:18.0686,role:'NORDIC EDGE'},
+    amsterdam:{name:'Amsterdam',lat:52.3676,lng:4.9041,role:'PEERING EDGE'},
+    newyork:{name:'New York',lat:40.7128,lng:-74.006,role:'US GATEWAY'},
+    singapore:{name:'Singapore',lat:1.3521,lng:103.8198,role:'APAC EDGE'},
+    tokyo:{name:'Tokyo',lat:35.6762,lng:139.6503,role:'APAC TRANSIT'}
+  };
+  const NS='http://www.w3.org/2000/svg';
+  const p=n=>({x:(n.lng+180)/360*1200,y:(90-n.lat)/180*600});
+  const mk=(tag,attrs={})=>{const e=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));return e};
+  const routes=[['core','moscow'],['core','frankfurt'],['core','stockholm'],['core','amsterdam'],['core','newyork'],['core','singapore'],['core','tokyo'],['frankfurt','amsterdam'],['stockholm','tokyo']];
+  routes.forEach(([a,b],idx)=>{
+    const A=p(nodes[a]),B=p(nodes[b]),mx=(A.x+B.x)/2,my=(A.y+B.y)/2-55;
+    const path=mk('path',{d:`M ${A.x} ${A.y} Q ${mx} ${my} ${B.x} ${B.y}`,class:'route-line','data-route':a+'-'+b});
+    routesEl.append(path);
+    if(!reduced) for(let i=0;i<2;i++){const dot=mk('circle',{r:idx%3===0?3.2:2.5,class:'route-packet'});dot.dataset.a=a;dot.dataset.b=b;dot.dataset.delay=idx*480+i*900;packetsEl.append(dot);}
+  });
+  Object.entries(nodes).forEach(([key,n])=>{
+    const q=p(n),g=mk('g',{class:'map-node','data-node':key,tabindex:'0'});
+    const pulse=mk('circle',{cx:q.x,cy:q.y,r:n.core?18:11,class:n.core?'node-pulse core':'node-pulse'});
+    const dot=mk('circle',{cx:q.x,cy:q.y,r:n.core?6:4,class:n.core?'node-dot core':'node-dot'});
+    const label=mk('text',{x:q.x+10,y:q.y-10,class:'node-label'});label.textContent=n.name;
+    g.append(pulse,dot,label);nodesEl.append(g);
+    g.addEventListener('click',()=>focus(key));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();focus(key)}});
+  });
+  function setPacket(id,route,lat,dest){document.getElementById('packetId').textContent=id;document.getElementById('packetRoute').textContent=route;document.getElementById('packetLatency').textContent=lat;document.getElementById('packetDestination').textContent=dest}
+  function focus(key){document.querySelectorAll('.server-row').forEach(x=>x.classList.toggle('active',x.dataset.node===key));document.querySelectorAll('.map-node').forEach(x=>x.classList.toggle('active',x.dataset.node===key));const n=nodes[key];setPacket('PKT-'+Math.random().toString(16).slice(2,6).toUpperCase(),'CORE → '+n.name,Math.round(14+Math.random()*80)+' ms',n.role)}
+  function randomJump(){const sections=['#home','#about','#stack','#projects','#network','#activity','#services','#toolkit','#contact'];const target=sections[Math.floor(Math.random()*sections.length)];document.querySelector(target)?.scrollIntoView({behavior:reduced?'auto':'smooth'});setPacket('PKT-'+Math.random().toString(16).slice(2,6).toUpperCase(),'CORE → '+target.slice(1).toUpperCase(),Math.round(15+Math.random()*90)+' ms','SITE / '+target.slice(1).toUpperCase())}
+  document.querySelectorAll('.server-row').forEach(row=>row.addEventListener('click',()=>focus(row.dataset.node)));
+  document.getElementById('randomPacket')?.addEventListener('click',randomJump);
+  focus('core');
+  let t=0;
+  function animate(){requestAnimationFrame(animate);if(reduced)return;t+=16;packetsEl.querySelectorAll('.route-packet').forEach(dot=>{
+    const a=nodes[dot.dataset.a],b=nodes[dot.dataset.b],A=p(a),B=p(b),delay=Number(dot.dataset.delay)||0,u=((t-delay)%3000+3000)%3000/3000;
+    const bend=-55, mx=(A.x+B.x)/2,my=(A.y+B.y)/2+bend,one=1-u,x=one*one*A.x+2*one*u*mx+u*u*B.x,y=one*one*A.y+2*one*u*my+u*u*B.y;dot.setAttribute('cx',x);dot.setAttribute('cy',y);
+  })} animate();
+})();
+</script>
 <script>
 (()=> {
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
