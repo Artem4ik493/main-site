@@ -4,7 +4,7 @@ Place the following images in this folder. Recommended source files are PNG or W
 
 | File | Recommended size | Used for |
 |---|---:|---|
-| `avatar.png` | 512 × 512 px | Main profile avatar |
+| `site-logo.png` | 512 × 512 px | Site logo + browser favicon |\n| `avatar.png` | 512 × 512 px | Main profile avatar |
 | `armt-logo.png` | 512 × 512 px | ARMT VPN project logo |
 | `modexa-logo.png` | 512 × 512 px | Modexa project logo |
 | `minecraft-logo.png` | 512 × 512 px | Minecraft project logo |
