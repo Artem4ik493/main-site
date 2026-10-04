@@ -140,10 +140,10 @@ a:hover,button:hover{filter:brightness(1.12)}
 /* network map */
 .interactive-world{padding:90px 0 110px}
 .geo-layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;align-items:stretch}
-.world-shell{position:relative;min-height:610px;padding:0!important;border:1px solid rgba(104,167,255,.2);border-radius:30px;overflow:hidden;background:#07101b;box-shadow:0 30px 100px rgba(0,0,0,.28)}
+.world-shell{position:relative;min-height:700px;padding:0!important;border:1px solid rgba(104,167,255,.2);border-radius:30px;overflow:hidden;background:#07101b;box-shadow:0 30px 100px rgba(0,0,0,.28)}
 .world-top{position:absolute;top:0;left:0;right:0;z-index:10;height:64px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(7,12,20,.78);backdrop-filter:blur(14px);font:700 10px 'JetBrains Mono';letter-spacing:.1em;color:#8494aa}
 .world-top strong{color:#57d68b}.world-top strong:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#57d68b;box-shadow:0 0 14px #57d68b;margin-right:8px}
-.world-map-visual{position:relative;width:100%;height:610px;overflow:hidden;background:radial-gradient(ellipse at 52% 44%,#10233a 0%,#08121f 48%,#07101b 78%)}
+.world-map-visual{position:relative;width:100%;height:700px;overflow:hidden;background:radial-gradient(ellipse at 52% 44%,#10233a 0%,#08121f 48%,#07101b 78%)}
 .world-map-visual:before{content:"";position:absolute;inset:64px 0 0;background-image:linear-gradient(#68a7ff08 1px,transparent 1px),linear-gradient(90deg,#68a7ff08 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,transparent,#000 10%,#000 90%,transparent);pointer-events:none}
 .world-map-svg{position:absolute;inset:64px 0 0;width:100%;height:calc(100% - 64px);display:block}
 .map-sphere{fill:#07101b}
@@ -154,14 +154,14 @@ a:hover,button:hover{filter:brightness(1.12)}
 @keyframes routeDash{to{stroke-dashoffset:-42}}
 .map-packet{fill:#dceaff;filter:url(#mapGlow);pointer-events:auto;cursor:pointer}
 .map-node{cursor:pointer;outline:none}
-.map-node .pulse{fill:#68a7ff0b;stroke:#68a7ff65;stroke-width:1;vector-effect:non-scaling-stroke;animation:nodePulse 2.7s ease-in-out infinite}
+.map-node .pulse{fill:#68a7ff0b;stroke:#68a7ff65;stroke-width:1;vector-effect:non-scaling-stroke}
 .map-node .dot{fill:#68a7ff;stroke:#dceaff;stroke-width:1.5;filter:url(#mapGlow)}
 .map-node.core .pulse{fill:#57d68b10;stroke:#57d68b88}
 .map-node.core .dot{fill:#57d68b;stroke:#ecfff4}
 .map-node:hover .pulse,.map-node.active .pulse{fill:#68a7ff18;stroke:#68a7ff;stroke-width:1.5}
 .map-node:hover .dot,.map-node.active .dot{r:6}
 .map-node.core:hover .pulse,.map-node.core.active .pulse{fill:#57d68b18;stroke:#57d68b}
-@keyframes nodePulse{50%{opacity:.42;transform:scale(1.12);transform-box:fill-box;transform-origin:center}}
+
 .map-label{fill:#a9bdd7;font:700 8px 'JetBrains Mono';letter-spacing:.03em;paint-order:stroke;stroke:#07101b;stroke-width:5px;stroke-linejoin:round;pointer-events:none}
 .map-label.core{fill:#d9f7e6}
 .map-hud{position:absolute;left:18px;bottom:16px;z-index:5;display:flex;gap:7px;flex-wrap:wrap;padding:9px 11px;border:1px solid #ffffff10;border-radius:10px;background:#070b11dd;color:#8291a7;font:700 8px 'JetBrains Mono';backdrop-filter:blur(12px)}
@@ -305,14 +305,14 @@ a:hover,button:hover{filter:brightness(1.12)}
       <div class="world-shell geo-map-shell reveal">
         <div class="world-top"><span>GLOBAL NETWORK / PACKET ROUTING</span><strong>SIMULATION</strong></div>
         <div id="networkMap" class="world-map-visual" aria-label="Интерактивная карта мира с серверами">
-          <svg id="worldMapSvg" class="world-map-svg" viewBox="0 0 1400 546" role="img" aria-label="Карта мира с узлами серверов"></svg>
+          <svg id="worldMapSvg" class="world-map-svg" viewBox="0 0 1400 620" role="img" aria-label="Карта мира с узлами серверов"></svg>
           <div class="map-loading" id="mapLoading">LOADING WORLD MODEL</div>
-          <div class="map-hud"><span>WORLD MODEL</span><span>8 NODES</span><span>SIMULATED ROUTING</span></div>
+          <div class="map-hud"><span>WORLD MODEL</span><span>15 NODES</span><span>SIMULATED ROUTING</span></div>
         </div>
       </div>
       <aside class="network-side reveal">
         <div class="side-head"><span>NODE REGISTRY</span><span class="live-dot">● SIMULATION</span></div>
-        <button class="server-row core-row" data-node="core"><span class="server-pin">CORE</span><span><b>Moscow — Lipetsk</b><small>главный узел / routing</small></span><em>01</em></button>
+        <button class="server-row core-row" data-node="core"><span class="server-pin">CORE</span><span><b>Moscow</b><small>главный узел / routing</small></span><em>01</em></button>
         <button class="server-row" data-node="moscow"><span class="server-pin">RU</span><span><b>Moscow</b><small>gateway / edge</small></span><em>02</em></button>
         <button class="server-row" data-node="frankfurt"><span class="server-pin">DE</span><span><b>Frankfurt</b><small>EU transit</small></span><em>03</em></button>
         <button class="server-row" data-node="stockholm"><span class="server-pin">SE</span><span><b>Stockholm</b><small>nordic edge</small></span><em>04</em></button>
@@ -320,6 +320,14 @@ a:hover,button:hover{filter:brightness(1.12)}
         <button class="server-row" data-node="newyork"><span class="server-pin">US</span><span><b>New York</b><small>US gateway</small></span><em>06</em></button>
         <button class="server-row" data-node="singapore"><span class="server-pin">SG</span><span><b>Singapore</b><small>APAC edge</small></span><em>07</em></button>
         <button class="server-row" data-node="tokyo"><span class="server-pin">JP</span><span><b>Tokyo</b><small>APAC transit</small></span><em>08</em></button>
+        <button class="server-row" data-node="london"><span class="server-pin">UK</span><span><b>London</b><small>EU gateway</small></span><em>09</em></button>
+        <button class="server-row" data-node="paris"><span class="server-pin">FR</span><span><b>Paris</b><small>EU edge</small></span><em>10</em></button>
+        <button class="server-row" data-node="warsaw"><span class="server-pin">PL</span><span><b>Warsaw</b><small>CEE edge</small></span><em>11</em></button>
+        <button class="server-row" data-node="dubai"><span class="server-pin">AE</span><span><b>Dubai</b><small>ME transit</small></span><em>12</em></button>
+        <button class="server-row" data-node="mumbai"><span class="server-pin">IN</span><span><b>Mumbai</b><small>APAC edge</small></span><em>13</em></button>
+        <button class="server-row" data-node="seoul"><span class="server-pin">KR</span><span><b>Seoul</b><small>APAC gateway</small></span><em>14</em></button>
+        <button class="server-row" data-node="losangeles"><span class="server-pin">US</span><span><b>Los Angeles</b><small>US west edge</small></span><em>15</em></button>
+        <button class="server-row" data-node="saopaulo"><span class="server-pin">BR</span><span><b>São Paulo</b><small>LATAM edge</small></span><em>16</em></button>
       </aside>
     </div>
     <div class="packet-nav">
@@ -409,9 +417,9 @@ document.querySelectorAll('.card,.project-card,.stack-card,.panel,.tool-card,.co
       import('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json/+esm')
     ]);
     const world=worldModule.default||worldModule;
-    const width=1400,height=546,NS='http://www.w3.org/2000/svg';
+    const width=1400,height=620,NS='http://www.w3.org/2000/svg';
     const svg=d3.select(svgEl);
-    const projection=d3.geoNaturalEarth1().fitExtent([[24,18],[width-24,height-18]],{type:'Sphere'});
+    const projection=d3.geoNaturalEarth1().fitExtent([[0,8],[width,height-8]],{type:'Sphere'}); projection.scale(projection.scale()*1.13);
     const geoPath=d3.geoPath(projection);
     const defs=svg.append('defs');
     const grad=defs.append('linearGradient').attr('id','mapLand').attr('x1','0').attr('y1','0').attr('x2','1').attr('y2','1');
@@ -428,17 +436,35 @@ document.querySelectorAll('.card,.project-card,.stack-card,.panel,.tool-card,.co
     grid.selectAll('path').data(d3.range(-60,121,30)).join('path').attr('d',lat=>geoPath({type:'LineString',coordinates:[[-180,lat],[180,lat]]})).attr('fill','none').attr('stroke','#68a7ff').attr('stroke-opacity','.08').attr('stroke-dasharray','2 9');
     grid.selectAll('path').data(d3.range(-180,181,30)).join('path').attr('d',lng=>geoPath({type:'LineString',coordinates:[[lng,-60],[lng,85]]})).attr('fill','none').attr('stroke','#68a7ff').attr('stroke-opacity','.08').attr('stroke-dasharray','2 9');
     const nodes={
-      core:{name:'Moscow — Lipetsk',lat:52.61,lng:39.59,role:'CORE / ROUTING',core:true},
-      moscow:{name:'Moscow',lat:55.7558,lng:37.6173,role:'GATEWAY / EDGE'},
+      core:{name:'Moscow',lat:55.7558,lng:37.6173,role:'CORE / ROUTING',core:true},
       frankfurt:{name:'Frankfurt',lat:50.1109,lng:8.6821,role:'EU TRANSIT'},
       stockholm:{name:'Stockholm',lat:59.3293,lng:18.0686,role:'NORDIC EDGE'},
       amsterdam:{name:'Amsterdam',lat:52.3676,lng:4.9041,role:'PEERING EDGE'},
+      london:{name:'London',lat:51.5074,lng:-0.1278,role:'EU GATEWAY'},
+      paris:{name:'Paris',lat:48.8566,lng:2.3522,role:'EU EDGE'},
+      warsaw:{name:'Warsaw',lat:52.2297,lng:21.0122,role:'CEE EDGE'},
       newyork:{name:'New York',lat:40.7128,lng:-74.006,role:'US GATEWAY'},
+      losangeles:{name:'Los Angeles',lat:34.0522,lng:-118.2437,role:'US WEST EDGE'},
+      saopaulo:{name:'São Paulo',lat:-23.5505,lng:-46.6333,role:'LATAM EDGE'},
+      dubai:{name:'Dubai',lat:25.2048,lng:55.2708,role:'ME TRANSIT'},
+      mumbai:{name:'Mumbai',lat:19.076,lng:72.8777,role:'APAC EDGE'},
       singapore:{name:'Singapore',lat:1.3521,lng:103.8198,role:'APAC EDGE'},
-      tokyo:{name:'Tokyo',lat:35.6762,lng:139.6503,role:'APAC TRANSIT'}
+      tokyo:{name:'Tokyo',lat:35.6762,lng:139.6503,role:'APAC TRANSIT'},
+      seoul:{name:'Seoul',lat:37.5665,lng:126.978,role:'APAC GATEWAY'}
     };
-    const labelOffsets={core:[12,-14],moscow:[12,18],frankfurt:[-58,-10],stockholm:[10,-14],amsterdam:[-62,14],newyork:[12,-10],singapore:[10,18],tokyo:[10,-10]};
-    const routes=[['core','moscow'],['core','frankfurt'],['core','stockholm'],['core','amsterdam'],['core','newyork'],['core','singapore'],['core','tokyo'],['frankfurt','amsterdam'],['stockholm','tokyo']];
+    const labelOffsets={
+      core:[12,-14],frankfurt:[-58,-10],stockholm:[10,-14],amsterdam:[-62,14],
+      london:[-42,-11],paris:[-34,16],warsaw:[12,-12],newyork:[12,-10],
+      losangeles:[12,16],saopaulo:[12,18],dubai:[12,-10],mumbai:[12,17],
+      singapore:[10,18],tokyo:[10,-10],seoul:[10,-12]
+    };
+    const routes=[
+      ['core','frankfurt'],['core','stockholm'],['core','warsaw'],['core','amsterdam'],
+      ['core','london'],['core','newyork'],['core','dubai'],['core','mumbai'],
+      ['core','singapore'],['core','tokyo'],['frankfurt','paris'],['london','newyork'],
+      ['newyork','losangeles'],['newyork','saopaulo'],['dubai','mumbai'],
+      ['mumbai','singapore'],['singapore','seoul'],['seoul','tokyo']
+    ];
     const routeLayer=svg.append('g'),packetLayer=svg.append('g'),nodeLayer=svg.append('g');
     const projected={};Object.entries(nodes).forEach(([key,n])=>projected[key]=projection([n.lng,n.lat]));
     routes.forEach(([a,b],idx)=>{
