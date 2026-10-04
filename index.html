@@ -254,49 +254,6 @@ a:hover,button:hover{filter:brightness(1.12)}
 </section>
 
 
-<section class="interactive-world" id="network">
-  <div class="container">
-    <div class="section-head reveal">
-      <div><div class="kicker">04 / global network</div><h2>Реальная карта.<br>Живая маршрутизация.</h2></div>
-      <p>Географическая карта на OpenStreetMap. Узлы ниже — визуальная модель инфраструктуры, а не выдуманная live-телеметрия.</p>
-    </div>
-
-    <div class="geo-layout">
-      <div class="world-shell geo-map-shell reveal">
-        <div class="world-top"><span>GLOBAL NETWORK / PACKET ROUTING</span><strong>SIMULATION</strong></div>
-        <div id="networkMap" class="leaflet-map" aria-label="Географическая карта серверных узлов"></div>
-        <div class="map-overlay"><span>● PACKETS</span><span>◉ CORE</span><span>○ EDGE</span></div>
-      </div>
-
-      <aside class="network-side reveal">
-        <div class="side-head"><span>NODE REGISTRY</span><span class="live-dot">● ONLINE</span></div>
-        <button class="server-row core-row" data-node="core"><span class="server-pin">CORE</span><span><b>Moscow — Lipetsk</b><small>главный узел / routing</small></span><em>01</em></button>
-        <button class="server-row" data-node="moscow"><span class="server-pin">RU</span><span><b>Moscow</b><small>gateway / edge</small></span><em>02</em></button>
-        <button class="server-row" data-node="frankfurt"><span class="server-pin">DE</span><span><b>Frankfurt</b><small>EU transit</small></span><em>03</em></button>
-        <button class="server-row" data-node="stockholm"><span class="server-pin">SE</span><span><b>Stockholm</b><small>nordic edge</small></span><em>04</em></button>
-        <button class="server-row" data-node="amsterdam"><span class="server-pin">NL</span><span><b>Amsterdam</b><small>peering edge</small></span><em>05</em></button>
-        <button class="server-row" data-node="newyork"><span class="server-pin">US</span><span><b>New York</b><small>US gateway</small></span><em>06</em></button>
-        <button class="server-row" data-node="singapore"><span class="server-pin">SG</span><span><b>Singapore</b><small>APAC edge</small></span><em>07</em></button>
-        <button class="server-row" data-node="tokyo"><span class="server-pin">JP</span><span><b>Tokyo</b><small>APAC transit</small></span><em>08</em></button>
-      </aside>
-    </div>
-
-    <div class="packet-nav">
-      <div class="packet-console reveal">
-        <div class="side-head"><span>PACKET INSPECTOR</span><span class="live-dot">SIMULATED</span></div>
-        <div class="packet-inspector-grid">
-          <div><small>PACKET ID</small><b id="packetId">PKT-7A3F</b></div>
-          <div><small>ROUTE</small><b id="packetRoute">CORE → FRANKFURT</b></div>
-          <div><small>LATENCY</small><b id="packetLatency">28 ms</b></div>
-          <div><small>DESTINATION</small><b id="packetDestination">EU EDGE</b></div>
-        </div>
-        <div class="packet-actions"><button class="packet-btn" id="randomPacket">SEND RANDOM PACKET ↗</button><span>Нажми на любой пакет на карте — переход в случайный раздел сайта.</span></div>
-      </div>
-      <div class="random-jump reveal"><span class="kicker">ROUTING EVENT</span><h3>Пакет может стать навигацией.</h3><p>Сайт реагирует на сетевые события: маршрутизация пакета может открыть Home, Stack, Projects, Tools, Status или Contact.</p><a class="btn btn-secondary" href="/lab.html">Открыть Network Playground →</a></div>
-    </div>
-  </div>
-</section>
-
 <section id="activity">
   <div class="container">
     <div class="section-head reveal"><div><div class="kicker">05 / activity</div><h2>Система постоянно<br>движется.</h2></div><p>Не просто список технологий: здесь показаны направления, процессы и точки роста.</p></div>
