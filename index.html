@@ -154,14 +154,14 @@ a:hover,button:hover{filter:brightness(1.12)}
 .activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.activity-card{border:1px solid var(--line);border-radius:22px;padding:22px;background:var(--panel);position:relative;overflow:hidden}.timeline{display:grid;gap:16px}.timeline-row{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:start}.timeline-row time{font:600 10px 'JetBrains Mono';color:#6f7d91;padding-top:3px}.timeline-row div{border-left:1px solid rgba(104,167,255,.25);padding-left:16px}.timeline-row b{font-size:13px}.timeline-row span{display:block;color:var(--muted);font-size:12px;margin-top:3px}.bars{display:grid;gap:14px}.bar-label{display:flex;justify-content:space-between;font:600 10px 'JetBrains Mono';color:#aab7ca}.bar{height:7px;margin-top:7px;background:#151b26;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;width:var(--w);border-radius:inherit;background:linear-gradient(90deg,#68a7ff,#a47cff);box-shadow:0 0 16px rgba(104,167,255,.4);animation:barIn 1.3s var(--ease) both}.bar:nth-child(2) i{animation-delay:.12s}@keyframes barIn{from{width:0}to{width:var(--w)}}
 @media(max-width:760px){.world-map{height:300px}.world-top{align-items:flex-start;flex-direction:column}.packet-nav,.activity-grid{grid-template-columns:1fr}.world-help{left:18px;bottom:15px}.interactive-world{padding-bottom:75px}}
 </style>
-<link rel="stylesheet" href="/effects.css"></head>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3G3dM4e2n8v0W4JQfM9e7W6QJY4cM=" crossorigin=""><link rel="stylesheet" href="/effects.css"></head>
 <body>
 <nav id="nav">
   <div class="nav-inner">
     <a class="logo" href="#home" style="text-decoration:none">artem4ik493<span>.</span>ru</a>
     <button class="menu-btn" aria-label="Открыть меню" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
     <div class="nav-links">
-      <a href="#about">about</a><a href="#stack">stack</a><a href="#projects">projects</a><a href="#network">network</a><a href="#activity">activity</a><a href="/tools.html">tools</a>
+      <a href="#about">about</a><a href="#stack">stack</a><a href="#projects">projects</a><a href="#network">network</a><a href="#activity">activity</a><a href="#services">services</a><a href="/tools.html">tools</a><a href="/status.html">status</a>
       <a class="nav-cta" href="#contact">contact →</a>
     </div>
   </div>
@@ -245,58 +245,101 @@ a:hover,button:hover{filter:brightness(1.12)}
 
 
 <section class="interactive-world" id="network">
-<div class="container">
-<div class="section-head reveal"><div><div class="kicker">04 / global network</div><h2>Инфраструктура<br>как живая система.</h2></div><p>Карта — декоративная симуляция. Узлы, маршруты и пакеты реагируют на действия и превращают навигацию по сайту в часть интерфейса.</p></div>
-<div class="world-shell reveal">
-<div class="world-top"><span>GLOBAL PACKET ROUTING / VISUALIZER</span><strong>ONLINE · SIMULATION</strong></div>
-<svg class="world-map" id="worldMap" viewBox="0 0 1200 440" aria-label="Интерактивная карта сетевых узлов">
-<defs><radialGradient id="mapGlow"><stop stop-color="#68a7ff" stop-opacity=".18"/><stop offset="1" stop-color="#68a7ff" stop-opacity="0"/></radialGradient>
-<path id="routeA" d="M245 170 Q430 70 585 205 T900 150"/><path id="routeB" d="M300 320 Q520 180 760 285 T1040 235"/><path id="routeC" d="M585 205 Q610 310 760 285"/></defs>
-<rect width="1200" height="440" fill="url(#mapGlow)"/>
-<path class="land" d="M100 125l75-43 85 15 54 54-18 55-71 13-35 63-59-30 12-64-47-31zM365 112l61-29 72 20 24 49-42 42-61-5-34-31zM560 103l76-18 76 34 26 64-54 34-48 77-57-41 16-67-45-38zM760 105l83-26 101 37 49 55-41 48-78-6-38 54-61-43 29-59-58-25zM970 265l71-18 67 38-16 52-71 28-56-39zM420 300l72-24 54 35-20 43-82 17-53-35z"/>
-<use href="#routeA" class="route"/><use href="#routeB" class="route"/><use href="#routeC" class="route"/>
-<g class="map-node" data-target="#projects"><circle class="pulse" cx="245" cy="170" r="4"/><circle class="node" cx="245" cy="170" r="5"/><text x="255" y="164">EU / VPN</text></g>
-<g class="map-node" data-target="#stack"><circle class="pulse" cx="585" cy="205" r="4"/><circle class="node" cx="585" cy="205" r="6"/><text x="598" y="199">CORE</text></g>
-<g class="map-node" data-target="#about"><circle class="pulse" cx="900" cy="150" r="4"/><circle class="node" cx="900" cy="150" r="5"/><text x="912" y="144">LINUX</text></g>
-<g class="map-node" data-target="#contact"><circle class="pulse" cx="760" cy="285" r="4"/><circle class="node" cx="760" cy="285" r="5"/><text x="773" y="279">AUTOMATION</text></g>
-<g class="map-node" data-target="#home"><circle class="pulse" cx="1040" cy="235" r="4"/><circle class="node" cx="1040" cy="235" r="5"/><text x="1052" y="229">EDGE</text></g>
-<circle class="packet" r="4"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#routeA"/></animateMotion></circle>
-<circle class="packet" r="3"><animateMotion dur="5.2s" repeatCount="indefinite"><mpath href="#routeB"/></animateMotion></circle>
-<circle class="packet" r="3"><animateMotion dur="3.8s" repeatCount="indefinite"><mpath href="#routeC"/></animateMotion></circle>
-</svg>
-<div class="world-help"><b>CLICK NODE</b> · перейти к связанному разделу &nbsp; / &nbsp; <b>CLICK PACKET</b> · случайный маршрут</div>
-</div>
-<div class="packet-nav">
-<div class="packet-console">
-<div><span class="live">● LIVE SIMULATION</span> &nbsp; packet router</div>
-<div class="packet-line"><span>packet_id</span><button id="packetId">PKT-4A7F</button></div>
-<div class="packet-line"><span>route</span><button id="packetRoute">CORE → EDGE</button></div>
-<div class="packet-line"><span>latency</span><span id="packetLatency">24 ms</span></div>
-<div class="packet-line"><span>destination</span><span id="packetDestination">/projects</span></div>
-</div>
-<div class="random-jump"><h3>Packet Jump</h3><p>Нажми на пакет — он отправит тебя в случайную часть сайта.</p><button class="packet-btn" id="randomPacket">SEND PACKET ↗</button></div>
-</div>
-</div>
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="kicker">04 / global network</div><h2>Реальная карта.<br>Живая маршрутизация.</h2></div>
+      <p>Географическая карта на OpenStreetMap. Узлы ниже — визуальная модель инфраструктуры, а не выдуманная live-телеметрия.</p>
+    </div>
+
+    <div class="geo-layout">
+      <div class="world-shell geo-map-shell reveal">
+        <div class="world-top"><span>GLOBAL NETWORK / PACKET ROUTING</span><strong>SIMULATION</strong></div>
+        <div id="networkMap" class="leaflet-map" aria-label="Географическая карта серверных узлов"></div>
+        <div class="map-overlay"><span>● PACKETS</span><span>◉ CORE</span><span>○ EDGE</span></div>
+      </div>
+
+      <aside class="network-side reveal">
+        <div class="side-head"><span>NODE REGISTRY</span><span class="live-dot">● ONLINE</span></div>
+        <button class="server-row core-row" data-node="core"><span class="server-pin">CORE</span><span><b>Moscow — Lipetsk</b><small>главный узел / routing</small></span><em>01</em></button>
+        <button class="server-row" data-node="moscow"><span class="server-pin">RU</span><span><b>Moscow</b><small>gateway / edge</small></span><em>02</em></button>
+        <button class="server-row" data-node="frankfurt"><span class="server-pin">DE</span><span><b>Frankfurt</b><small>EU transit</small></span><em>03</em></button>
+        <button class="server-row" data-node="stockholm"><span class="server-pin">SE</span><span><b>Stockholm</b><small>nordic edge</small></span><em>04</em></button>
+        <button class="server-row" data-node="amsterdam"><span class="server-pin">NL</span><span><b>Amsterdam</b><small>peering edge</small></span><em>05</em></button>
+        <button class="server-row" data-node="newyork"><span class="server-pin">US</span><span><b>New York</b><small>US gateway</small></span><em>06</em></button>
+        <button class="server-row" data-node="singapore"><span class="server-pin">SG</span><span><b>Singapore</b><small>APAC edge</small></span><em>07</em></button>
+        <button class="server-row" data-node="tokyo"><span class="server-pin">JP</span><span><b>Tokyo</b><small>APAC transit</small></span><em>08</em></button>
+      </aside>
+    </div>
+
+    <div class="packet-nav">
+      <div class="packet-console reveal">
+        <div class="side-head"><span>PACKET INSPECTOR</span><span class="live-dot">SIMULATED</span></div>
+        <div class="packet-inspector-grid">
+          <div><small>PACKET ID</small><b id="packetId">PKT-7A3F</b></div>
+          <div><small>ROUTE</small><b id="packetRoute">CORE → FRANKFURT</b></div>
+          <div><small>LATENCY</small><b id="packetLatency">28 ms</b></div>
+          <div><small>DESTINATION</small><b id="packetDestination">EU EDGE</b></div>
+        </div>
+        <div class="packet-actions"><button class="packet-btn" id="randomPacket">SEND RANDOM PACKET ↗</button><span>Нажми на любой пакет на карте — переход в случайный раздел сайта.</span></div>
+      </div>
+      <div class="random-jump reveal"><span class="kicker">ROUTING EVENT</span><h3>Пакет может стать навигацией.</h3><p>Сайт реагирует на сетевые события: маршрутизация пакета может открыть Home, Stack, Projects, Tools, Status или Contact.</p><a class="btn btn-secondary" href="/status.html">Открыть status center →</a></div>
+    </div>
+  </div>
 </section>
 
 <section id="activity">
-<div class="container">
-<div class="section-head reveal"><div><div class="kicker">05 / activity</div><h2>Что происходит<br>внутри системы.</h2></div><p>Небольшой визуальный статус рабочего процесса — без притворства под реальные метрики.</p></div>
-<div class="activity-grid">
-<div class="activity-card reveal"><h3>Activity timeline</h3><div class="timeline">
-<div class="timeline-row"><time>NOW</time><div><b>Infrastructure design</b><span>Проектирование и улучшение систем</span></div></div>
-<div class="timeline-row"><time>RECENT</time><div><b>Modexa development</b><span>Telegram / Discord automation</span></div></div>
-<div class="timeline-row"><time>ONGOING</time><div><b>Network experiments</b><span>VPN · routing · secure tunnels</span></div></div>
-<div class="timeline-row"><time>ALWAYS</time><div><b>Learning</b><span>Новые инструменты и архитектуры</span></div></div>
-</div></div>
-<div class="activity-card reveal"><h3>System focus</h3><div class="bars">
-<div><div class="bar-label"><span>INFRASTRUCTURE</span><span>92%</span></div><div class="bar"><i style="--w:92%"></i></div></div>
-<div><div class="bar-label"><span>NETWORK</span><span>86%</span></div><div class="bar"><i style="--w:86%"></i></div></div>
-<div><div class="bar-label"><span>AUTOMATION</span><span>78%</span></div><div class="bar"><i style="--w:78%"></i></div></div>
-<div><div class="bar-label"><span>WEB</span><span>69%</span></div><div class="bar"><i style="--w:69%"></i></div></div>
-</div></div>
-</div></div>
+  <div class="container">
+    <div class="section-head reveal"><div><div class="kicker">05 / activity</div><h2>Система постоянно<br>движется.</h2></div><p>Не просто список технологий: здесь показаны направления, процессы и точки роста.</p></div>
+    <div class="activity-grid">
+      <div class="activity-card reveal">
+        <div class="activity-card-top"><span>ACTIVITY TIMELINE</span><span>2026</span></div>
+        <div class="timeline">
+          <div class="timeline-row"><time>NOW</time><div><b>Infrastructure design</b><span>Сети, Linux, VPS, маршрутизация и сервисная архитектура.</span></div></div>
+          <div class="timeline-row"><time>RECENT</time><div><b>Modexa development</b><span>Unified automation layer для Telegram / Discord.</span></div></div>
+          <div class="timeline-row"><time>ONGOING</time><div><b>Network experiments</b><span>VPN, туннели, monitoring и packet-flow визуализации.</span></div></div>
+          <div class="timeline-row"><time>ALWAYS</time><div><b>Learning mode</b><span>Разбор новых инструментов и практическая эксплуатация.</span></div></div>
+        </div>
+      </div>
+      <div class="activity-card reveal">
+        <div class="activity-card-top"><span>SYSTEM FOCUS</span><span>VISUAL</span></div>
+        <div class="bars">
+          <div><div class="bar-label"><span>INFRASTRUCTURE</span><span>92%</span></div><div class="bar"><i style="--w:92%"></i></div></div>
+          <div><div class="bar-label"><span>NETWORK</span><span>86%</span></div><div class="bar"><i style="--w:86%"></i></div></div>
+          <div><div class="bar-label"><span>AUTOMATION</span><span>78%</span></div><div class="bar"><i style="--w:78%"></i></div></div>
+          <div><div class="bar-label"><span>WEB</span><span>69%</span></div><div class="bar"><i style="--w:69%"></i></div></div>
+        </div>
+        <div class="focus-note">Показатели являются визуальным профилем направлений, а не реальными KPI.</div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head reveal"><div><div class="kicker">06 / capabilities</div><h2>Из задачи —<br>в работающую систему.</h2></div><p>Набор направлений, которые можно объединять в полноценный инфраструктурный проект.</p></div>
+    <div class="cards capability-grid">
+      <article class="card reveal"><div class="icon">01</div><h3>Server engineering</h3><p>Linux, VPS, reverse proxy, Docker, Pterodactyl и эксплуатация сервисов.</p><div class="tags"><span class="tag">Ubuntu</span><span class="tag">Debian</span><span class="tag">Nginx</span></div></article>
+      <article class="card reveal"><div class="icon">02</div><h3>Network & VPN</h3><p>VLESS, WireGuard, маршрутизация, узлы, туннели и защищённые соединения.</p><div class="tags"><span class="tag">Xray</span><span class="tag">WireGuard</span><span class="tag">Routing</span></div></article>
+      <article class="card reveal"><div class="icon">03</div><h3>Automation</h3><p>Telegram / Discord боты, cron-задачи, скрипты и связка нескольких сервисов.</p><div class="tags"><span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">APIs</span></div></article>
+      <article class="card reveal"><div class="icon">04</div><h3>Web systems</h3><p>Статические интерфейсы, dashboard, status pages и технические панели.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div></article>
+      <article class="card reveal"><div class="icon">05</div><h3>Minecraft infra</h3><p>Paper/Pterodactyl, плагины, оптимизация, мониторинг и серверная архитектура.</p><div class="tags"><span class="tag">Paper</span><span class="tag">Pterodactyl</span><span class="tag">Plugins</span></div></article>
+      <article class="card reveal"><div class="icon">06</div><h3>Diagnostics</h3><p>Разбор логов, сетевых проблем, конфигураций и причин нестабильности.</p><div class="tags"><span class="tag">Logs</span><span class="tag">Metrics</span><span class="tag">Debug</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="toolkit">
+  <div class="container">
+    <div class="section-head reveal"><div><div class="kicker">07 / control center</div><h2>Инструменты<br>и статус — рядом.</h2></div><p>Быстрый переход к локальным инструментам, состоянию сервисов и экспериментальной лаборатории.</p></div>
+    <div class="control-grid">
+      <a class="control-card reveal" href="/tools.html"><span>TOOLS</span><b>Developer Toolkit ↗</b><small>Hash · JSON · Base64 · JWT · UUID · CIDR · Regex · Time</small></a>
+      <a class="control-card reveal" href="/status.html"><span>STATUS</span><b>Infrastructure Status ↗</b><small>Services · regions · incidents · maintenance · uptime profile</small></a>
+      <a class="control-card reveal" href="/lab.html"><span>LAB</span><b>Network Lab ↗</b><small>Packet simulator · routing events · protocol playground</small></a>
+      <a class="control-card reveal" href="/changelog.html"><span>CHANGELOG</span><b>System History ↗</b><small>Обновления интерфейса, инфраструктуры и проектов</small></a>
+    </div>
+  </div>
+</section>
+
 <section id="contact" class="contact">
   <div class="container">
     <div class="contact-card reveal">
@@ -306,28 +349,11 @@ a:hover,button:hover{filter:brightness(1.12)}
   </div>
 </section>
 
-<section class="network-showcase" aria-label="Демонстрационная визуализация архитектуры сети">
-<div class="network-shell">
-<div class="network-heading"><span>NETWORK / ARCHITECTURE VISUALIZER</span><span class="network-label">SIMULATION</span></div>
-<svg class="network-map" viewBox="0 0 900 390" role="img" aria-label="Схематичная сеть: центральный шлюз, VPN, серверы, автоматизация и мониторинг">
-<defs><radialGradient id="halo"><stop stop-color="#68a7ff" stop-opacity=".19"/><stop offset="1" stop-color="#68a7ff" stop-opacity="0"/></radialGradient><path id="p1" d="M450 193 L170 96"/><path id="p2" d="M450 193 L730 96"/><path id="p3" d="M450 193 L160 300"/><path id="p4" d="M450 193 L740 300"/></defs>
-<circle cx="450" cy="193" r="155" fill="url(#halo)"/><circle class="ring" cx="450" cy="193" r="95"/><circle class="ring" cx="450" cy="193" r="145"/>
-<use href="#p1" class="link"/><use href="#p2" class="link"/><use href="#p3" class="link"/><use href="#p4" class="link"/>
-<g><circle class="node" cx="450" cy="193" r="29"/><circle class="core" cx="450" cy="193" r="8"/><text x="450" y="245" text-anchor="middle">CORE GATEWAY</text></g>
-<g><circle class="node" cx="170" cy="96" r="18"/><text x="170" y="61" text-anchor="middle">VPN / TUNNEL</text></g>
-<g><circle class="node" cx="730" cy="96" r="18"/><text x="730" y="61" text-anchor="middle">LINUX / VPS</text></g>
-<g><circle class="node" cx="160" cy="300" r="18"/><text x="160" y="344" text-anchor="middle">AUTOMATION</text></g>
-<g><circle class="node" cx="740" cy="300" r="18"/><text x="740" y="344" text-anchor="middle">MONITORING</text></g>
-<circle class="packet" r="4"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle>
-<circle class="packet" r="4"><animateMotion dur="4.1s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion></circle>
-<circle class="packet" r="4"><animateMotion dur="3.6s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion></circle>
-<circle class="packet" r="4"><animateMotion dur="4.6s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion></circle>
-</svg><div class="network-footer"><span>● ENCRYPTED LINKS</span><span>↗ ANIMATED DATA FLOW</span><span>DEMO · НЕ LIVE-ТЕЛЕМЕТРИЯ</span></div>
-</div></section>
+
 </main>
 
 <footer>
-  <div class="container footer-row"><span>© 2026 artem4ik493</span><span>built for infrastructure / network / systems</span></div>
+  <div class="container footer-row"><span>© 2026 artem4ik493</span><span>infrastructure · network · systems · tools · status</span></div>
 </footer>
 
 <script>
@@ -345,12 +371,77 @@ let queued=false,x=-999,y=-999;addEventListener('pointermove',e=>{x=e.clientX;y=
 document.querySelectorAll('.card,.project-card,.stack-card,.panel,.tool-card,.contact-card').forEach(el=>{el.classList.add('motion-tilt');if(getComputedStyle(el).position==='static')el.style.position='relative';el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;el.style.setProperty('--rx',((.5-py)*5)+'deg');el.style.setProperty('--ry',((px-.5)*5)+'deg');el.style.setProperty('--px',px*100+'%');el.style.setProperty('--py',py*100+'%')});el.addEventListener('pointerleave',()=>{el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')})});
 })();
 </script><script src="/effects.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-(()=>{const sections=['#home','#about','#stack','#projects','#network','#activity','#contact'];const names=['HOME','ABOUT','STACK','PROJECTS','NETWORK','ACTIVITY','CONTACT'];const id=document.getElementById('packetId'),route=document.getElementById('packetRoute'),lat=document.getElementById('packetLatency'),dest=document.getElementById('packetDestination');
-function jump(){const i=Math.floor(Math.random()*sections.length);document.querySelector(sections[i])?.scrollIntoView({behavior:'smooth',block:'start'});if(id)id.textContent='PKT-'+Math.random().toString(16).slice(2,6).toUpperCase();if(route)route.textContent='CORE → '+names[i];if(lat)lat.textContent=(12+Math.floor(Math.random()*67))+' ms';if(dest)dest.textContent=sections[i]}
-document.getElementById('randomPacket')?.addEventListener('click',jump);
-document.querySelectorAll('.map-node').forEach(n=>n.addEventListener('click',()=>{const t=n.dataset.target;document.querySelector(t)?.scrollIntoView({behavior:'smooth',block:'start'});if(id){id.textContent='PKT-'+Math.random().toString(16).slice(2,6).toUpperCase();route.textContent='MAP NODE → '+t.replace('#','').toUpperCase();lat.textContent=(18+Math.floor(Math.random()*52))+' ms';dest.textContent=t}}));
-document.getElementById('worldMap')?.addEventListener('click',e=>{if(!e.target.closest('.map-node'))jump()});
+(()=> {
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sections=['#home','#about','#stack','#projects','#network','#activity','#services','#toolkit','#contact'];
+  const names=['HOME','ABOUT','STACK','PROJECTS','NETWORK','ACTIVITY','SERVICES','TOOLS','CONTACT'];
+  const id=document.getElementById('packetId'), route=document.getElementById('packetRoute'), lat=document.getElementById('packetLatency'), dest=document.getElementById('packetDestination');
+  const nodes={
+    core:{name:'Moscow — Lipetsk',lat:52.61,lng:39.59,role:'CORE / ROUTING',country:'RU'},
+    moscow:{name:'Moscow',lat:55.7558,lng:37.6173,role:'GATEWAY / EDGE',country:'RU'},
+    frankfurt:{name:'Frankfurt',lat:50.1109,lng:8.6821,role:'EU TRANSIT',country:'DE'},
+    stockholm:{name:'Stockholm',lat:59.3293,lng:18.0686,role:'NORDIC EDGE',country:'SE'},
+    amsterdam:{name:'Amsterdam',lat:52.3676,lng:4.9041,role:'PEERING EDGE',country:'NL'},
+    newyork:{name:'New York',lat:40.7128,lng:-74.006,role:'US GATEWAY',country:'US'},
+    singapore:{name:'Singapore',lat:1.3521,lng:103.8198,role:'APAC EDGE',country:'SG'},
+    tokyo:{name:'Tokyo',lat:35.6762,lng:139.6503,role:'APAC TRANSIT',country:'JP'}
+  };
+  const mapEl=document.getElementById('networkMap');
+  if(!mapEl || typeof L==='undefined') return;
+  const map=L.map(mapEl,{zoomControl:true,worldCopyJump:true,minZoom:2,maxZoom:6,attributionControl:true}).setView([42,30],2.35);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+  const markers={}, lines=[], packets=[];
+  const coreIcon=L.divIcon({className:'',html:'<div class="core-marker"></div>',iconSize:[23,23],iconAnchor:[11,11]});
+  const edgeIcon=L.divIcon({className:'',html:'<div class="server-marker"></div>',iconSize:[15,15],iconAnchor:[7,7]});
+  Object.entries(nodes).forEach(([key,n])=>{
+    const marker=L.marker([n.lat,n.lng],{icon:key==='core'?coreIcon:edgeIcon,title:n.name}).addTo(map);
+    marker.bindTooltip(n.name+' · '+n.role,{direction:'top',className:'marker-label',offset:[0,-8]});
+    marker.on('click',()=>focusNode(key));
+    markers[key]=marker;
+  });
+  const routes=[['core','moscow'],['core','frankfurt'],['core','stockholm'],['core','amsterdam'],['core','newyork'],['core','singapore'],['core','tokyo'],['frankfurt','amsterdam'],['stockholm','tokyo']];
+  routes.forEach(([a,b],idx)=>{
+    const A=nodes[a],B=nodes[b];
+    const line=L.polyline([[A.lat,A.lng],[B.lat,B.lng]],{color:idx<7?'#68a7ff':'#a47cff',weight:1.2,opacity:.38,dashArray:'5 10'}).addTo(map);
+    lines.push(line);
+    if(!reduced) createPacket(a,b,idx*420);
+  });
+  function focusNode(key){
+    const n=nodes[key]; map.flyTo([n.lat,n.lng],key==='core'?4.3:3.6,{duration:.9});
+    document.querySelectorAll('.server-row').forEach(x=>x.classList.toggle('active',x.dataset.node===key));
+    setPacket('PKT-'+Math.random().toString(16).slice(2,6).toUpperCase(),'CORE → '+n.name,Math.round(12+Math.random()*82)+' ms',n.role);
+  }
+  function randomJump(){
+    const i=Math.floor(Math.random()*sections.length);
+    const target=document.querySelector(sections[i]);
+    if(target) target.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});
+    setPacket('PKT-'+Math.random().toString(16).slice(2,6).toUpperCase(),'CORE → '+names[i],Math.round(12+Math.random()*95)+' ms',names[i]);
+  }
+  function setPacket(a,b,c,d){if(id)id.textContent=a;if(route)route.textContent=b;if(lat)lat.textContent=c;if(dest)dest.textContent=d}
+  function createPacket(a,b,delay){
+    const A=nodes[a],B=nodes[b];
+    setTimeout(()=>{
+      const el=L.divIcon({className:'packet-marker',html:'<span style="display:block;width:7px;height:7px;border-radius:50%;background:#d9ebff;box-shadow:0 0 14px #68a7ff"></span>',iconSize:[7,7],iconAnchor:[3,3]});
+      const marker=L.marker([A.lat,A.lng],{icon:el,interactive:true,zIndexOffset:900}).addTo(map);
+      marker.on('click',randomJump);
+      let t=0,dir=1,last=performance.now();
+      function tick(now){
+        const dt=Math.min(50,now-last);last=now;t+=dt/5200*dir;
+        if(t>=1){t=1;dir=-1;setPacket('PKT-'+Math.random().toString(16).slice(2,6).toUpperCase(),a.toUpperCase()+' → '+b.toUpperCase(),Math.round(15+Math.random()*90)+' ms',B.name)}
+        if(t<=0){t=0;dir=1}
+        const lat=A.lat+(B.lat-A.lat)*t,lng=A.lng+(B.lng-A.lng)*t;
+        marker.setLatLng([lat,lng]);
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    },delay);
+  }
+  document.querySelectorAll('.server-row').forEach(btn=>btn.addEventListener('click',()=>focusNode(btn.dataset.node)));
+  document.getElementById('randomPacket')?.addEventListener('click',randomJump);
+  setPacket('PKT-7A3F','CORE → FRANKFURT','28 ms','EU EDGE');
+  window.addEventListener('resize',()=>map.invalidateSize());
 })();
 </script></body>
 </html>
