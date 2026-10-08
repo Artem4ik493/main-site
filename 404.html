@@ -7,5 +7,40 @@ main{min-height:100vh;padding:150px 0 80px;display:grid;place-items:center}.grid
 .panel{border:1px solid var(--line);border-radius:25px;background:var(--panel);backdrop-filter:blur(18px);box-shadow:0 30px 80px #0007;overflow:hidden}.head{padding:17px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font:700 9px 'JetBrains Mono';color:#8390a3;letter-spacing:.08em}.status{color:var(--danger)}.body{padding:10px 22px}.row{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid #fff09;font:600 10px 'JetBrains Mono'}.row:last-child{border:0}.label{color:#707d90}.value{text-align:right;color:#f0f4fb}.terminal{margin-top:12px;padding:16px;border:1px solid var(--line);border-radius:16px;background:#05070bcc;color:#9da8b8;font:10px/2 'JetBrains Mono';background-image:linear-gradient(transparent 48%,#68a7ff09 50%,transparent 52%);background-size:100% 240px;animation:scan 7s linear infinite}.ok{color:#71dd9b}.err{color:var(--danger)}.hint{color:#5e6979}.note{margin-top:22px;color:#5e6b7e;font:9px 'JetBrains Mono'}
 .orbit{position:fixed;right:7%;top:25%;width:250px;height:250px;border:1px dashed #68a7ff2b;border-radius:50%;pointer-events:none;animation:spin 22s linear infinite}.orbit:before{content:"";position:absolute;inset:35px;border:1px solid #a47cff20;border-radius:50%}.orbit:after{content:"";position:absolute;width:8px;height:8px;left:18px;top:50%;border-radius:50%;background:var(--accent);box-shadow:0 0 20px var(--accent)}
 @keyframes spin{to{transform:rotate(360deg)}}@keyframes scan{to{background-position:0 240px}}@media(max-width:850px){.grid{grid-template-columns:1fr;gap:35px}.orbit{width:150px;height:150px;right:-40px;top:24%;opacity:.3}main{padding-top:125px}.links a:nth-child(3){display:none}}@media(max-width:560px){.wrap{width:calc(100% - 26px)}.code{font-size:88px}.subtitle{font-size:30px}.panel{margin-bottom:20px}.links a:nth-child(2){display:none}}@media(prefers-reduced-motion:reduce){.orbit,.terminal{animation:none}html{scroll-behavior:auto}}
+/* Mobile refinement — preserve desktop error-page composition */
+@media (max-width:850px){
+  .wrap{width:min(100% - 32px,1160px)}
+  header{width:calc(100% - 24px);top:12px}
+  main{padding-top:128px}
+  .grid{grid-template-columns:1fr;gap:34px}
+}
+@media (max-width:560px){
+  .wrap{width:calc(100% - 26px)}
+  header{width:calc(100% - 18px);top:9px;border-radius:15px}
+  .nav{min-height:56px;padding:0 12px}
+  .logo{font-size:12px}
+  .links{gap:2px}
+  .links a{min-height:42px;display:flex;align-items:center;padding:8px 9px}
+  main{padding:104px 0 54px}
+  .code{font-size:clamp(82px,24vw,112px);margin:16px 0}
+  .subtitle{font-size:clamp(28px,8vw,34px);line-height:1.08}
+  .lead{font-size:14px;line-height:1.7;margin-top:14px}
+  .actions{gap:8px;margin-top:22px}
+  .btn{min-height:44px;align-items:center}
+  .panel{border-radius:20px}
+  .head{padding:15px 16px}
+  .body{padding:7px 16px}
+  .row{padding:14px 0;gap:12px}
+  .terminal{padding:14px;border-radius:14px;font-size:9px;line-height:1.9}
+  .orbit{width:130px;height:130px;right:-55px;top:20%;opacity:.25}
+}
+@media (max-width:380px){
+  .wrap{width:calc(100% - 22px)}
+  .links a:nth-child(2){display:none}
+  .code{font-size:80px}
+}
+@media (hover:none),(pointer:coarse){
+  .orbit{animation:none}
+}
 </style></head><body><header><nav class="nav"><a class="logo" href="/">artem4ik493<span>.</span>ru</a><div class="links"><a href="/">home</a><a href="/tools.html">tools</a><a href="/#contact">contact →</a></div></nav></header>
 <main class="wrap"><div class="grid"><section><span class="eyebrow">system response / 404</span><div class="code">404</div><div class="subtitle">Узел не найден</div><p class="lead">Запрошенный маршрут существует только в вашем воображении. Сервер не нашёл ресурс по указанному адресу.</p><div class="actions"><a class="btn primary" href="/">Вернуться на главную</a><a class="btn" href="/tools.html">Открыть tools</a></div><div class="note">request terminated · artem4ik493 infrastructure</div></section><section><div class="panel"><div class="head"><span>NODE / 404</span><span class="status">NOT FOUND</span></div><div class="body"><div class="row"><span class="label">NODE</span><span class="value">UNKNOWN</span></div><div class="row"><span class="label">ROUTE</span><span class="value">NOT FOUND</span></div><div class="row"><span class="label">LOOKUP</span><span class="value">FAILED</span></div><div class="row"><span class="label">RESULT</span><span class="value">404</span></div></div></div><div class="terminal"><span class="ok">[OK]</span> Запрос принят<br><span class="ok">[OK]</span> DNS / route lookup выполнен<br><span class="err">[MISS]</span> Ресурс не найден<br><span class="err">[FAIL]</span> Маршрут завершён</div></section></div></main><div class="orbit" aria-hidden="true"></div><script src="/effects.js" defer></script></body></html>
