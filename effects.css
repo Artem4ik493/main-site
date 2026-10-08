@@ -59,3 +59,15 @@ body::after{animation:fxGridDrift 28s linear infinite;background-position:0 0}
 .fx-interactive-card.fx-pressed{transform:perspective(1000px) rotateX(var(--fx-rx)) rotateY(var(--fx-ry)) translateY(-1px) scale(.992)}
 .fx-interactive-card::before{background:radial-gradient(500px circle at var(--fx-x,50%) var(--fx-y,50%),rgba(104,167,255,.19),transparent 58%),linear-gradient(120deg,transparent 35%,rgba(255,255,255,.025),transparent 65%)}
 @media(prefers-reduced-motion:reduce){.fx-trail{display:none!important}.fx-interactive-card,.fx-interactive-card>*,.fx-interactive-card .icon,.fx-interactive-card .tags{transform:none!important;transition:none!important}}
+
+/* Mobile performance safeguards — visual output remains unchanged */
+@media (max-width:760px){
+  .fx-cursor,.fx-trail{display:none!important}
+  .fx-tilt,.motion-tilt{transform:none!important;will-change:auto!important}
+  .fx-interactive-card:hover{transform:none!important}
+}
+@media (max-width:480px){
+  .fx-grid{opacity:.75}
+  .fx-network{opacity:.9}
+}
+@media (prefers-reduced-motion:reduce){.fx-grid canvas,.fx-network canvas{animation:none!important}}
