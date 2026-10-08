@@ -6,7 +6,8 @@
 <meta name="description" content="artem4ik493 — системный администратор, network enthusiast и создатель инфраструктурных проектов.">
 <meta name="theme-color" content="#06070a">
 <title>artem4ik493 — Infrastructure / Network / Systems</title>
-<link rel="icon" type="image/png" href="assets/images/site-logo.ico">
+<link rel="icon" type="image/x-icon" href="assets/images/site-logo.ico">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/images/site-logo.png">
 <link rel="apple-touch-icon" href="assets/images/site-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -179,6 +180,123 @@ a:hover,button:hover{filter:brightness(1.12)}
 .control-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.control-card{min-height:180px;padding:22px;border:1px solid var(--line);border-radius:20px;text-decoration:none;background:linear-gradient(145deg,#121720dd,#090c12cc);position:relative;overflow:hidden;transition:.3s var(--ease)}.control-card:before{content:"";position:absolute;inset:-80% -30%;background:conic-gradient(from 0deg,transparent,#68a7ff18,transparent 24%);animation:controlSpin 9s linear infinite}.control-card>*{position:relative;z-index:1}.control-card span{display:block;color:#6f9ddd;font:700 8px 'JetBrains Mono';letter-spacing:.12em}.control-card b{display:block;margin-top:35px;font-size:17px}.control-card small{display:block;margin-top:8px;color:#707d91;font-size:10px;line-height:1.6}.control-card:hover{transform:translateY(-6px);border-color:#68a7ff55;box-shadow:0 22px 60px #0006}@keyframes controlSpin{to{transform:rotate(360deg)}}
 @media(max-width:980px){.geo-layout{grid-template-columns:1fr}.network-side{display:grid;grid-template-columns:1fr 1fr}.network-side .side-head{grid-column:1/-1}.server-row{min-height:66px}.control-grid{grid-template-columns:1fr 1fr}.world-map-visual{height:520px}.world-shell{min-height:520px}.world-map-svg{inset:64px 0 0;height:calc(100% - 64px)}}
 @media(max-width:620px){.network-side{display:flex}.control-grid{grid-template-columns:1fr}.world-map-visual{height:420px}.world-shell{min-height:420px}.packet-nav{grid-template-columns:1fr}.packet-inspector-grid{grid-template-columns:1fr 1fr}.map-hud{left:10px;bottom:10px}.map-label{font-size:7px}}
+/* Mobile refinement — preserves desktop appearance */
+@media (max-width:900px){
+  .container{width:min(100% - 32px,1160px)}
+  nav{top:12px;width:calc(100% - 24px)}
+  .nav-inner{min-height:60px;padding:0 14px}
+  .nav-links{gap:4px}
+  .nav-links a{padding:10px 9px}
+  .hero-grid{gap:42px}
+  .hero{padding-top:135px}
+  .section-head{align-items:flex-start;flex-direction:column;gap:12px}
+  .section-head p{max-width:680px}
+  .projects{gap:12px}
+  .geo-layout{grid-template-columns:minmax(0,1fr) 300px}
+  .world-shell{height:610px}
+  .network-side{height:610px}
+}
+@media (max-width:760px){
+  .container{width:calc(100% - 28px)}
+  section{padding:88px 0}
+  .hero{min-height:auto;padding-top:126px;padding-bottom:72px}
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  h1{font-size:clamp(48px,12vw,72px);margin:20px 0}
+  .hero p{font-size:16px;line-height:1.7}
+  .hero-actions{margin-top:26px}
+  .quick-stats{grid-template-columns:repeat(3,1fr);margin-top:30px}
+  .profile-card{padding:20px;border-radius:26px}
+  .code{font-size:11px;line-height:1.85;padding:15px}
+  .cards{grid-template-columns:1fr 1fr}
+  .tools-grid{grid-template-columns:1fr 1fr}
+  .contact-card{padding:30px;gap:22px}
+  .contact-actions{width:100%}
+  .contact-actions .btn{min-height:44px}
+  .geo-layout{grid-template-columns:1fr}
+  .world-shell{height:520px;min-height:520px;border-radius:24px}
+  .world-map-visual{height:520px}
+  .world-map-svg{inset:58px 0 0;height:calc(100% - 58px)}
+  .world-top{height:58px;padding:0 16px;font-size:9px}
+  .map-label{font-size:10px}
+  .map-hud{left:12px;bottom:12px}
+  .network-side{height:auto;max-height:390px;border-radius:20px}
+  .side-head{padding:14px 16px}
+  .packet-nav{grid-template-columns:1fr}
+  .activity-grid{grid-template-columns:1fr}
+  .timeline-row{grid-template-columns:58px 1fr}
+}
+@media (max-width:620px){
+  .container{width:calc(100% - 26px)}
+  nav{top:9px;width:calc(100% - 18px);border-radius:15px}
+  .nav-inner{min-height:56px;padding:0 12px}
+  .logo{font-size:12px;gap:7px}
+  .logo img{width:24px;height:24px;border-radius:7px}
+  .menu-btn{font-size:23px;padding:8px;min-width:44px;min-height:44px}
+  .nav.open .nav-links{top:64px;left:0;right:0;padding:7px;border-radius:14px}
+  .nav.open .nav-links a{min-height:44px;display:flex;align-items:center}
+  section{padding:74px 0}
+  .hero{padding-top:105px;padding-bottom:58px}
+  h1{font-size:clamp(44px,14vw,58px);letter-spacing:-.06em}
+  .hero p{font-size:15px}
+  .hero-actions{gap:8px}
+  .hero-actions .btn{flex:1 1 150px;min-height:44px;padding:12px 14px}
+  .quick-stats{grid-template-columns:1fr;gap:8px;margin-top:24px}
+  .stat{padding:14px 15px}
+  .identity{gap:12px}
+  .avatar{width:52px;height:52px;border-radius:16px}
+  .identity b{font-size:16px}
+  .identity span{font-size:12px}
+  .window-bar{margin-bottom:22px}
+  .section-head{margin-bottom:24px}
+  h2{font-size:clamp(30px,9vw,40px)}
+  .cards,.tools-grid{grid-template-columns:1fr}
+  .card{padding:20px;border-radius:20px}
+  .project{min-height:0}
+  .project-main{min-height:0}
+  .project h3{font-size:24px}
+  .project-stack{gap:10px}
+  .tool{padding:15px}
+  .contact{padding-top:60px}
+  .contact-card{padding:24px;border-radius:24px}
+  .contact-actions{display:grid;grid-template-columns:1fr}
+  .contact-actions .btn{width:100%}
+  footer{padding:28px 0 34px}
+  .footer-row{gap:10px}
+  .interactive-world{padding:60px 0 70px}
+  .world-shell{height:430px;min-height:430px;border-radius:20px}
+  .world-map-visual{height:430px}
+  .world-map-svg{inset:54px 0 0;height:calc(100% - 54px)}
+  .world-top{height:54px;padding:0 13px}
+  .world-top span{max-width:65%}
+  .map-label{font-size:8px;stroke-width:4px}
+  .map-hud{font-size:7px;padding:7px 8px;gap:5px}
+  .map-hud span+span{padding-left:5px}
+  .network-side{max-height:330px}
+  .side-row{min-height:68px}
+  .packet-console,.random-jump,.activity-card{padding:18px}
+}
+@media (max-width:380px){
+  .container{width:calc(100% - 22px)}
+  .hero{padding-top:98px}
+  h1{font-size:43px}
+  .hero-actions .btn{flex-basis:100%}
+  .profile-card{padding:17px}
+  .code{font-size:10px}
+  .world-shell{height:390px;min-height:390px}
+  .world-map-visual{height:390px}
+  .world-map-svg{height:calc(100% - 50px);inset:50px 0 0}
+  .world-top{height:50px}
+  .map-label{display:none}
+}
+@media (hover:none),(pointer:coarse){
+  .card:hover,.btn:hover{transform:none;box-shadow:none}
+  .world-map{cursor:default}
+  .motion-tilt,.fx-tilt{transform:none!important}
+  .motion-glow,.fx-cursor,.fx-trail{display:none!important}
+}
+@media (prefers-reduced-motion:reduce){
+  .map-route,.map-node .pulse,.world-top strong:before,.bar i{animation:none!important}
+}
 </style>
 <link rel="stylesheet" href="/effects.css"></head>
 <body>
