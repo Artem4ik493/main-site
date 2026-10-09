@@ -7,9 +7,7 @@ addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFra
 const revealEls=[...document.querySelectorAll('.reveal')];
 revealEls.forEach((el,i)=>el.style.setProperty('--mx-delay',Math.min(i%6,5)*65+'ms'));
 if(reduce.matches){revealEls.forEach(el=>el.classList.add('in'));return}
-const glow=document.createElement('div');glow.className='mx-glow';document.body.append(glow);
 if(fine){
- addEventListener('pointermove',e=>{glow.style.setProperty('--mx-x',e.clientX+'px');glow.style.setProperty('--mx-y',e.clientY+'px');glow.style.opacity='.95'},{passive:true});
  const canvas=document.createElement('canvas');canvas.className='mx-particles';document.body.append(canvas);const ctx=canvas.getContext('2d'),particles=[];let last=0;
  const resize=()=>{const d=Math.min(devicePixelRatio||1,2);canvas.width=innerWidth*d;canvas.height=innerHeight*d;ctx.setTransform(d,0,0,d,0,0)};resize();addEventListener('resize',resize,{passive:true});
  addEventListener('pointermove',e=>{const now=performance.now();if(now-last<22)return;last=now;for(let i=0;i<2;i++)particles.push({x:e.clientX+(Math.random()-.5)*6,y:e.clientY+(Math.random()-.5)*6,vx:(Math.random()-.5)*.7,vy:(Math.random()-.5)*.7,r:Math.random()*1.8+.6,a:.65,life:1})},{passive:true});
