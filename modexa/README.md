@@ -4,11 +4,11 @@ Static landing page for **Modexa**, intended to be served from `https://modexa.a
 
 ## Files
 
-- `index.html` — page content and responsive layout.
+- `index.html` — responsive landing page, content structure inspired by the supplied Nexolia example, plus a Russian/English language switch (saved in the browser).
 - `effects.css` — animated backgrounds, card hover effects, glow, and motion styling.
 - `effects.js` — cursor particles, animated node mesh, scroll progress, interactive card tilt, and reveal effects.
 
-The effects are adapted from the animation system used by the root `main-site`, with Modexa's purple/pink palette. Reduced-motion preferences and mobile performance safeguards are included.
+The content flow includes a hero, architecture overview, feature sections, roadmap, FAQ, and CTA. The supplied Nexolia file is used only as a reference for information hierarchy; its branding, styling, metrics, and product claims are not copied. The effects are adapted from the animation system used by the root `main-site`, with Modexa's purple/pink palette. Reduced-motion preferences and mobile performance safeguards are included.
 
 ## Deployment
 
