@@ -1,7 +1,7 @@
 /* Modexa motion layer — inspired by the main-site effects system */
 :root{--mx-purple:#a78bfa;--mx-pink:#e879f9;--mx-mint:#8df5ce}
-.mx-progress{position:fixed;z-index:40;top:0;left:0;width:100%;height:2px;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--mx-purple),var(--mx-pink),var(--mx-mint));box-shadow:0 0 16px #a78bfa88;pointer-events:none}
-.mx-glow{position:fixed;z-index:1;inset:auto auto 0 0;width:480px;height:480px;border-radius:50%;transform:translate3d(calc(var(--mx-x,-999px) - 50%),calc(var(--mx-y,-999px) - 50%),0);background:radial-gradient(circle,#a78bfa17,transparent 68%);pointer-events:none;opacity:0;transition:opacity .3s}
+.mx-progress{position:fixed;z-index:60;top:0;left:0;width:100%;height:3px;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--mx-purple),var(--mx-pink),var(--mx-mint));box-shadow:0 0 16px #a78bfa88;pointer-events:none}
+.mx-glow{display:none!important}
 .mx-particles{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
 .mx-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.55}
 .mx-grid canvas{width:100%;height:100%;display:block}
