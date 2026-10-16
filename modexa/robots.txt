@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://modexa.artem4ik493.ru/sitemap.xml
