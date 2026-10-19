@@ -249,11 +249,11 @@
         var t = animate ? now * blob.speed : 0.7;
         var x = blob.anchorX * viewportWidth + Math.sin(t + blob.seed) * viewportWidth * 0.14 + (pointer.x - 0.5) * (25 + i * 4);
         var y = blob.anchorY * viewportHeight + Math.cos(t * 0.83 + blob.seed * 1.3) * viewportHeight * 0.15 + (pointer.y - 0.5) * (18 + i * 3);
-        var radius = blob.radius * Math.min(1.2, Math.max(.7, viewportWidth / 1000));
+        var radius = blob.radius * Math.min(1.05, Math.max(.72, viewportWidth / 1180));
         var gradient = context.createRadialGradient(x, y, 0, x, y, radius);
-        gradient.addColorStop(0, "rgba(" + blob.color + ",0.29)");
-        gradient.addColorStop(0.28, "rgba(" + blob.color + ",0.2)");
-        gradient.addColorStop(0.62, "rgba(" + blob.color + ",0.075)");
+        gradient.addColorStop(0, "rgba(" + blob.color + ",0.20)");
+        gradient.addColorStop(0.28, "rgba(" + blob.color + ",0.12)");
+        gradient.addColorStop(0.62, "rgba(" + blob.color + ",0.035)");
         gradient.addColorStop(1, "rgba(" + blob.color + ",0)");
         context.fillStyle = gradient;
         context.beginPath();
@@ -282,7 +282,7 @@
   }
 
   /* Scroll reveals are attached to text/content units rather than a single page-sized wrapper. */
-  var revealSelector = "main h1, main h2, main h3, main p, main .eyebrow, main .section-kicker, main .feature-card, main .step-card, main .discord-card, main .telegram-card, main .service-card, main .faq-item, main .preview-panel, main .signal-item, .legal-hero, .legal-content h2, .legal-content p, .legal-content li";
+  var revealSelector = "main h1, main h2, main .section-kicker, main .feature-card, main .step-card, main .discord-card, main .telegram-card, main .service-card, main .faq-item, main .preview-panel, main .signal-item, .legal-hero, .legal-content h2, .legal-content p, .legal-content li";
   var revealItems = Array.prototype.slice.call(document.querySelectorAll(revealSelector));
   revealItems.forEach(function (node, index) {
     node.classList.add("reveal");
