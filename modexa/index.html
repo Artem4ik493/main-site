@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080a16">
+  <meta name="theme-color" content="#000000">
   <meta name="description" content="Modexa connects Discord and Telegram community tools in one evolving platform.">
   <meta property="og:title" content="Modexa — Community Core">
   <meta property="og:description" content="One platform for connected Discord and Telegram communities.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://modexa.artem4ik493.ru/">
   <link rel="icon" href="./modexa-favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./effects.css?v=4">
+  <link rel="stylesheet" href="./style.css?v=5">
   <title>Modexa — Community Core</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
+<body class="page-home">
+  <div class="metasphere-fallback" aria-hidden="true"><span class="meta-blob meta-blob-discord"></span><span class="meta-blob meta-blob-telegram"></span></div>
   <canvas class="metasphere-canvas" id="metaspheres" aria-hidden="true"></canvas>
   <div class="ambient-shade" aria-hidden="true"></div>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -21,7 +23,7 @@
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="Modexa">
-        <span class="brand-symbol" aria-hidden="true">m</span>
+        <span class="brand-symbol" aria-hidden="true"><i data-lucide="orbit"></i></span>
         <span class="brand-word">Mod<span>exa</span></span>
       </a>
       <nav class="header-nav" id="headerNav" data-i-aria="mainNavLabel" aria-label="Основная навигация">
@@ -62,10 +64,10 @@
             <div class="preview-top mono"><strong>MODEXA / COMMUNITY CORE</strong><span class="beta-pill"><span class="live-dot" aria-hidden="true"></span><span data-i="betaBadge">PUBLIC BETA</span></span></div>
             <div class="platform-cards">
               <div class="platform-card">
-                <div class="platform-head"><span class="platform-icon telegram-icon" aria-hidden="true">➤</span><div><strong>Telegram</strong><small data-i="telegramLabel">BOT · COMMUNITY</small></div></div>
+                <div class="platform-head"><span class="platform-icon telegram-icon" aria-hidden="true"><i data-lucide="send"></i></span><div><strong>Telegram</strong><small data-i="telegramLabel">BOT · COMMUNITY</small></div></div>
               </div>
               <div class="platform-card">
-                <div class="platform-head"><span class="platform-icon discord-icon" aria-hidden="true">D</span><div><strong>Discord</strong><small data-i="discordLabel">APP · COMMUNITY</small></div></div>
+                <div class="platform-head"><span class="platform-icon discord-icon" aria-hidden="true"><i data-lucide="messages-square"></i></span><div><strong>Discord</strong><small data-i="discordLabel">APP · COMMUNITY</small></div></div>
               </div>
             </div>
             <div class="console-divider mono" data-i="identityDivider">ОБЩАЯ ОСНОВА · ПОДКЛЮЧАЕМЫЕ СЕРВИСЫ</div>
@@ -95,12 +97,12 @@
           <p class="section-copy reveal" data-i="platformCopy">Modexa развивается как единая основа для сообществ, использующих Discord и Telegram. Доступность конкретных функций зависит от текущей версии, настроек и выданных разрешений.</p>
         </div>
         <div class="feature-grid" id="features">
-          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true">ID</div><h3 data-i="featureIdentityTitle">Связанные идентичности</h3><p data-i="featureIdentityCopy">Поддерживаемые аккаунты могут связываться с внутренней идентичностью Modexa, чтобы разные платформы работали в общей логике.</p><span class="feature-tag" data-i="featureIdentityTag">ACCOUNT LINKING</span></article>
-          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true">◎</div><h3 data-i="featureMembersTitle">Участники и профили</h3><p data-i="featureMembersCopy">Команды для доступа к необходимым сведениям об участнике и его сообществе — в рамках разрешений платформы.</p><span class="feature-tag" data-i="featureMembersTag">COMMUNITY TOOLS</span></article>
-          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true">◇</div><h3 data-i="featureRolesTitle">Роли и настройки</h3><p data-i="featureRolesCopy">Инструменты управления ролями и настройками там, где соответствующая функция реализована и разрешена администратором.</p><span class="feature-tag" data-i="featureRolesTag">CONTROL LAYER</span></article>
-          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true">↔</div><h3 data-i="featureBridgeTitle">Межплатформенный мост</h3><p data-i="featureBridgeCopy">Передача сообщений между подключёнными площадками, если мост включён, настроен и имеет необходимые права.</p><span class="feature-tag" data-i="featureBridgeTag">OPT-IN INTEGRATION</span></article>
-          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true">⌘</div><h3 data-i="featureCommandsTitle">Команды и контроль</h3><p data-i="featureCommandsCopy">Команды и параметры для работы с доступными функциями без необходимости вручную собирать отдельный набор инструментов.</p><span class="feature-tag" data-i="featureCommandsTag">BOT INTERFACE</span></article>
-          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true">↗</div><h3 data-i="featureRoadmapTitle">Развитие по обратной связи</h3><p data-i="featureRoadmapCopy">Результаты тестирования и реальные сценарии помогают расставлять приоритеты и исправлять подтверждённые проблемы.</p><span class="feature-tag" data-i="featureRoadmapTag">ITERATIVE RELEASES</span></article>
+          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true"><i data-lucide="fingerprint"></i></div><h3 data-i="featureIdentityTitle">Связанные идентичности</h3><p data-i="featureIdentityCopy">Поддерживаемые аккаунты могут связываться с внутренней идентичностью Modexa, чтобы разные платформы работали в общей логике.</p><span class="feature-tag" data-i="featureIdentityTag">ACCOUNT LINKING</span></article>
+          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true"><i data-lucide="users-round"></i></div><h3 data-i="featureMembersTitle">Участники и профили</h3><p data-i="featureMembersCopy">Команды для доступа к необходимым сведениям об участнике и его сообществе — в рамках разрешений платформы.</p><span class="feature-tag" data-i="featureMembersTag">COMMUNITY TOOLS</span></article>
+          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true"><i data-lucide="sliders-horizontal"></i></div><h3 data-i="featureRolesTitle">Роли и настройки</h3><p data-i="featureRolesCopy">Инструменты управления ролями и настройками там, где соответствующая функция реализована и разрешена администратором.</p><span class="feature-tag" data-i="featureRolesTag">CONTROL LAYER</span></article>
+          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true"><i data-lucide="arrow-left-right"></i></div><h3 data-i="featureBridgeTitle">Межплатформенный мост</h3><p data-i="featureBridgeCopy">Передача сообщений между подключёнными площадками, если мост включён, настроен и имеет необходимые права.</p><span class="feature-tag" data-i="featureBridgeTag">OPT-IN INTEGRATION</span></article>
+          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true"><i data-lucide="terminal"></i></div><h3 data-i="featureCommandsTitle">Команды и контроль</h3><p data-i="featureCommandsCopy">Команды и параметры для работы с доступными функциями без необходимости вручную собирать отдельный набор инструментов.</p><span class="feature-tag" data-i="featureCommandsTag">BOT INTERFACE</span></article>
+          <article class="glass feature-card reveal" data-tilt><div class="feature-icon" aria-hidden="true"><i data-lucide="trending-up"></i></div><h3 data-i="featureRoadmapTitle">Развитие по обратной связи</h3><p data-i="featureRoadmapCopy">Результаты тестирования и реальные сценарии помогают расставлять приоритеты и исправлять подтверждённые проблемы.</p><span class="feature-tag" data-i="featureRoadmapTag">ITERATIVE RELEASES</span></article>
         </div>
       </div>
     </section>
@@ -131,7 +133,7 @@
             <h3><span data-i="discordIntegrationTitleStart">Родной интерфейс.</span> <span class="gradient-text" data-i="discordIntegrationTitleAccent">Связанные возможности.</span></h3>
             <p data-i="discordIntegrationCopy">Откройте страницу приложения и добавляйте его в нужные сообщества только с подходящими разрешениями. Макет ниже — визуальное превью, а не live-чат.</p>
             <div class="discord-ui" data-i-aria="discordPreviewAria" aria-label="Предпросмотр интерфейса Discord">
-              <div class="discord-ui-head"><span class="discord-ui-icon" aria-hidden="true">D</span><div><strong>Modexa</strong><small data-i="discordUiSubtitle">Application preview · not live</small></div></div>
+              <div class="discord-ui-head"><span class="discord-ui-icon" aria-hidden="true"><i data-lucide="messages-square"></i></span><div><strong>Modexa</strong><small data-i="discordUiSubtitle">Application preview · not live</small></div></div>
               <div class="discord-ui-body">
                 <div class="discord-message"><span class="discord-avatar" aria-hidden="true">M</span><div><strong>Modexa</strong><time>APP</time><p data-i="discordMessageOne">Платформа подключена к этому примеру интерфейса.</p></div></div>
                 <div class="discord-message"><span class="discord-avatar" aria-hidden="true">↔</span><div><strong data-i="bridgePreviewName">Integration bridge</strong><time>PREVIEW</time><p data-i="discordMessageTwo">Межплатформенные функции работают только при соответствующей настройке.</p></div></div>
@@ -145,7 +147,7 @@
             <div class="telegram-label"><span class="brand-dot"></span><span data-i="telegramIntegrationLabel">TELEGRAM / BOT</span></div>
             <h3><span data-i="telegramIntegrationTitleStart">Быстрый вход.</span> <span class="gradient-text" data-i="telegramIntegrationTitleAccent">Команды под рукой.</span></h3>
             <p data-i="telegramIntegrationCopy">Запустите бота в Telegram, посмотрите список доступных команд и проверьте, какие сценарии уже готовы к тестированию.</p>
-            <div class="telegram-visual" aria-hidden="true"><div class="telegram-orbit"><div class="telegram-plane">➤</div></div></div>
+            <div class="telegram-visual" aria-hidden="true"><div class="telegram-orbit"><div class="telegram-plane"><i data-lucide="send"></i></div></div></div>
             <a class="platform-link telegram-link" href="https://t.me/ModexaPlatformBot" target="_blank" rel="noopener noreferrer"><span data-i="telegramOpenButton">Открыть Telegram-бота</span><span aria-hidden="true">↗</span></a>
             <p class="platform-caption" data-i="telegramCaption">Доступность команд зависит от версии бота.</p>
           </article>
@@ -208,6 +210,6 @@
     <div class="cookie-actions"><button class="cookie-accept" id="cookieAccept" type="button" data-i="cookieAccept">Разрешить</button><button class="cookie-dismiss" id="cookieReject" type="button" data-i="cookieReject">Не разрешать</button></div>
   </aside>
 
-  <script src="./script.js?v=1" defer></script>
+  <script src="./script.js?v=5" defer></script>
 </body>
 </html>

@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080a16">
+  <meta name="theme-color" content="#000000">
   <meta name="description" content="Условия использования Modexa — бета-сервисов для сообществ Discord и Telegram.">
-  <link rel="stylesheet" href="./effects.css?v=4">
+  <link rel="stylesheet" href="./style.css?v=5">
   <title>Условия использования — Modexa</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body data-page="terms">
+<body data-page="terms" class="page-legal">
+  <div class="metasphere-fallback" aria-hidden="true"><span class="meta-blob meta-blob-discord"></span><span class="meta-blob meta-blob-telegram"></span></div>
   <canvas class="metasphere-canvas" id="metaspheres" aria-hidden="true"></canvas>
   <div class="ambient-shade" aria-hidden="true"></div>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <header class="site-header" id="siteHeader"><div class="header-inner">
-    <a class="brand" href="./" aria-label="Modexa"><span class="brand-symbol" aria-hidden="true">m</span><span class="brand-word">Mod<span>exa</span></span></a>
+    <a class="brand" href="./" aria-label="Modexa"><span class="brand-symbol" aria-hidden="true"><i data-lucide="orbit"></i></span><span class="brand-word">Mod<span>exa</span></span></a>
     <div class="header-actions"><a class="legal-header-link" href="./privacy" data-i="legalPrivacy">Конфиденциальность</a><button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">EN</button></div>
   </div></header>
 
@@ -127,6 +129,6 @@
     <div class="cookie-copy"><strong id="cookieTitle" data-i="cookieTitle">Настройки аналитики</strong><p data-i="cookieCopy">Яндекс.Метрика необязательна и запускается только после вашего согласия.</p><p><a href="./privacy" data-i="cookieLearnMore">Политика конфиденциальности</a></p></div>
     <div class="cookie-actions"><button class="cookie-accept" id="cookieAccept" type="button" data-i="cookieAccept">Разрешить</button><button class="cookie-dismiss" id="cookieReject" type="button" data-i="cookieReject">Не разрешать</button></div>
   </aside>
-  <script src="./script.js?v=1" defer></script>
+  <script src="./script.js?v=5" defer></script>
 </body>
 </html>

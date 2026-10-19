@@ -3,7 +3,7 @@
   "use strict";
 
   var LANGUAGE_KEY = "modexa:language";
-  var CONSENT_KEY = "modexa:analytics-consent";
+  var CONSENT_KEY = "cookie_accepted";
   var counterId = 113677294;
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -215,7 +215,7 @@
     var pointerTarget = { x: 0.5, y: 0.45 };
     var lastFrame = 0;
     var visible = !document.hidden;
-    var colors = ["130,112,255", "62,166,255", "196,94,255", "65,207,199", "91,111,255", "67,190,232"];
+    var colors = ["88,101,242", "36,161,222"];
     var blobs = colors.map(function (color, index) {
       return {
         color: color,
@@ -312,6 +312,8 @@
         var y = (event.clientY - bounds.top) / bounds.height;
         card.style.setProperty("--tilt-x", ((0.5 - y) * 4.2).toFixed(2) + "deg");
         card.style.setProperty("--tilt-y", ((x - 0.5) * 4.8).toFixed(2) + "deg");
+        card.style.setProperty("--spot-x", (x * 100).toFixed(1) + "%");
+        card.style.setProperty("--spot-y", (y * 100).toFixed(1) + "%");
       });
       card.addEventListener("pointerleave", function () {
         card.style.setProperty("--tilt-x", "0deg");
@@ -320,6 +322,7 @@
     });
   }
 
+  /* СЮДА ВСТАВИТЬ КОД ЯНДЕКС.МЕТРИКИ: загрузчик счётчика вызывается только при cookie_accepted === "true". */
   /* Yandex Metrica is not requested from the browser until analytics is explicitly accepted. */
   function loadMetrica() {
     if (window.__modexaMetricaLoaded) return;
@@ -364,10 +367,10 @@
     cookieBanner.setAttribute("aria-hidden", "false");
     window.requestAnimationFrame(function () { cookieBanner.classList.add("visible"); });
   }
-  if (consent === "accepted") loadMetrica();
+  if (consent === "true") loadMetrica();
   if (cookieBanner && !consent) window.setTimeout(openCookieBanner, 450);
   if (acceptButton) acceptButton.addEventListener("click", function () {
-    safeStorageSet(CONSENT_KEY, "accepted");
+    safeStorageSet(CONSENT_KEY, "true");
     closeCookieBanner();
     loadMetrica();
   });
@@ -381,4 +384,6 @@
       openCookieBanner();
     });
   });
+  /* Lucide is optional: the site remains functional if the CDN is unavailable. */
+  if (window.lucide && typeof window.lucide.createIcons === "function") window.lucide.createIcons();
 })();
