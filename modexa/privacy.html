@@ -1,25 +1,148 @@
-<!doctype html><html lang="ru"><head>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113677294', 'ym');
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080a16">
+  <meta name="description" content="Политика конфиденциальности Modexa для сервисов Discord и Telegram.">
+  <link rel="stylesheet" href="./effects.css?v=4">
+  <title>Политика конфиденциальности — Modexa</title>
+</head>
+<body data-page="privacy">
+  <canvas class="metasphere-canvas" id="metaspheres" aria-hidden="true"></canvas>
+  <div class="ambient-shade" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <header class="site-header" id="siteHeader"><div class="header-inner">
+    <a class="brand" href="./" aria-label="Modexa"><span class="brand-symbol" aria-hidden="true">m</span><span class="brand-word">Mod<span>exa</span></span></a>
+    <div class="header-actions"><a class="header-nav" href="./terms" data-i="legalTerms">Условия использования</a><button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">EN</button></div>
+  </div></header>
 
-    ym(113677294, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/113677294" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050505"><meta name="description" content="Политика обработки персональных данных Modexa — сайт и боты Telegram/Discord."><link rel="icon" href="./modexa-favicon.ico" type="image/x-icon"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><title>Политика конфиденциальности — Modexa</title><style>:root{color-scheme:dark;--bg:#050505;--line:rgba(255,255,255,.06);--text:#fafafa;--muted:#a1a1aa;--discord:#5865f2;--telegram:#24a1de;--sans:Inter,ui-sans-serif,system-ui,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font:15px/1.8 var(--sans);-webkit-font-smoothing:antialiased;overflow-wrap:anywhere}body:before,body:after{content:"";position:fixed;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(100px);opacity:.12;width:min(48vw,620px);aspect-ratio:1}body:before{top:0;left:-17vw;background:var(--discord)}body:after{top:40vh;right:-17vw;background:var(--telegram)}a{color:#d4d4d8;text-decoration:none;text-underline-offset:4px}a:hover{color:#fff}.wrap{width:min(920px,calc(100% - 32px));margin:0 auto;padding:24px 0 48px}.top{position:sticky;top:12px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px;padding:11px 15px;border:1px solid var(--line);border-radius:16px;background:rgba(5,5,5,.76);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}.brand{display:flex;align-items:center;gap:10px;color:#fafafa;font-size:14px;font-weight:800;letter-spacing:-.05em}.brand img{width:37px;height:37px;object-fit:contain}.muted-brand{color:#a1a1aa}.back{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:650;color:#a1a1aa}.back svg{width:15px;height:15px}.paper{position:relative;overflow:hidden;padding:clamp(24px,5vw,54px);border:1px solid var(--line);border-radius:24px;background:rgba(10,10,12,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.paper:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)}.eyebrow{display:inline-flex;padding:7px 10px;border:1px solid rgba(255,255,255,.07);border-radius:99px;color:#a1a1aa;font-size:9px;letter-spacing:.12em}h1{margin:18px 0 12px;font-size:clamp(34px,6vw,55px);line-height:1.04;letter-spacing:-.08em;font-weight:700;background:linear-gradient(105deg,#fff,#a1a1aa);background-clip:text;-webkit-background-clip:text;color:transparent}.muted{color:#71717a;font-size:10px;letter-spacing:.04em}.notice{margin:25px 0;padding:15px 17px;border:1px solid rgba(255,255,255,.07);border-radius:14px;background:rgba(255,255,255,.025);color:#d4d4d8;font-size:12px;line-height:1.8}h2{margin:34px 0 10px;padding-top:20px;border-top:1px solid var(--line);font-size:19px;line-height:1.4;letter-spacing:-.04em}p,li{color:#a1a1aa;font-size:13px;line-height:1.9}p{margin:12px 0}ul,ol{padding-left:22px}li{margin:7px 0;padding-left:3px}strong{color:#f4f4f5;font-weight:650}.paper a{border-bottom:1px solid rgba(255,255,255,.2)}.paper a:hover{border-color:#fff}footer{display:flex;justify-content:space-between;gap:16px;margin-top:19px;padding:18px 4px;color:#52525b;font-size:10px}@media(max-width:600px){.wrap{width:calc(100% - 22px);padding-top:12px}.top{top:7px;margin-bottom:16px;padding:9px 11px}.paper{border-radius:18px;padding:23px 18px}.brand{font-size:12px}.brand img{width:32px;height:32px}h2{font-size:17px;margin-top:28px}footer{flex-direction:column;gap:6px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style></head><body><main class="wrap"><header class="top"><a class="brand" href="./index.html"><img src="./modexa-logo.png" alt="Modexa"><span>Mod<span class="muted-brand">exa</span></span></a><a href="./terms.html" class="back">Условия</a><a class="back" href="./index.html"><i data-lucide="arrow-left"></i> На главную</a></header><article class="paper"><div class="eyebrow">MODEXA / PRIVACY</div><h1>Политика конфиденциальности</h1><p class="muted">Редакция от 19 октября 2026 года</p><div class="notice">Политика описывает предполагаемые категории данных и цели обработки для сайта, ботов и связанных функций Modexa. Перед включением новой функции оператор должен проверить, соответствует ли её фактическая реализация этому описанию.</div>
-<h2>1. Оператор и сфера действия</h2><p>Оператор: <strong>Медведев Артём</strong> (далее — Оператор). Контакт по вопросам данных: <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>. Почтовый адрес не публикуется на сайте по соображениям конфиденциальности; обращения рассматриваются индивидуально по электронной почте.</p><p>Политика относится к сайту <a href="https://modexa.artem4ik493.ru/">modexa.artem4ik493.ru</a>, ботам Modexa для Telegram и Discord, привязке аккаунтов и межплатформенному мосту в той мере, в какой эти функции включены. Telegram, Discord, хостинг-провайдеры и другие сторонние сервисы также могут обрабатывать данные по своим условиям и политикам.</p>
-<h2>2. Категории данных</h2><ul><li><strong>Telegram:</strong> ID пользователя, username и имя профиля, а также команды и сообщения, которые пользователь направляет боту и которые необходимы для исполнения соответствующей команды.</li><li><strong>Discord:</strong> ID пользователя и сервера, username, отображаемое имя, аватар, роли, разрешения и контекст взаимодействия, необходимый для функций бота.</li><li><strong>Привязка аккаунтов:</strong> идентификаторы соответствующих платформ, состояние привязки и технические данные проверки, если пользователь использует связывание аккаунтов.</li><li><strong>Мост сообщений:</strong> содержание сообщений и метаданные канала/чата, которые необходимы для пересылки между подключёнными сообществами, когда интеграция включена и настроена.</li><li><strong>Технические данные:</strong> дата и время событий, сведения об ошибках, команды, необходимые журналы безопасности и диагностики.</li><li><strong>Сайт:</strong> серверные журналы и технические данные браузера, которые могут включать IP-адрес, запрошенный URL, время запроса и сведения о браузере.</li></ul><p>Modexa не просит пользователей вводить пароли от Telegram или Discord, токены входа, паспортные данные, банковские реквизиты, сведения о здоровье или специальные категории персональных данных. Не отправляйте подобные сведения в боты, мост или службу поддержки.</p>
-<h2>3. Цели и основания обработки</h2><p>Данные могут использоваться для выполнения команд, предоставления функций бота, связывания аккаунтов, управления участниками и ролями, работы настроенного моста, обеспечения безопасности, предотвращения злоупотреблений, исправления ошибок, поддержки пользователей и исполнения обязательных требований закона.</p><p>Основание обработки определяется применимым правом и конкретной операцией: выполнение запрошенной функции, согласие — когда оно требуется, законный интерес в обеспечении безопасности при соблюдении прав субъектов, или исполнение юридической обязанности. Политика сама по себе не заменяет отдельное согласие, когда закон требует получить его отдельно.</p>
-<h2>4. Межплатформенный мост</h2><p>При включённом мосте содержание сообщения и связанные метаданные могут передаваться из настроенного Telegram-чата/канала в Discord или наоборот, чтобы отобразить сообщение в другом сообществе. Доступность и объём пересылаемых данных зависят от настроек интеграции и реализованных функций.</p><p>Администраторы сообщества отвечают за выбор каналов, конфигурацию моста, права доступа и уведомление участников о пересылке. Не используйте мост для передачи секретов, паролей, платёжных данных, медицинской информации или иных конфиденциальных сведений. Оператор не продаёт данные и не использует их для профилирующей рекламы.</p>
-<h2>5. Получатели и международная обработка</h2><p>Данные могут обрабатываться инфраструктурой, необходимой для доставки сообщений и работы сервиса, включая Telegram, Discord и поставщиков хостинга. Передача ограничивается необходимым для конкретной функции объёмом. Оператор не контролирует независимую обработку данных самими платформами; пользователи должны ознакомиться с их условиями и политиками.</p><p>Основной сервер размещён в России и находится под контролем Оператора. Использование Telegram, Discord или сторонних поставщиков может означать обработку данных за пределами России. Если применимое законодательство требует дополнительных условий для международной передачи или локализации, такие требования должны быть оценены и выполнены до соответствующей обработки.</p>
-<h2>6. Хранение и удаление</h2><p>Текущие ориентиры хранения: технические журналы — до 7 дней, резервные копии — до 20 дней, долгосрочные копии и базы данных — до 40 дней. Реальные сроки могут различаться в зависимости от категории записи, текущей конфигурации функций, резервного копирования, расследования инцидента и требований закона. По истечении срока данные удаляются или обезличиваются, если более длительное хранение не требуется по закону.</p>
-<h2>7. Cookies и localStorage</h2><p>Сайт использует localStorage в браузере для сохранения выбора в cookie-баннере (ключ <code>cookie_accepted</code>). Сайт загружает счётчик Яндекс.Метрики (номер 113677294) при открытии страницы. В конфигурации включены вебвизор, карта кликов, отслеживание ссылок и электронной коммерции. Эти инструменты могут обрабатывать технические сведения о посещении, действиях на странице, источнике перехода, браузере и устройстве; поставщик аналитики может использовать cookies и аналогичные технологии. Счётчик загружается независимо от кнопки «Принять» в баннере, поэтому этот баннер не управляет запуском Яндекс.Метрики. Перед использованием счётчика оператор должен определить и выполнить требования применимого законодательства к уведомлению и согласию, включая настройки вебвизора и записи действий. Google Analytics не подключена.</p>
-<h2>8. Права пользователей</h2><p>В зависимости от применимого закона пользователь может запросить сведения об обработке, доступ к данным, исправление неточных данных, удаление, ограничение обработки, возразить против отдельных видов обработки, отозвать согласие или подать жалобу в компетентный надзорный орган. Направьте запрос на <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a> с темой «Modexa — запрос по персональным данным». Оператор может запросить разумное подтверждение личности и ответит в срок, установленный применимым законодательством.</p>
-<h2>9. Безопасность и инциденты</h2><p>Оператор стремится использовать разумные организационные и технические меры защиты, ограничивать доступ к данным и не собирать лишнее. Ни одна система передачи или хранения не может быть гарантирована как абсолютно безопасная. В случае инцидента Оператор действует согласно требованиям, применимым к конкретной обработке.</p>
-<h2>10. Изменения и контакты</h2><p>Политика может обновляться при изменении функций, категорий данных, инфраструктуры или законодательства. Новая редакция публикуется на этой странице с датой редакции.</p><p><strong>Оператор:</strong> Медведев Артём<br><strong>Email:</strong> <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a></p></article><footer><span>© 2026 Modexa</span><span>Privacy & data protection</span></footer></main><script src="https://unpkg.com/lucide@latest"></script><script>if(window.lucide)lucide.createIcons()</script></body></html>
+  <main class="legal-page">
+    <div class="legal-shell">
+      <section class="glass legal-hero">
+        <div class="section-kicker">MODEXA / LEGAL / 01</div>
+        <h1 data-lang-block="ru" data-page-title="ru">Политика конфиденциальности</h1>
+        <h1 data-lang-block="en" data-page-title="en" hidden>Privacy Policy</h1>
+        <p data-lang-block="ru">Последнее обновление: 19 октября 2026 года. Документ описывает обработку данных при использовании сервисов Modexa, связанных с Telegram, Discord и сайтом проекта.</p>
+        <p data-lang-block="en" hidden>Last updated: 19 October 2026. This document describes data processing when using Modexa services connected with Telegram, Discord, and the project website.</p>
+      </section>
+
+      <article class="glass legal-content">
+        <div data-lang-block="ru">
+          <div class="legal-notice">Политика описывает предполагаемые способы обработки в рамках доступных функций. Техническая реализация функций может меняться в ходе открытого бета-тестирования; обработка должна оставаться ограниченной необходимыми данными и указанными целями.</div>
+          <h2>1. Оператор и сфера действия</h2>
+          <p>Оператор: Медведев Артём, физическое лицо. Для вопросов об обработке персональных данных, запросов на доступ или удаление используйте адрес <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>. Почтовый адрес оператора публично не размещается; обращения рассматриваются по электронной почте.</p>
+          <p>Политика относится к данным, которые оператор получает или обрабатывает через ботов Modexa для Telegram и Discord, межплатформенный мост, связанные функции идентификации и сайт Modexa. Telegram и Discord являются самостоятельными платформами и отдельно обрабатывают данные пользователей по собственным документам. Их правила не заменяются этой Политикой.</p>
+
+          <h2>2. Категории данных</h2>
+          <p>В зависимости от фактически используемой команды, выданных разрешений и настроек сообщества могут обрабатываться:</p>
+          <ul>
+            <li>идентификаторы пользователя Telegram и Discord; идентификаторы серверов, каналов и чатов, необходимые для работы интеграции;</li>
+            <li>имя пользователя, отображаемое имя, доступная аватарка и сведения о ролях — только когда соответствующая функция их использует;</li>
+            <li>записи о связывании аккаунтов, одноразовые коды подтверждения и внутренний идентификатор Modexa, если включена связка платформ;</li>
+            <li>настройки бота и сообщества, параметры интеграции, выбранный язык и служебные данные, необходимые для выполнения команды;</li>
+            <li>содержание сообщения и отображаемые данные отправителя — только при обработке команды, при наличии соответствующей функции или при включённом межплатформенном мосте;</li>
+            <li>технические журналы: время события, тип операции, диагностические сообщения, ошибки, результаты выполнения команд и данные, необходимые для защиты сервиса.</li>
+          </ul>
+          <p>Боты не запрашивают пароль от аккаунта, пароль от почты, платёжные реквизиты или токен авторизации пользователя. Не отправляйте такие секреты в команды, сообщения об ошибках или обращения в поддержку. Необходимые данные зависят от текущей реализации; эта Политика должна обновляться, если набор данных существенно изменится.</p>
+
+          <h2>3. Цели и основания обработки</h2>
+          <p>Данные используются для выполнения запрошенных функций бота, связывания поддерживаемых аккаунтов, хранения настроек, работы настроенных интеграций, доставки технических ответов, выявления сбоев, обеспечения безопасности и ответа на обращения пользователей.</p>
+          <p>Основание обработки определяется применимым законодательством и конкретной операцией. Это может быть согласие субъекта, когда оно требуется, выполнение функции, инициированной пользователем или администратором, законный интерес в обеспечении безопасности и предотвращении злоупотреблений при соблюдении прав субъекта, либо исполнение установленной законом обязанности. Само наличие этой Политики не заменяет отдельное согласие там, где оно требуется законом.</p>
+          <p>Оператор не продаёт персональные данные и не использует данные Discord API или Telegram для рекламных профилей. Данные не должны обрабатываться для целей, несовместимых с описанными здесь, без отдельного законного основания и необходимых уведомлений.</p>
+
+          <h2>4. Межплатформенный мост</h2>
+          <p>Передача сообщений не является автоматической для всех чатов по умолчанию. Она возможна только в пределах реализованной функции, если администратор подключил площадки, выбрал каналы и включил соответствующие настройки. При такой передаче могут обрабатываться текст сообщения, имя или доступный профиль отправителя, идентификатор исходного и целевого канала, время передачи и технический результат отправки.</p>
+          <p>Администратор сообщества отвечает за выбор каналов, предоставленные боту разрешения и информирование участников о включённой пересылке. Не следует подключать каналы с конфиденциальными сообщениями, если их пересылка не согласована с участниками. Оператор может использовать минимальные диагностические записи для расследования ошибок доставки, но не гарантирует сохранение или успешную доставку каждого сообщения.</p>
+
+          <h2>5. Получатели и инфраструктура</h2>
+          <p>Данные могут направляться Telegram и Discord в объёме, необходимом для работы соответствующих API и функций. Основной сервер проекта расположен в Российской Федерации и находится под контролем оператора. Отдельные инфраструктурные поставщики могут привлекаться только в случае их фактического использования для хостинга или технической эксплуатации; оператор не заявляет о наличии поставщиков, которые ему неизвестны.</p>
+          <p>Взаимодействие с API платформ может означать передачу необходимых данных самой платформе и их последующую обработку по её условиям, в том числе с использованием инфраструктуры за пределами РФ. До включения функции, предполагающей трансграничную передачу персональных данных, оператор должен оценить применимые требования и выполнить необходимые законные процедуры; функция может быть ограничена, если условия передачи не выполнены.</p>
+
+          <h2>6. Хранение и удаление</h2>
+          <p>Технические журналы хранятся до 7 дней. Резервные копии — до 20 дней. Долгосрочные копии и базы данных — до 40 дней. После истечения соответствующего периода данные удаляются или перезаписываются в рамках настроенных процедур, кроме случаев, когда более длительное хранение прямо требуется законом или необходимо для расследования инцидента.</p>
+          <p>Идентификаторы, настройки и записи связывания аккаунтов могут храниться, пока нужны для предоставления соответствующей функции. Пользователь может запросить их удаление по адресу, указанному ниже. Удаление связки может отключить межплатформенные функции, синхронизацию или персональные настройки. Удаление из резервных копий может завершиться после истечения установленного периода резервного хранения.</p>
+
+          <h2>7. Аналитика сайта и локальное хранилище</h2>
+          <p>Сайт использует локальное хранилище браузера (localStorage), чтобы запомнить выбор пользователя по необязательной аналитике. Счётчик Яндекс.Метрики загружается только после нажатия кнопки разрешения в баннере аналитики. Если пользователь запрещает аналитику, код счётчика не загружается. При отсутствии выбора сайт показывает баннер с вариантами разрешить или не разрешать её использование.</p>
+          <p>После согласия Яндекс.Метрика может обрабатывать сведения о посещении страницы, источнике перехода, действиях на сайте, параметрах браузера и устройства и использовать cookies либо аналогичные технологии в соответствии с настройками счётчика и документами поставщика. Эти данные используются для анализа работы сайта. Оператор должен отдельно оценивать необходимость согласия и другие требования применимого законодательства, а также корректно отзывать согласие при изменении выбора пользователя.</p>
+          <p><button class="button button-secondary" type="button" data-open-cookie>Настройки аналитики</button></p>
+
+          <h2>8. Права пользователя и запросы</h2>
+          <p>Вы можете направить запрос о том, какие данные обрабатываются, попросить исправить неточные сведения, удалить данные, ограничить обработку или отозвать согласие в случаях, когда обработка основана на согласии. Для этого напишите на <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a> с темой «Modexa — запрос по персональным данным» и опишите платформу, своё имя пользователя и характер запроса. Не прикладывайте пароли, токены или лишние документы.</p>
+          <p>Оператор может запросить соразмерное подтверждение принадлежности аккаунта, чтобы не раскрыть данные постороннему лицу. Ответ предоставляется в сроки, установленные применимым законодательством. Если данные нужно удалить также из самой платформы, пользователь может дополнительно воспользоваться средствами управления аккаунтом в Telegram или Discord.</p>
+
+          <h2>9. Безопасность и инциденты</h2>
+          <p>Оператор принимает разумные технические и организационные меры для ограничения доступа, защиты секретов приложения, настройки прав и диагностики сбоев. Ни один способ передачи или хранения не обеспечивает абсолютную безопасность. При выявлении инцидента оператор оценивает его последствия и выполняет уведомления, которые требуются законом.</p>
+          <p>Ссылки на сторонние платформы ведут на сайты и сервисы, управляемые их операторами. Их обработка данных описывается их собственными документами.</p>
+
+          <h2>10. Изменения и контакты</h2>
+          <p>Политика может обновляться при изменении функций, инфраструктуры или требований законодательства. Актуальная редакция публикуется на этой странице; существенные изменения отражаются в дате обновления. Вопросы, запросы на доступ, исправление или удаление данных направляйте на <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>.</p>
+          <p>Оператор: Медведев Артём. Сайт: <a href="./">modexa.artem4ik493.ru</a>. Связанный документ: <a href="./terms">Условия использования</a>.</p>
+        </div>
+
+        <div data-lang-block="en" hidden>
+          <div class="legal-notice">This Policy describes the intended processing associated with available features. Implementation may change during the open beta; processing must remain limited to the data necessary for the stated purposes.</div>
+          <h2>1. Controller and scope</h2>
+          <p>Controller: Artem Medvedev, an individual. For questions about personal-data processing, access requests, or deletion requests, contact <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>. The controller's postal address is not published; enquiries are handled by email.</p>
+          <p>This Policy applies to data the controller receives or processes through Modexa bots for Telegram and Discord, the cross-platform bridge, related identity features, and the Modexa website. Telegram and Discord are separate platforms and process user data under their own documents. This Policy does not replace their rules.</p>
+
+          <h2>2. Categories of data</h2>
+          <p>Depending on the command actually used, permissions granted, and community settings, the following data may be processed:</p>
+          <ul>
+            <li>Telegram and Discord user IDs, and server, channel, or chat IDs needed for an integration;</li>
+            <li>username, display name, available avatar, and role information, only when the relevant feature uses them;</li>
+            <li>account-link records, one-time verification codes, and an internal Modexa identifier where platform linking is enabled;</li>
+            <li>bot and community settings, integration parameters, selected language, and service data required to execute a command;</li>
+            <li>message content and sender display information only when processing a command, using a relevant feature, or operating an enabled cross-platform bridge;</li>
+            <li>technical logs such as event time, operation type, diagnostic messages, errors, command results, and data needed to protect the service.</li>
+          </ul>
+          <p>The bots do not request account passwords, email passwords, payment details, or user authentication tokens. Do not send such secrets in commands, issue reports, or support requests. Required data depends on the current implementation; this Policy must be updated if the categories change materially.</p>
+
+          <h2>3. Purposes and legal grounds</h2>
+          <p>Data is used to provide bot features requested by users, link supported accounts, store settings, operate configured integrations, return technical responses, diagnose faults, protect the service, and respond to user enquiries.</p>
+          <p>The applicable legal ground depends on the law and the specific operation. It may include consent where required, performance of a feature initiated by a user or administrator, a legitimate interest in security and abuse prevention balanced against the individual's rights, or compliance with a legal obligation. This Policy does not replace separate consent where the law requires it.</p>
+          <p>The controller does not sell personal data and does not use Discord API Data or Telegram data for advertising profiles. Data must not be processed for purposes incompatible with those described here without a separate lawful ground and required notices.</p>
+
+          <h2>4. Cross-platform bridge</h2>
+          <p>Messages are not forwarded automatically from every chat by default. Forwarding is available only within an implemented feature when an administrator connects the platforms, selects channels, and enables the relevant settings. In that case, processing may include message text, the sender's name or available profile information, source and destination channel IDs, forwarding time, and technical delivery result.</p>
+          <p>Community administrators are responsible for choosing channels, granting the bot permissions, and informing members when forwarding is enabled. Do not connect channels containing confidential messages unless forwarding is appropriate and has been communicated to participants. The controller may use minimal diagnostic records to investigate delivery errors but does not guarantee retention or successful delivery of every message.</p>
+
+          <h2>5. Recipients and infrastructure</h2>
+          <p>Data may be sent to Telegram and Discord to the extent needed for their APIs and related features. The project's primary server is located in the Russian Federation and is under the controller's control. Separate infrastructure providers may be involved only if actually used for hosting or technical operation; the controller does not claim to use providers that have not been identified.</p>
+          <p>Interactions with platform APIs may require the relevant platform to receive data and process it under its own terms, including through infrastructure outside Russia. Before enabling a feature that entails cross-border transfer of personal data, the controller must assess applicable requirements and complete required legal procedures; the feature may be restricted if transfer conditions are not met.</p>
+
+          <h2>6. Retention and deletion</h2>
+          <p>Technical logs are retained for up to 7 days. Backups are retained for up to 20 days. Long-term copies and databases are retained for up to 40 days. After the relevant period, data is deleted or overwritten through configured procedures unless longer retention is expressly required by law or needed to investigate an incident.</p>
+          <p>Identifiers, settings, and account-link records may be kept for as long as needed to provide the relevant feature. Users may request deletion using the contact below. Deleting a link may disable cross-platform features, synchronization, or personal settings. Removal from backups may complete after the applicable backup-retention period.</p>
+
+          <h2>7. Website analytics and local storage</h2>
+          <p>The website uses browser local storage to remember a user's choice about optional analytics. Yandex Metrica is loaded only after the user selects the allow option in the analytics banner. If the user rejects analytics, the counter code is not loaded. When no choice has been made, the website displays a banner offering allow and reject options.</p>
+          <p>After consent, Yandex Metrica may process page visits, referral source, on-site actions, browser and device parameters, and use cookies or similar technologies according to the counter settings and provider documentation. These data are used to understand website use. The controller must separately assess consent and other applicable legal requirements and must respect a changed choice.</p>
+          <p><button class="button button-secondary" type="button" data-open-cookie>Analytics settings</button></p>
+
+          <h2>8. User rights and requests</h2>
+          <p>You may ask what data is processed, request correction of inaccurate information, request deletion or restriction of processing, or withdraw consent where processing is based on consent. Email <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a> with the subject “Modexa — personal data request” and identify the platform, your username, and the type of request. Do not attach passwords, tokens, or unnecessary documents.</p>
+          <p>The controller may request proportionate proof of account ownership to avoid disclosing data to the wrong person. Responses are provided within the time limits required by applicable law. If data also needs to be deleted from the platform itself, users may additionally use account-management tools provided by Telegram or Discord.</p>
+
+          <h2>9. Security and incidents</h2>
+          <p>The controller takes reasonable technical and organisational measures to restrict access, protect application secrets, manage permissions, and diagnose failures. No method of transmission or storage provides absolute security. If an incident is identified, the controller assesses its impact and makes notifications required by law.</p>
+          <p>Links to third-party platforms lead to services operated by their own providers. Their data processing is governed by their respective documents.</p>
+
+          <h2>10. Changes and contact</h2>
+          <p>This Policy may be updated when features, infrastructure, or legal requirements change. The current version is published on this page; material changes are reflected in the revision date. Send questions or requests for access, correction, or deletion to <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>.</p>
+          <p>Controller: Artem Medvedev. Website: <a href="./">modexa.artem4ik493.ru</a>. Related document: <a href="./terms">Terms of Use</a>.</p>
+        </div>
+      </article>
+
+      <footer class="legal-footer"><div data-lang-block="ru">© 2026 Modexa · <a href="./terms">Условия использования</a> · <a href="mailto:misteart.medvedev@outlook.com">Контакты</a></div><div data-lang-block="en" hidden>© 2026 Modexa · <a href="./terms">Terms of Use</a> · <a href="mailto:misteart.medvedev@outlook.com">Contact</a></div></footer>
+    </div>
+  </main>
+
+  <aside class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-hidden="true" hidden>
+    <div class="cookie-copy"><strong id="cookieTitle" data-i="cookieTitle">Настройки аналитики</strong><p data-i="cookieCopy">Яндекс.Метрика необязательна и запускается только после вашего согласия.</p><p><a href="./privacy" data-i="cookieLearnMore">Политика конфиденциальности</a></p></div>
+    <div class="cookie-actions"><button class="cookie-accept" id="cookieAccept" type="button" data-i="cookieAccept">Разрешить</button><button class="cookie-dismiss" id="cookieReject" type="button" data-i="cookieReject">Не разрешать</button></div>
+  </aside>
+  <script src="./script.js?v=1" defer></script>
+</body>
+</html>
