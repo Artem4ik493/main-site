@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://modexa.artem4ik493.ru/">
   <link rel="icon" href="./modexa-favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./style.css?v=8">
+  <link rel="stylesheet" href="./style.css?v=9">
   <title>Modexa — Community Core</title>
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -23,7 +23,7 @@
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="Modexa">
-        <span class="brand-symbol" aria-hidden="true"><i data-lucide="orbit"></i></span>
+        <span class="brand-symbol" aria-hidden="true"><img src="./modexa-logo.png" alt="" width="28" height="28"></span>
         <span class="brand-word">Mod<span>exa</span></span>
       </a>
       <nav class="header-nav" id="headerNav" data-i-aria="mainNavLabel" aria-label="Основная навигация">
@@ -83,19 +83,11 @@
       </div>
     </section>
 
-    <section class="section" id="flow">
-      <div class="shell">
-        <div class="section-head">
-          <div><div class="section-kicker reveal" data-i="flowKicker">02 / ПЕРВЫЕ ШАГИ</div><h2 class="section-title reveal"><span data-i="flowTitleA">Подключиться просто.</span><br><span class="gradient-text" data-i="flowTitleB">Тестировать можно сейчас.</span></h2></div>
-          <p class="section-copy reveal" data-i="flowCopy">Выберите платформу, проверьте доступные команды и сообщите, что можно сделать лучше. Не все запланированные функции обязательно доступны в бета-версии.</p>
-        </div>
-        <div class="steps-grid">
-          <article class="glass step-card reveal" data-tilt><div class="step-number">01 / CONNECT</div><div class="step-icon" aria-hidden="true">↗</div><h3 data-i="stepOneTitle">Откройте бота</h3><p data-i="stepOneCopy">Запустите Telegram-бота или откройте приложение Modexa в Discord. Проверьте запрашиваемые разрешения перед подключением.</p></article>
-          <article class="glass step-card reveal" data-tilt><div class="step-number">02 / EXPLORE</div><div class="step-icon" aria-hidden="true">⌘</div><h3 data-i="stepTwoTitle">Попробуйте функции</h3><p data-i="stepTwoCopy">Изучите команды и настройки, которые доступны в текущей сборке. Некоторые возможности могут отличаться на разных платформах.</p></article>
-          <article class="glass step-card reveal" data-tilt><div class="step-number">03 / FEEDBACK</div><div class="step-icon" aria-hidden="true">↗</div><h3 data-i="stepThreeTitle">Поделитесь обратной связью</h3><p data-i="stepThreeCopy">Опишите ошибку, шаги её воспроизведения и ожидаемый результат в сообществе Discord.</p></article>
-        </div>
-      </div>
-    </section>
+<section class="section" id="flow"><div class="shell"><div class="section-head"><div><div class="section-kicker reveal" data-i="flowKicker">02 / ПЕРВЫЕ ШАГИ</div><h2 class="section-title reveal"><span data-i="flowTitleA">Подключиться просто.</span><br><span class="gradient-text" data-i="flowTitleB">Тестировать можно сейчас.</span></h2></div><p class="section-copy reveal" data-i="flowCopy">Выберите канал поддержки в интерактивном макете Discord, посмотрите примеры сообщений и откройте приложение Modexa.</p></div>
+<div class="support-preview reveal" aria-label="Интерактивный макет Discord-сервера поддержки"><aside class="support-sidebar"><a class="support-server" href="https://discord.gg/BPZRfsh6zx" target="_blank" rel="noopener noreferrer"><span class="support-server-logo"><img src="./modexa-logo.png" alt="" width="28" height="28"></span><span><strong>Modexa Support</strong><small data-i="supportServerSubtitle">СЕРВЕР ПОДДЕРЖКИ</small></span><span class="support-server-open">↗</span></a>
+<div class="support-group-label"><span>ENGLISH</span><i data-lucide="chevron-down"></i></div><button class="support-channel" type="button" data-support-channel="announcements"><i data-lucide="megaphone"></i><span>announcements</span></button><button class="support-channel" type="button" data-support-channel="information"><i data-lucide="hash"></i><span>information</span></button><button class="support-channel" type="button" data-support-channel="bug-reports"><i data-lucide="bug"></i><span>bug-reports</span></button>
+<div class="support-group-label"><span>РУССКИЙ</span><i data-lucide="chevron-down"></i></div><button class="support-channel is-active" type="button" data-support-channel="информация"><i data-lucide="hash"></i><span>информация</span></button><button class="support-channel" type="button" data-support-channel="баг-репорты"><i data-lucide="bug"></i><span>баг-репорты</span></button><button class="support-channel" type="button" data-support-channel="объявления"><i data-lucide="megaphone"></i><span>объявления</span></button><a class="support-sidebar-cta" href="https://discord.gg/BPZRfsh6zx" target="_blank" rel="noopener noreferrer"><i data-lucide="users-round"></i><span data-i="supportJoin">Открыть сервер</span><span>↗</span></a></aside>
+<div class="support-chat"><div class="support-chat-head"><div class="support-chat-title"><i data-lucide="hash"></i><strong id="supportChannelTitle">информация</strong></div><span class="support-online"><span class="live-dot"></span><span data-i="supportLiveLabel">ПРИМЕР ИНТЕРФЕЙСА</span></span></div><div class="support-chat-body" id="supportChatBody"><div class="support-welcome"><span class="support-welcome-icon"><i data-lucide="messages-square"></i></span><h3 data-i="supportWelcomeTitle">Добро пожаловать в поддержку Modexa</h3><p data-i="supportWelcomeCopy">Выберите канал слева. Это макет, не подключённый к Discord.</p></div><div class="support-message"><span class="support-avatar support-avatar-modexa"><img src="./modexa-logo.png" alt="" width="26" height="26"></span><div><div class="support-message-meta"><strong>Modexa</strong><span class="support-bot-tag">APP</span></div><p data-i="supportBotMessage">Привет! Здесь можно узнать о проекте, доступных командах и обратной связи.</p></div></div><div class="support-message"><span class="support-avatar support-avatar-member">A</span><div><div class="support-message-meta"><strong data-i="supportMemberName">Участник</strong><span class="support-role-tag">COMMUNITY</span></div><p data-i="supportMemberMessage">Опишите шаги воспроизведения ошибки и ожидаемый результат. Не публикуйте токены.</p></div></div></div><div class="support-chat-foot"><i data-lucide="info"></i><span data-i="supportDisclaimer">Макет интерактивный; сообщения вымышлены и не поступают из Discord.</span><a href="https://discord.com/discovery/applications/1554589798881034392" target="_blank" rel="noopener noreferrer" data-i="supportTryApp">Попробовать Modexa ↗</a></div></div></div><div class="support-preview-caption"><span><i data-lucide="mouse-pointer-2"></i><span data-i="supportHint">Нажмите на канал слева, чтобы сменить пример</span></span><span class="mono">MODEXA / COMMUNITY</span></div></div></section>
 
     <section class="section" id="integrations">
       <div class="shell">
@@ -142,7 +134,7 @@
           <details class="glass faq-item reveal"><summary data-i="faqTenTitle">Доступна ли панель управления?</summary><p data-i="faqTenCopy">Ссылка на панель/API опубликована на сайте, но веб-панель может находиться в разработке, а часть функций — быть недоступна. Проверяйте актуальное состояние по официальным ссылкам.</p></details>
           <details class="glass faq-item reveal"><summary data-i="faqElevenTitle">Как сообщить о проблеме правильно?</summary><p data-i="faqElevenCopy">Укажите, что вы делали, что ожидали увидеть и что произошло на самом деле. Прикладывайте текст ошибки или скриншот, но скрывайте токены, личные данные и секреты.</p></details>
           <details class="glass faq-item reveal"><summary data-i="faqTwelveTitle">Как обрабатываются мои данные?</summary><p data-i="faqTwelveCopy">Обработка зависит от используемой функции и платформы. Перед использованием ознакомьтесь с <a href="./privacy">политикой конфиденциальности</a>; необязательная Яндекс.Метрика запускается только после согласия.</p></details>
-        </div>
+<details class="glass faq-item"><summary data-i="faqThirteenTitle">Нужно ли выдавать все разрешения?</summary><p data-i="faqThirteenCopy">Нет. Проверяйте разрешения перед установкой и выдавайте только необходимые для используемых функций.</p></details><details class="glass faq-item"><summary data-i="faqFourteenTitle">Почему команда не работает?</summary><p data-i="faqFourteenCopy">Проверьте права приложения и доступность функции в текущей бета-версии. Если проблема повторяется, сообщите в Discord.</p></details><details class="glass faq-item"><summary data-i="faqFifteenTitle">Как отключить интеграцию?</summary><p data-i="faqFifteenCopy">Отключите настройку интеграции или удалите приложение с сервера. По поводу удаления связанной записи аккаунта обратитесь к разработчику.</p></details><details class="glass faq-item"><summary data-i="faqSixteenTitle">Где следить за обновлениями?</summary><p data-i="faqSixteenCopy">Следите за объявлениями в Discord-сообществе и проверяйте страницу статуса сервисов.</p></details>        </div>
       </div>
     </section>
 
