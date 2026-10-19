@@ -42,8 +42,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px soli
 .header-nav a { padding: 9px 10px; border-radius: 10px; color: #b0b4ce; font-size: 11px; font-weight: 650; transition: color .2s ease, background .2s ease; }
 .header-nav a:hover { color: white; background: rgba(255,255,255,.06); }
 .header-actions { display: flex; align-items: center; gap: 8px; }
-.header-actions > .header-nav { padding: 8px 10px; border-radius: 10px; color: #b0b4ce; font-size: 11px; font-weight: 650; transition: color .2s ease, background .2s ease; }
-.header-actions > .header-nav:hover { color: white; background: rgba(255,255,255,.06); }
+.header-actions > .legal-header-link { padding: 8px 10px; border-radius: 10px; color: #b0b4ce; font-size: 11px; font-weight: 650; transition: color .2s ease, background .2s ease; }
+.header-actions > .legal-header-link:hover { color: white; background: rgba(255,255,255,.06); }
 .language-toggle, .menu-toggle { display: inline-flex; min-width: 42px; height: 38px; align-items: center; justify-content: center; padding: 0 11px; border: 1px solid var(--line); border-radius: 11px; background: rgba(255,255,255,.035); color: #f4f5ff; font-size: 10px; font-weight: 800; cursor: pointer; transition: background .2s, border-color .2s; }
 .language-toggle:hover, .menu-toggle:hover { border-color: var(--line-bright); background: rgba(255,255,255,.08); }
 .menu-toggle { display: none; min-width: 38px; font-size: 18px; }
