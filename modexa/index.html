@@ -34,7 +34,7 @@
       </nav>
       <div class="header-actions">
         <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">EN</button>
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button>
+        <button class="menu-toggle" id="menuToggle" type="button" data-i-aria="menuOpen" aria-label="Открыть меню" aria-expanded="false">☰</button>
       </div>
     </div>
   </header>
@@ -128,9 +128,9 @@
         <div class="platform-layout">
           <article class="glass discord-card reveal" data-tilt>
             <div class="discord-label"><span class="brand-dot"></span><span data-i="discordIntegrationLabel">DISCORD / APPLICATION</span></div>
-            <h3 data-i="discordIntegrationTitle">Родной интерфейс. <span class="gradient-text" data-i="discordIntegrationTitleAccent">Связанные возможности.</span></h3>
+            <h3><span data-i="discordIntegrationTitleStart">Родной интерфейс.</span> <span class="gradient-text" data-i="discordIntegrationTitleAccent">Связанные возможности.</span></h3>
             <p data-i="discordIntegrationCopy">Откройте страницу приложения и добавляйте его в нужные сообщества только с подходящими разрешениями. Макет ниже — визуальное превью, а не live-чат.</p>
-            <div class="discord-ui" aria-label="Discord interface preview">
+            <div class="discord-ui" data-i-aria="discordPreviewAria" aria-label="Предпросмотр интерфейса Discord">
               <div class="discord-ui-head"><span class="discord-ui-icon" aria-hidden="true">D</span><div><strong>Modexa</strong><small data-i="discordUiSubtitle">Application preview · not live</small></div></div>
               <div class="discord-ui-body">
                 <div class="discord-message"><span class="discord-avatar" aria-hidden="true">M</span><div><strong>Modexa</strong><time>APP</time><p data-i="discordMessageOne">Платформа подключена к этому примеру интерфейса.</p></div></div>
@@ -143,7 +143,7 @@
 
           <article class="glass telegram-card reveal" data-tilt>
             <div class="telegram-label"><span class="brand-dot"></span><span data-i="telegramIntegrationLabel">TELEGRAM / BOT</span></div>
-            <h3 data-i="telegramIntegrationTitle">Быстрый вход. <span class="gradient-text" data-i="telegramIntegrationTitleAccent">Команды под рукой.</span></h3>
+            <h3><span data-i="telegramIntegrationTitleStart">Быстрый вход.</span> <span class="gradient-text" data-i="telegramIntegrationTitleAccent">Команды под рукой.</span></h3>
             <p data-i="telegramIntegrationCopy">Запустите бота в Telegram, посмотрите список доступных команд и проверьте, какие сценарии уже готовы к тестированию.</p>
             <div class="telegram-visual" aria-hidden="true"><div class="telegram-orbit"><div class="telegram-plane">➤</div></div></div>
             <a class="platform-link telegram-link" href="https://t.me/ModexaPlatformBot" target="_blank" rel="noopener noreferrer"><span data-i="telegramOpenButton">Открыть Telegram-бота</span><span aria-hidden="true">↗</span></a>
