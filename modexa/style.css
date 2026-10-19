@@ -71,3 +71,25 @@ main .support-preview,main .support-preview-caption,main .section-copy{opacity:1
 #faq{padding-bottom:clamp(36px,5vw,64px)}#faq+.section{padding-top:0;padding-bottom:clamp(32px,4vw,56px)}.cta-panel{margin-top:0;margin-bottom:0}.site-footer{margin-top:0}.footer-inner{padding-top:20px;padding-bottom:20px}
 @media(max-width:680px){.faq-grid{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){body:before,.metasphere-fallback:after{animation:none!important}.feature-card,.step-card,.discord-card,.service-card,.signal-item,.preview-panel,.faq-item,.faq-item p{transition:none!important}}
+
+/* v11 hotfix: content is never hidden when reveal observers fail; stable FAQ overlay */
+.reveal{opacity:1!important;transform:none!important;transition:opacity .65s ease,transform .65s ease;transition-delay:0ms!important}
+.reveal.is-visible{opacity:1!important;transform:none!important}
+.hero-visual,.discord-badge-card,.feature-grid,.feature-card,.support-preview,.discord-feature-banner,.service-grid,.service-card,.faq-grid,.cta-panel{visibility:visible!important}
+.hero-visual .discord-badge-card{animation:modexaFloatIn .85s cubic-bezier(.2,.8,.2,1) both}
+@keyframes modexaFloatIn{from{opacity:.25;transform:translateY(16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.feature-card,.step-card,.discord-card,.telegram-card,.service-card,.preview-panel{transition:transform .28s cubic-bezier(.2,.75,.25,1),border-color .25s,background .25s,box-shadow .25s}
+.feature-card:hover,.step-card:hover,.discord-card:hover,.telegram-card:hover,.service-card:hover{transform:translateY(-5px);border-color:rgba(151,160,255,.4);box-shadow:0 16px 42px rgba(0,0,0,.22),0 0 26px rgba(88,101,242,.07)}
+.telegram-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#24a1de;box-shadow:0 0 12px rgba(36,161,222,.45)}
+.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-flow:row;align-items:start;gap:10px;overflow:visible}
+.faq-item{position:relative;z-index:1;display:block;align-self:start;min-width:0;height:auto;min-height:0;overflow:visible;contain:none;transition:border-color .22s,background .22s,box-shadow .22s}
+.faq-item[open]{z-index:20;border-color:rgba(130,141,255,.42);background:rgba(14,16,25,.98);box-shadow:0 12px 34px rgba(0,0,0,.42)}
+.faq-item summary{position:relative;z-index:2;min-height:20px;line-height:1.65}
+.faq-item p{position:absolute;top:calc(100% - 1px);left:-1px;right:-1px;z-index:3;box-sizing:border-box;margin:0!important;padding:0 16px;max-height:0;overflow:hidden;opacity:0;transform:translateY(-5px);border:1px solid transparent;border-top:0;border-radius:0 0 12px 12px;background:rgba(14,16,25,.99);color:#a0a6b4;font-size:10px;line-height:1.85;overflow-wrap:anywhere;pointer-events:none;transition:max-height .28s ease,opacity .22s ease,transform .22s ease,padding .22s ease,border-color .22s ease}
+.faq-item[open] p{max-height:260px;padding:0 16px 16px;opacity:1;transform:translateY(0);border-color:rgba(130,141,255,.42);border-top:0;pointer-events:auto}
+.faq-item[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
+.faq-item summary:after{transition:transform .22s ease}
+@media(max-width:760px){.service-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:680px){.faq-grid{grid-template-columns:minmax(0,1fr);row-gap:10px}.faq-item p{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.hero-visual .discord-badge-card{animation:none}.feature-card,.step-card,.discord-card,.telegram-card,.service-card,.preview-panel,.faq-item,.faq-item p{transition:none!important}}
