@@ -1,25 +1,132 @@
-<!doctype html><html lang="ru"><head>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113677294', 'ym');
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080a16">
+  <meta name="description" content="Условия использования Modexa — бета-сервисов для сообществ Discord и Telegram.">
+  <link rel="stylesheet" href="./effects.css?v=4">
+  <title>Условия использования — Modexa</title>
+</head>
+<body data-page="terms">
+  <canvas class="metasphere-canvas" id="metaspheres" aria-hidden="true"></canvas>
+  <div class="ambient-shade" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <header class="site-header" id="siteHeader"><div class="header-inner">
+    <a class="brand" href="./" aria-label="Modexa"><span class="brand-symbol" aria-hidden="true">m</span><span class="brand-word">Mod<span>exa</span></span></a>
+    <div class="header-actions"><a class="header-nav" href="./privacy" data-i="legalPrivacy">Конфиденциальность</a><button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">EN</button></div>
+  </div></header>
 
-    ym(113677294, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/113677294" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050505"><meta name="description" content="Условия использования сайта и ботов Modexa."><link rel="icon" href="./modexa-favicon.ico" type="image/x-icon"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><title>Условия использования — Modexa</title><style>:root{color-scheme:dark;--bg:#050505;--line:rgba(255,255,255,.06);--text:#fafafa;--muted:#a1a1aa;--discord:#5865f2;--telegram:#24a1de;--sans:Inter,ui-sans-serif,system-ui,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font:15px/1.8 var(--sans);-webkit-font-smoothing:antialiased;overflow-wrap:anywhere}body:before,body:after{content:"";position:fixed;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(100px);opacity:.12;width:min(48vw,620px);aspect-ratio:1}body:before{top:0;left:-17vw;background:var(--discord)}body:after{top:40vh;right:-17vw;background:var(--telegram)}a{color:#d4d4d8;text-decoration:none;text-underline-offset:4px}a:hover{color:#fff}.wrap{width:min(920px,calc(100% - 32px));margin:0 auto;padding:24px 0 48px}.top{position:sticky;top:12px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px;padding:11px 15px;border:1px solid var(--line);border-radius:16px;background:rgba(5,5,5,.76);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}.brand{display:flex;align-items:center;gap:10px;color:#fafafa;font-size:14px;font-weight:800;letter-spacing:-.05em}.brand img{width:37px;height:37px;object-fit:contain}.muted-brand{color:#a1a1aa}.back{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:650;color:#a1a1aa}.back svg{width:15px;height:15px}.paper{position:relative;overflow:hidden;padding:clamp(24px,5vw,54px);border:1px solid var(--line);border-radius:24px;background:rgba(10,10,12,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.paper:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)}.eyebrow{display:inline-flex;padding:7px 10px;border:1px solid rgba(255,255,255,.07);border-radius:99px;color:#a1a1aa;font-size:9px;letter-spacing:.12em}h1{margin:18px 0 12px;font-size:clamp(34px,6vw,55px);line-height:1.04;letter-spacing:-.08em;font-weight:700;background:linear-gradient(105deg,#fff,#a1a1aa);background-clip:text;-webkit-background-clip:text;color:transparent}.muted{color:#71717a;font-size:10px;letter-spacing:.04em}.notice{margin:25px 0;padding:15px 17px;border:1px solid rgba(255,255,255,.07);border-radius:14px;background:rgba(255,255,255,.025);color:#d4d4d8;font-size:12px;line-height:1.8}h2{margin:34px 0 10px;padding-top:20px;border-top:1px solid var(--line);font-size:19px;line-height:1.4;letter-spacing:-.04em}p,li{color:#a1a1aa;font-size:13px;line-height:1.9}p{margin:12px 0}ul,ol{padding-left:22px}li{margin:7px 0;padding-left:3px}strong{color:#f4f4f5;font-weight:650}.paper a{border-bottom:1px solid rgba(255,255,255,.2)}.paper a:hover{border-color:#fff}footer{display:flex;justify-content:space-between;gap:16px;margin-top:19px;padding:18px 4px;color:#52525b;font-size:10px}@media(max-width:600px){.wrap{width:calc(100% - 22px);padding-top:12px}.top{top:7px;margin-bottom:16px;padding:9px 11px}.paper{border-radius:18px;padding:23px 18px}.brand{font-size:12px}.brand img{width:32px;height:32px}h2{font-size:17px;margin-top:28px}footer{flex-direction:column;gap:6px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style></head><body><main class="wrap"><header class="top"><a class="brand" href="./index.html"><img src="./modexa-logo.png" alt="Modexa"><span>Mod<span class="muted-brand">exa</span></span></a><a class="back" href="./index.html"><i data-lucide="arrow-left"></i> На главную</a></header><article class="paper"><div class="eyebrow">MODEXA / TERMS</div><h1>Условия использования</h1><p class="muted">Редакция от 19 октября 2026 года</p><div class="notice">Modexa находится в бета-разработке. Функции могут меняться, временно становиться недоступными или содержать ошибки. Не используйте тестовые функции как единственное средство критически важной коммуникации или хранения данных.</div>
-<h2>1. Общие положения</h2><p>Условия регулируют доступ к сайту <a href="https://modexa.artem4ik493.ru/">modexa.artem4ik493.ru</a>, ботам Modexa для Telegram и Discord и связанным интеграциям (далее — Сервисы). Оператор проекта: <strong>Медведев Артём</strong>. Контакт: <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>.</p><p>Используя Сервисы, пользователь соглашается соблюдать эти Условия, применимое законодательство и правила соответствующих платформ. Если пользователь не согласен с условиями, он должен прекратить использование Сервисов.</p>
-<h2>2. Бета-версия и доступность</h2><p>Сервисы предоставляются для тестирования. Интерфейсы, команды и функции могут изменяться без предварительного уведомления; возможны ошибки, задержки, перерывы, потеря временных данных и удаление тестовых возможностей. Оператор не гарантирует постоянную доступность, отсутствие ошибок или пригодность функции для конкретной задачи.</p><p>В пределах, допускаемых применимым правом, Сервисы предоставляются «как есть» и «по мере доступности». Пользователь должен хранить важные данные отдельно и не полагаться на бета-функции как на единственную копию или критически важный канал связи.</p>
-<h2>3. Аккаунты и идентификаторы</h2><p>Для некоторых функций Сервисы могут обрабатывать Telegram ID и Discord ID, имена отображения, идентификаторы серверов и чатов, роли, настройки и записи связывания аккаунтов. Пользователь отвечает за безопасность своих учётных записей и действия, выполняемые с них. Запрещается связывать чужие аккаунты без разрешения или обходить подтверждение владения.</p><p>Администраторы серверов отвечают за корректную настройку разрешений, ролей, каналов и информирование участников о применяемых интеграциях в объёме, требуемом законом и правилами платформ.</p>
-<h2>4. Межплатформенный мост</h2><p>Настроенный мост может пересылать сообщения и необходимые метаданные из подключённых Telegram- и Discord-каналов. Пользователь и администратор должны иметь необходимые права и разрешения, уважать приватность участников и соблюдать правила платформ. Запрещено использовать мост для спама, преследования, незаконной деятельности, распространения чужих персональных данных без основания, обхода блокировок или доступа к каналам, на которые нет разрешения.</p><p>Перед включением моста администратор должен проверить маршруты пересылки, аудиторию, права доступа и информирование участников. Не пересылайте через мост пароли, токены, платёжные данные, документы или другую конфиденциальную информацию. При ошибочной пересылке отключите интеграцию и сообщите о проблеме.</p>
-<h2>5. Правила Telegram и Discord</h2><p>Использование Сервисов в соответствующей платформе регулируется также её правилами, условиями и политиками, включая условия использования и политики разработчиков. Modexa — самостоятельный проект; он не является официальным продуктом Telegram или Discord и не одобрен ими, если прямо не указано иное.</p>
-<h2>6. Запрещённое использование</h2><p>Запрещается вмешиваться в работу Сервисов, получать несанкционированный доступ, намеренно нарушать работу инфраструктуры, использовать автоматизацию для спама, обходить технические ограничения, нарушать права третьих лиц или использовать Сервисы в незаконных целях. Оператор вправе временно ограничить доступ к функциям при злоупотреблении, риске безопасности или нарушении правил.</p>
-<h2>7. Персональные данные</h2><p>Обработка данных описана в <a href="./privacy.html">Политике конфиденциальности</a>. Функции привязки аккаунтов и межплатформенного моста требуют обработки определённых идентификаторов и, при включённом мосте, содержания сообщений. Эти условия не отменяют обязательных прав субъектов данных и обязанностей Оператора по применимому законодательству.</p>
-<h2>8. Интеллектуальная собственность</h2><p>Название, логотип, дизайн и оригинальные материалы Modexa охраняются применимым законодательством, если не указано иное. Нельзя выдавать их за собственные или использовать способом, нарушающим права Оператора или третьих лиц. Права на Telegram, Discord и сторонние библиотеки принадлежат соответствующим правообладателям.</p>
-<h2>9. Ограничение ответственности</h2><p>В пределах, допускаемых применимым законом, Оператор не гарантирует непрерывную работу, абсолютную точность синхронизации, сохранность всех сообщений, отсутствие ошибок или совместимость с каждым сервером. Оператор не отвечает за сбои сторонних платформ, хостинга, сети, за настройки администраторов и решения пользователей, принятые исключительно на основании доступности бета-функций.</p><p>Ничто в настоящих Условиях не исключает ответственность, которую нельзя ограничить по закону, не лишает потребителей обязательных прав и не освобождает Оператора от обязанностей по защите данных, установленных применимым правом.</p>
-<h2>10. Изменения, приостановка и контакты</h2><p>Оператор может изменять Сервисы и настоящие Условия. Актуальная редакция публикуется на этой странице. Доступ к функции может быть временно ограничен по техническим причинам, для обеспечения безопасности, из-за нарушений Условий или требований платформ.</p><p><strong>Оператор:</strong> Медведев Артём<br><strong>Email:</strong> <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a></p></article><footer><span>© 2026 Modexa</span><span>Terms of service</span></footer></main><script src="https://unpkg.com/lucide@latest"></script><script>if(window.lucide)lucide.createIcons()</script></body></html>
+  <main class="legal-page">
+    <div class="legal-shell">
+      <section class="glass legal-hero">
+        <div class="section-kicker">MODEXA / LEGAL / 02</div>
+        <h1 data-lang-block="ru" data-page-title="ru">Условия использования</h1>
+        <h1 data-lang-block="en" data-page-title="en" hidden>Terms of Use</h1>
+        <p data-lang-block="ru">Последнее обновление: 19 октября 2026 года. Условия применяются к бета-сервисам Modexa для Telegram и Discord и связанным инструментам сайта.</p>
+        <p data-lang-block="en" hidden>Last updated: 19 October 2026. These Terms apply to Modexa beta services for Telegram and Discord and related website tools.</p>
+      </section>
+      <article class="glass legal-content">
+        <div data-lang-block="ru">
+          <div class="legal-notice">Modexa находится в открытой бете. Использование сервиса означает согласие соблюдать эти Условия, правила платформ и применимое законодательство. Если вы не согласны с Условиями, не подключайте и не используйте соответствующие функции.</div>
+          <h2>1. Владелец и сфера действия</h2>
+          <p>Modexa — развивающийся проект инструментов для сообществ и интеграции между Discord и Telegram. Оператор проекта: Медведев Артём, физическое лицо. Контакт: <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>. Почтовый адрес оператора публично не размещается; обращения принимаются по электронной почте.</p>
+          <p>Условия регулируют использование сайта, ботов, связки аккаунтов, межплатформенного моста и других функций Modexa, доступных на момент использования. Отдельные функции могут иметь дополнительные инструкции или настройки.</p>
+
+          <h2>2. Бета-версия и доступность</h2>
+          <p>Сервис находится в разработке. Команды, интерфейсы, хранение настроек и интеграции могут изменяться, временно отключаться или удаляться. Доступность конкретной функции зависит от текущей сборки, разрешений платформы, настроек сообщества и состояния сторонних сервисов.</p>
+          <p>Оператор стремится исправлять подтверждённые ошибки и поддерживать работу сервиса, но не гарантирует бесперебойную, своевременную или безошибочную работу. Не используйте бета-сервис как единственное средство хранения критичных данных, аварийного оповещения или обеспечения безопасности.</p>
+
+          <h2>3. Аккаунты, идентификаторы и связывание</h2>
+          <p>Для некоторых функций Modexa может обрабатывать идентификаторы Telegram и Discord, отображаемые имена, доступные сведения профиля и внутреннюю запись, связывающую поддерживаемые аккаунты. Связывание выполняется только через предусмотренный проектом сценарий, например с использованием кода подтверждения, когда такая функция доступна.</p>
+          <p>Не публикуйте код связывания и не передавайте его другим людям. Оператор не просит пароль, пользовательский токен или коды входа в аккаунты. Если вы ошибочно связали аккаунты, подозреваете чужой доступ или хотите удалить запись связывания, обратитесь по указанному email. Удаление записи может отключить функции, зависящие от общей идентичности.</p>
+
+          <h2>4. Межплатформенный мост и ответственность администратора</h2>
+          <p>Мост Discord–Telegram может передавать сообщения только в тех каналах и направлениях, которые поддерживаются и настроены администраторами. Передача не должна считаться включённой по умолчанию для каждого сообщества или каждого сообщения. Доступность функции, формат передаваемых данных и журналы доставки зависят от реализации.</p>
+          <p>Администратор обязан проверить права бота, выбрать целевые каналы, проверить правила сообщества и проинформировать участников о пересылке сообщений и обработке связанных данных. Не включайте пересылку для частных или конфиденциальных каналов без надлежащих оснований. Администратор отвечает за собственные настройки и решения о публикации либо передаче содержимого.</p>
+
+          <h2>5. Правила Telegram, Discord и закона</h2>
+          <p>Пользователь должен соблюдать применимые условия использования, правила сообщества и политики разработчиков Telegram и Discord, а также законодательство. Modexa не является официальным продуктом Discord Inc. или Telegram и не заявляет об их одобрении или партнёрстве, если оно прямо не подтверждено.</p>
+          <p>Если требования платформы и эти Условия расходятся, пользователь обязан соблюдать обязательные правила платформы и применимое право. Использование Modexa не предоставляет прав на аккаунт, бренд, API или сервисы третьих лиц сверх разрешений, выданных их владельцами.</p>
+
+          <h2>6. Недопустимое использование</h2>
+          <p>Запрещено использовать Modexa для незаконных действий, преследования, спама, мошенничества, обхода блокировок или мер безопасности, получения учётных данных, незаконного сбора данных, нарушения прав третьих лиц или доступа к данным без соответствующих разрешений. Запрещено пытаться вмешиваться в работу сервисов, обходить лимиты платформ или использовать ошибки для доступа к функциям, не предназначенным для пользователя.</p>
+          <p>Оператор может ограничить доступ к функциям при злоупотреблении, угрозе безопасности, требованиях платформы или обязательном требовании закона.</p>
+
+          <h2>7. Данные и конфиденциальность</h2>
+          <p>Обработка данных описана в <a href="./privacy">Политике конфиденциальности</a>. Пользователь и администратор должны ознакомиться с ней до включения функций, затрагивающих идентификаторы, профильные данные или пересылку сообщений. Пользователи не должны отправлять боту пароли, токены и иную информацию, не нужную для функции.</p>
+          <p>Запросы на доступ, исправление или удаление данных направляйте на <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>. Удаление технических записей может подчиняться установленным срокам хранения резервных копий и требованиям закона.</p>
+
+          <h2>8. Интеллектуальная собственность</h2>
+          <p>Название Modexa, оригинальные материалы сайта и собственные элементы интерфейса принадлежат соответствующим правообладателям или используются на законных основаниях. Никакие положения этих Условий не передают пользователю права на бренд, код, дизайн или материалы проекта, кроме ограниченного права использовать доступные функции по их назначению.</p>
+          <p>Названия, логотипы и товарные знаки Discord, Telegram и других платформ принадлежат их правообладателям. Они используются только для обозначения совместимых платформ и не означают официальной поддержки проекта.</p>
+
+          <h2>9. Ограничение ответственности</h2>
+          <p>В пределах, допускаемых законом, бета-сервис предоставляется по принципу фактической доступности, без обещания непрерывной работы, пригодности для определённой цели или отсутствия ошибок. Оператор не гарантирует доставку каждого сообщения моста, сохранность каждого временного состояния, безошибочную синхронизацию ролей или постоянную доступность интеграций.</p>
+          <p>Сбои Discord, Telegram, хостинга, сетей, сторонних API, неверная настройка администратором, ограничения платформ, потеря соединения и другие внешние события могут приводить к задержкам, дублированию, недоставке сообщений или временной недоступности функции. В пределах, допускаемых применимым правом, оператор не отвечает за такие внешние события и последствия решений пользователя или администратора. Эти Условия не исключают ответственность, которая не может быть исключена законом.</p>
+
+          <h2>10. Приостановка, прекращение и изменения</h2>
+          <p>Пользователь может прекратить использование, остановив бота, отключив интеграцию или удалив приложение из сообщества. Оператор может приостановить функцию или доступ при угрозе безопасности, злоупотреблении, нарушении Условий, требовании платформы или закона, а также при технической необходимости.</p>
+          <p>Условия могут обновляться по мере развития проекта или изменения законодательства. Новая редакция публикуется на этой странице, дата обновления меняется. Продолжение использования после вступления изменений в силу означает использование сервиса на условиях новой редакции в той мере, в какой это допускается законом.</p>
+
+          <h2>11. Контакты</h2>
+          <p>По вопросам Условий и работе Modexa обращайтесь к оператору: Медведев Артём, <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>. Эти Условия применяются с учётом обязательных норм права, применимых к конкретному пользователю и операции.</p>
+        </div>
+
+        <div data-lang-block="en" hidden>
+          <div class="legal-notice">Modexa is in open beta. Using the service means agreeing to these Terms, platform rules, and applicable law. Do not connect or use the relevant features if you do not agree.</div>
+          <h2>1. Owner and scope</h2>
+          <p>Modexa is an evolving project providing community tools and integrations between Discord and Telegram. Project operator: Artem Medvedev, an individual. Contact: <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>. The operator's postal address is not published; enquiries are handled by email.</p>
+          <p>These Terms govern use of the website, bots, account linking, cross-platform bridge, and other Modexa features available at the time of use. Individual features may have additional instructions or settings.</p>
+
+          <h2>2. Beta status and availability</h2>
+          <p>The service is under development. Commands, interfaces, settings storage, and integrations may change, be temporarily disabled, or be removed. Feature availability depends on the current build, platform permissions, community settings, and third-party service status.</p>
+          <p>The operator aims to fix confirmed issues and keep the service running, but does not guarantee uninterrupted, timely, or error-free operation. Do not use the beta as the sole means of storing critical data, sending emergency alerts, or providing security.</p>
+
+          <h2>3. Accounts, identifiers, and linking</h2>
+          <p>Some Modexa features may process Telegram and Discord identifiers, displayed names, available profile details, and an internal record that links supported accounts. Linking is performed only through a flow provided by the project, such as a verification code where that feature is available.</p>
+          <p>Do not publish linking codes or share them with other people. The operator will not ask for your password, user token, or account login codes. If you link accounts by mistake, suspect unauthorised access, or want to delete a link record, contact the email below. Removing a link may disable features that depend on a shared identity.</p>
+
+          <h2>4. Cross-platform bridge and administrator duties</h2>
+          <p>The Discord–Telegram bridge may forward messages only in channels and directions supported and configured by administrators. Forwarding must not be assumed to be enabled by default for every community or every message. Feature availability, forwarded fields, and delivery logs depend on implementation.</p>
+          <p>Administrators must review bot permissions, choose destination channels, check community rules, and inform members about forwarding and related data processing. Do not enable forwarding for private or confidential channels without an appropriate basis. Administrators are responsible for their configuration and decisions to publish or transfer content.</p>
+
+          <h2>5. Telegram, Discord, and legal rules</h2>
+          <p>Users must comply with applicable terms of use, community rules, and developer policies of Telegram and Discord, as well as applicable law. Modexa is not an official product of Discord Inc. or Telegram and does not claim their endorsement or partnership unless expressly confirmed.</p>
+          <p>Where platform requirements conflict with these Terms, users must follow mandatory platform rules and applicable law. Using Modexa grants no rights to third-party accounts, brands, APIs, or services beyond permissions granted by their owners.</p>
+
+          <h2>6. Prohibited use</h2>
+          <p>You must not use Modexa for unlawful activity, harassment, spam, fraud, evasion of bans or security controls, credential theft, unlawful data collection, infringement of third-party rights, or access to data without appropriate permissions. You must not interfere with the service, bypass platform limits, or exploit errors to access features not intended for you.</p>
+          <p>The operator may restrict features in response to abuse, security risks, platform requirements, or mandatory legal requirements.</p>
+
+          <h2>7. Data and privacy</h2>
+          <p>Data processing is described in the <a href="./privacy">Privacy Policy</a>. Users and administrators should review it before enabling features that involve identifiers, profile information, or message forwarding. Do not send passwords, tokens, or information that is unnecessary for a bot feature.</p>
+          <p>Requests for access, correction, or deletion should be sent to <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>. Deletion of technical records may be subject to backup-retention periods and legal requirements.</p>
+
+          <h2>8. Intellectual property</h2>
+          <p>The Modexa name, original website content, and original interface elements belong to their respective rights holders or are used lawfully. These Terms do not transfer ownership of the brand, code, design, or project materials to users, apart from the limited right to use available features for their intended purpose.</p>
+          <p>Names, logos, and trademarks of Discord, Telegram, and other platforms belong to their respective owners. They are used only to identify compatible platforms and do not imply official endorsement.</p>
+
+          <h2>9. Limitation of liability</h2>
+          <p>To the extent permitted by law, the beta service is provided on an as-available basis without a promise of continuous operation, suitability for a specific purpose, or absence of errors. The operator does not guarantee delivery of every bridged message, preservation of every temporary state, error-free role synchronisation, or permanent availability of integrations.</p>
+          <p>Discord or Telegram outages, hosting or network failures, third-party API issues, incorrect administrator configuration, platform limits, connection loss, and other external events may cause delays, duplicates, failed delivery, or temporary unavailability. To the extent permitted by applicable law, the operator is not responsible for those external events or for decisions made by users or administrators. These Terms do not exclude liability that cannot legally be excluded.</p>
+
+          <h2>10. Suspension, termination, and changes</h2>
+          <p>Users may stop using the service by stopping a bot, disabling an integration, or removing an application from a community. The operator may suspend a feature or access due to a security risk, abuse, breach of these Terms, platform or legal requirements, or technical necessity.</p>
+          <p>These Terms may be updated as the project develops or laws change. The revised version will be published on this page and the revision date will be updated. Continued use after changes take effect constitutes use under the revised Terms to the extent permitted by law.</p>
+
+          <h2>11. Contact</h2>
+          <p>For questions about these Terms or Modexa, contact the operator: Artem Medvedev, <a href="mailto:misteart.medvedev@outlook.com">misteart.medvedev@outlook.com</a>. These Terms apply subject to mandatory law applicable to the relevant user and operation.</p>
+        </div>
+      </article>
+      <footer class="legal-footer"><div data-lang-block="ru">© 2026 Modexa · <a href="./privacy">Политика конфиденциальности</a> · <a href="mailto:misteart.medvedev@outlook.com">Контакты</a></div><div data-lang-block="en" hidden>© 2026 Modexa · <a href="./privacy">Privacy Policy</a> · <a href="mailto:misteart.medvedev@outlook.com">Contact</a></div></footer>
+    </div>
+  </main>
+
+  <aside class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-hidden="true" hidden>
+    <div class="cookie-copy"><strong id="cookieTitle" data-i="cookieTitle">Настройки аналитики</strong><p data-i="cookieCopy">Яндекс.Метрика необязательна и запускается только после вашего согласия.</p><p><a href="./privacy" data-i="cookieLearnMore">Политика конфиденциальности</a></p></div>
+    <div class="cookie-actions"><button class="cookie-accept" id="cookieAccept" type="button" data-i="cookieAccept">Разрешить</button><button class="cookie-dismiss" id="cookieReject" type="button" data-i="cookieReject">Не разрешать</button></div>
+  </aside>
+  <script src="./script.js?v=1" defer></script>
+</body>
+</html>
