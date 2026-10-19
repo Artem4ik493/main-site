@@ -1,50 +1,18 @@
-/* Modexa motion layer — inspired by the main-site effects system */
-:root{--mx-purple:#a78bfa;--mx-pink:#e879f9;--mx-mint:#8df5ce}
-.mx-progress{position:fixed;z-index:60;top:0;left:0;width:100%;height:3px;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--mx-purple),var(--mx-pink),var(--mx-mint));box-shadow:0 0 16px #a78bfa88;pointer-events:none}
-.mx-glow{display:none!important}
-.mx-particles{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
-.mx-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.55}
-.mx-grid canvas{width:100%;height:100%;display:block}
-body:before{animation:mx-aurora 18s ease-in-out infinite alternate;transform:scale(1.07);will-change:transform,filter}
-body:after{animation:mx-grid-drift 34s linear infinite}
-@keyframes mx-aurora{0%{transform:translate3d(-1%,-1%,0) scale(1.05);filter:hue-rotate(0)}50%{transform:translate3d(1.5%,1%,0) scale(1.1);filter:hue-rotate(12deg)}100%{transform:translate3d(-.5%,2%,0) scale(1.06);filter:hue-rotate(-8deg)}}
-@keyframes mx-grid-drift{to{background-position:52px 52px}}
-.mx-card{--mx-rx:0deg;--mx-ry:0deg;--mx-dx:0px;--mx-dy:0px;position:relative;isolation:isolate;transform-style:preserve-3d;will-change:transform;transition:transform .32s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s!important}
-.mx-card:before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:0;background:radial-gradient(430px circle at var(--mx-px,50%) var(--mx-py,50%),#c4b5fd26,transparent 65%),linear-gradient(120deg,transparent 35%,#fff05,transparent 65%);transition:opacity .25s}
-.mx-card:hover:before{opacity:1}
-.feature.mx-card:hover,.phase.mx-card:hover,.bridge-intro.mx-card:hover,.bridge-flow.mx-card:hover,.architecture.mx-card:hover,.cta.mx-card:hover{border-color:#c4b5fd68;box-shadow:0 25px 70px #0006,0 0 34px #a78bfa0c}
-.mx-card .ficon,.mx-card .platform-icon,.mx-card .core-mark{transition:transform .35s cubic-bezier(.22,1,.36,1),filter .35s}
-.mx-card:hover .ficon,.mx-card:hover .platform-icon{transform:translate3d(var(--mx-dx),var(--mx-dy),18px) rotate(-5deg) scale(1.08);filter:drop-shadow(0 0 12px #a78bfa32)}
-.mx-card .number{transition:color .3s,transform .3s}
-.mx-card:hover .number{color:#d8c8ff;transform:translateY(-2px)}
-.mx-card:active{transform:perspective(1000px) rotateX(var(--mx-rx)) rotateY(var(--mx-ry)) translateY(-1px) scale(.992)}
-.btn,.navcta{overflow:hidden}
-.mx-ripple{position:absolute;width:8px;height:8px;border-radius:50%;background:#fff7;transform:translate(-50%,-50%);pointer-events:none;animation:mx-ripple .7s ease-out forwards}
-@keyframes mx-ripple{to{width:240px;height:240px;opacity:0}}
-.mx-enter{animation:mx-enter .8s cubic-bezier(.22,1,.36,1) both}
-@keyframes mx-enter{from{opacity:0;filter:blur(7px);transform:translateY(24px) scale(.985)}to{opacity:1;filter:blur(0);transform:none}}
-.architecture{animation:mx-float 8s ease-in-out infinite}
-.orb{animation:mx-orb 9s ease-in-out infinite alternate}
-.core-mark{animation:mx-core-glow 4s ease-in-out infinite}
-@keyframes mx-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-@keyframes mx-orb{from{opacity:.55;transform:scale(.94)}to{opacity:1;transform:scale(1.07)}}
-@keyframes mx-core-glow{0%,100%{box-shadow:0 0 22px #a78bfa20}50%{box-shadow:0 0 38px #a78bfa58}}
-.feature .ficon{transition:transform .35s cubic-bezier(.22,1,.36,1),background .35s,border-color .35s}
-.feature:hover .ficon{transform:translateY(-3px) rotate(-4deg);background:#a78bfa20;border-color:#c4b5fd66}
-.phase{transition:transform .3s,border-color .3s,background .3s,box-shadow .3s}
-.phase:hover{transform:translateY(-4px);box-shadow:0 15px 35px #0003}
-.flowrow{transition:transform .25s,border-color .25s,background .25s}
-.flowrow:hover{transform:translateX(4px);border-color:#bba4ff45;background:#a78bfa08}
-.flowrow:hover .flowarrow{animation:mx-arrow 1s ease-in-out infinite}
-@keyframes mx-arrow{50%{transform:translateY(3px);color:var(--mx-pink)}}
-.btn{transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s,border-color .25s,background .25s}
-.btn:hover{box-shadow:0 12px 35px #a78bfa20}
-.primary:hover{box-shadow:0 12px 42px #a78bfa55}
-.brandmark{animation:mx-mark 7s ease-in-out infinite;transition:transform .3s,box-shadow .3s}
-.brand:hover .brandmark{transform:rotate(-9deg) scale(1.08);box-shadow:0 0 34px #a78bfa70}
-@keyframes mx-mark{0%,100%{filter:hue-rotate(0)}50%{filter:hue-rotate(16deg)}}
-.mx-card .platform,.mx-card .output div,.mx-card .core-tags span{transition:transform .3s,border-color .3s,background .3s}
-.mx-card:hover .platform{border-color:#bba4ff38}
-.mx-card:hover .core-tags span{background:#a78bfa0c}
-@media(max-width:760px){.mx-glow,.mx-particles{display:none!important}.mx-card{transform:none!important;will-change:auto!important}.architecture{animation:none}.orb{animation:none}}
-@media(prefers-reduced-motion:reduce){body:before,body:after,.architecture,.orb,.core-mark,.brandmark{animation:none!important}.mx-glow,.mx-particles,.mx-grid{display:none!important}.mx-card,.mx-card *,.btn,.phase,.flowrow{transition:none!important;transform:none!important;animation:none!important}.mx-enter{animation:none!important}}
+/* Modexa visual effects — subtle motion, reduced visual noise */
+:root{--mx-blurple:#5865f2;--mx-telegram:#24a1de}
+.mx-progress{position:fixed;z-index:60;top:0;left:0;width:100%;height:2px;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--mx-blurple),var(--mx-telegram));pointer-events:none;opacity:.8}
+.mx-glow{display:none!important}.mx-particles{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.22}
+.mx-ambient{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;isolation:isolate}
+.mx-ambient:before,.mx-ambient:after{content:"";position:absolute;width:min(48vw,620px);aspect-ratio:1;border-radius:50%;filter:blur(100px);opacity:.16;will-change:transform}
+.mx-ambient:before{left:-14vw;top:7vh;background:var(--mx-blurple);animation:mx-drift-a 34s ease-in-out infinite alternate}
+.mx-ambient:after{right:-15vw;top:45vh;background:var(--mx-telegram);animation:mx-drift-b 39s ease-in-out infinite alternate}
+@keyframes mx-drift-a{from{transform:translate3d(0,0,0) scale(.95)}to{transform:translate3d(5vw,5vh,0) scale(1.08)}}
+@keyframes mx-drift-b{from{transform:translate3d(0,0,0) scale(1.03)}to{transform:translate3d(-5vw,-6vh,0) scale(.94)}}
+.mx-card{position:relative;transition:transform .28s ease,border-color .28s ease,background-color .28s ease!important}
+.mx-card:after{content:"";position:absolute;inset:0;border-radius:inherit;border:1px solid rgba(255,255,255,.04);pointer-events:none;opacity:0;transition:opacity .25s ease}
+@media(hover:hover) and (pointer:fine){.mx-card:hover{transform:translateY(-3px)}.mx-card:hover:after{opacity:1}}
+.mx-ripple{position:absolute;width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.18);transform:translate(-50%,-50%) scale(0);animation:mx-ripple .65s ease-out forwards;pointer-events:none}
+@keyframes mx-ripple{to{transform:translate(-50%,-50%) scale(18);opacity:0}}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1);transition-delay:var(--mx-delay,0ms)}.reveal.in{opacity:1;transform:translateY(0)}
+@media(max-width:700px){.mx-ambient:before,.mx-ambient:after{filter:blur(75px);opacity:.12}.mx-particles{opacity:.12}}
+@media(prefers-reduced-motion:reduce){.mx-ambient:before,.mx-ambient:after{animation:none!important}.reveal{opacity:1;transform:none;transition:none}.mx-card,.mx-card:hover{transform:none!important;transition:none!important}.mx-ripple{display:none!important}}
