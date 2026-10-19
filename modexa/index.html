@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://modexa.artem4ik493.ru/">
   <link rel="icon" href="./modexa-favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./style.css?v=6">
+  <link rel="stylesheet" href="./style.css?v=7">
   <title>Modexa — Community Core</title>
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -42,52 +42,26 @@
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero" aria-labelledby="heroTitle">
       <div class="shell hero-grid">
         <div class="hero-copy-column">
-          <div class="eyebrow reveal"><span class="live-dot" aria-hidden="true"></span><span data-i="heroEyebrow">ОТКРЫТАЯ БЕТА · ИДЁТ РАЗРАБОТКА</span></div>
-          <h1 class="reveal"><span data-i="heroTitleA">Одно сообщество.</span><br><span class="gradient-text" data-i="heroTitleB">Две платформы.</span></h1>
+          <div class="hero-overline"><span class="eyebrow"><span class="live-dot" aria-hidden="true"></span><span data-i="heroEyebrow">ОТКРЫТАЯ БЕТА · ИДЁТ РАЗРАБОТКА</span></span><span class="hero-index mono">M / 001</span></div>
+          <h1 id="heroTitle" class="reveal"><span data-i="heroTitleA">Одно сообщество.</span><br><span class="gradient-text" data-i="heroTitleB">Две платформы.</span></h1>
           <p class="hero-copy reveal" data-i="heroCopy">Modexa объединяет инструменты для Discord и Telegram: идентификацию участников, настройки сообщества и межплатформенные интеграции. Присоединяйтесь к открытой бете, пробуйте доступные функции и помогайте определить, что улучшать дальше.</p>
-          <div class="hero-actions reveal">
-            <a class="button button-primary" href="https://t.me/ModexaPlatformBot" target="_blank" rel="noopener noreferrer"><span data-i="openTelegram">Открыть Telegram-бота</span><span aria-hidden="true">↗</span></a>
-            <a class="button button-discord" href="https://discord.com/discovery/applications/1554589798881034392" target="_blank" rel="noopener noreferrer"><span data-i="openDiscord">Discord-приложение</span><span aria-hidden="true">↗</span></a>
-          </div>
-          <div class="trust-line reveal">
-            <span class="trust-item"><span class="trust-mark" aria-hidden="true">✳</span><span data-i="betaOpen">Открытое бета-тестирование</span></span>
-            <span class="trust-item"><span class="trust-mark" aria-hidden="true">↗</span><a href="https://discord.gg/BPZRfsh6zx" target="_blank" rel="noopener noreferrer" data-i="joinDiscord">Сообщество в Discord</a></span>
-          </div>
+          <div class="hero-actions reveal"><a class="button button-primary" href="https://t.me/ModexaPlatformBot" target="_blank" rel="noopener noreferrer"><span data-i="openTelegram">Открыть Telegram-бота</span><span aria-hidden="true">↗</span></a><a class="button button-discord" href="https://discord.com/discovery/applications/1554589798881034392" target="_blank" rel="noopener noreferrer"><span data-i="openDiscord">Discord-приложение</span><span aria-hidden="true">↗</span></a></div>
+          <div class="trust-line reveal"><span class="trust-item"><span class="trust-mark" aria-hidden="true">✳</span><span data-i="betaOpen">Открытое бета-тестирование</span></span><span class="trust-item"><span class="trust-mark" aria-hidden="true">↗</span><a href="https://discord.gg/BPZRfsh6zx" target="_blank" rel="noopener noreferrer" data-i="joinDiscord">Сообщество в Discord</a></span></div>
           <p class="hero-note reveal"><span data-i="betaCaveat">Это бета-версия: набор возможностей может меняться, возможны сбои и временные ограничения.</span> <a href="#services" data-i="statusLink">Статус сервисов</a></p>
         </div>
-
         <div class="hero-visual">
-          <div class="preview-panel reveal" data-tilt>
-            <div class="preview-top mono"><strong>MODEXA / COMMUNITY CORE</strong><span class="beta-pill"><span class="live-dot" aria-hidden="true"></span><span data-i="betaBadge">PUBLIC BETA</span></span></div>
-            <div class="platform-cards">
-              <div class="platform-card">
-                <div class="platform-head"><span class="platform-icon telegram-icon" aria-hidden="true"><i data-lucide="send"></i></span><div><strong>Telegram</strong><small data-i="telegramLabel">BOT · COMMUNITY</small></div></div>
-              </div>
-              <div class="platform-card">
-                <div class="platform-head"><span class="platform-icon discord-icon" aria-hidden="true"><i data-lucide="messages-square"></i></span><div><strong>Discord</strong><small data-i="discordLabel">APP · COMMUNITY</small></div></div>
-              </div>
-            </div>
-            <div class="console-divider mono" data-i="identityDivider">ОБЩАЯ ОСНОВА · ПОДКЛЮЧАЕМЫЕ СЕРВИСЫ</div>
-            <div class="identity-preview">
-              <div class="identity-header">
-                <span class="identity-mark" aria-hidden="true">m</span>
-                <div><strong>Modexa Core</strong><small data-i="identityDescription">Инструменты для связанного сообщества</small></div>
-                <span class="identity-status" data-i="betaState">BETA</span>
-              </div>
-              <div class="identity-pills"><span data-i="tagIdentity">IDENTITY</span><span data-i="tagMembers">MEMBERS</span><span data-i="tagRoles">ROLES</span><span data-i="tagBridge">BRIDGE</span></div>
-            </div>
-            <div class="preview-footer mono"><span data-i="previewStage">СТАДИЯ / БЕТА</span><span data-i="previewDisclaimer">ИНТЕРФЕЙС-ПРЕВЬЮ</span></div>
+          <div class="orbit-stage" aria-hidden="true"><div class="orbit-ring orbit-ring-a"></div><div class="orbit-ring orbit-ring-b"></div><div class="orbit-ring orbit-ring-c"></div><div class="orbit-core"><span class="orbit-core-mark">m</span><span class="orbit-core-label">MODEXA CORE</span></div><div class="orbit-node orbit-node-discord"><span class="orbit-node-icon"><i data-lucide="messages-square"></i></span><span class="orbit-node-name">Discord</span><span class="orbit-node-state">CONNECTED</span></div><div class="orbit-node orbit-node-telegram"><span class="orbit-node-icon"><i data-lucide="send"></i></span><span class="orbit-node-name">Telegram</span><span class="orbit-node-state">CONNECTED</span></div><span class="orbit-coordinate orbit-coordinate-one">55° 45′ N</span><span class="orbit-coordinate orbit-coordinate-two">COMMUNITY / 02</span></div>
+          <div class="preview-panel reveal"><div class="preview-top mono"><strong>MODEXA / COMMUNITY CORE</strong><span class="beta-pill"><span class="live-dot" aria-hidden="true"></span><span data-i="betaBadge">PUBLIC BETA</span></span></div>
+            <div class="platform-cards"><div class="platform-card"><div class="platform-head"><span class="platform-icon telegram-icon" aria-hidden="true"><i data-lucide="send"></i></span><div><strong>Telegram</strong><small data-i="telegramLabel">BOT · COMMUNITY</small></div><span class="platform-online" aria-hidden="true"></span></div></div><div class="platform-card"><div class="platform-head"><span class="platform-icon discord-icon" aria-hidden="true"><i data-lucide="messages-square"></i></span><div><strong>Discord</strong><small data-i="discordLabel">APP · COMMUNITY</small></div><span class="platform-online" aria-hidden="true"></span></div></div></div>
+            <div class="console-divider mono" data-i="identityDivider">ОБЩАЯ ОСНОВА · ПОДКЛЮЧАЕМЫЕ СЕРВИСЫ</div><div class="identity-preview"><div class="identity-header"><span class="identity-mark" aria-hidden="true">m</span><div><strong>Modexa Core</strong><small data-i="identityDescription">Инструменты для связанного сообщества</small></div><span class="identity-status" data-i="betaState">BETA</span></div><div class="identity-pills"><span data-i="tagIdentity">IDENTITY</span><span data-i="tagMembers">MEMBERS</span><span data-i="tagRoles">ROLES</span><span data-i="tagBridge">BRIDGE</span></div></div><div class="preview-footer mono"><span data-i="previewStage">СТАДИЯ / БЕТА</span><span data-i="previewDisclaimer">ИНТЕРФЕЙС-ПРЕВЬЮ</span></div>
           </div>
-          <div class="signal-strip">
-            <div class="signal-item reveal"><strong data-i="signalOneValue">01 / ID</strong><small data-i="signalOneLabel">Связывание поддерживаемых профилей</small></div>
-            <div class="signal-item reveal"><strong data-i="signalTwoValue">02 / BRIDGE</strong><small data-i="signalTwoLabel">Интеграции при включённой настройке</small></div>
-            <div class="signal-item reveal"><strong data-i="signalThreeValue">BETA</strong><small data-i="signalThreeLabel">Функции развиваются поэтапно</small></div>
-          </div>
+          <div class="signal-strip"><div class="signal-item reveal"><strong data-i="signalOneValue">01 / ID</strong><small data-i="signalOneLabel">Связывание поддерживаемых профилей</small></div><div class="signal-item reveal"><strong data-i="signalTwoValue">02 / BRIDGE</strong><small data-i="signalTwoLabel">Интеграции при включённой настройке</small></div><div class="signal-item reveal"><strong data-i="signalThreeValue">BETA</strong><small data-i="signalThreeLabel">Функции развиваются поэтапно</small></div></div>
         </div>
       </div>
+      <div class="hero-bottom-rule shell"><span>PLATFORM INFRASTRUCTURE</span><span>DISCORD <i></i> TELEGRAM</span><span>BUILT IN BETA · 2026</span></div>
     </section>
 
     <section class="section" id="platform">
@@ -210,6 +184,6 @@
     <div class="cookie-actions"><button class="cookie-accept" id="cookieAccept" type="button" data-i="cookieAccept">Разрешить</button><button class="cookie-dismiss" id="cookieReject" type="button" data-i="cookieReject">Не разрешать</button></div>
   </aside>
 
-  <script src="./script.js?v=6" defer></script>
+  <script src="./script.js?v=7" defer></script>
 </body>
 </html>
