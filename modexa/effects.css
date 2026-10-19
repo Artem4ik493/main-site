@@ -2,7 +2,7 @@
 :root{--mx-blurple:#5865f2;--mx-telegram:#24a1de}
 .mx-progress{position:fixed;z-index:60;top:0;left:0;width:100%;height:2px;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--mx-blurple),var(--mx-telegram));pointer-events:none;opacity:.8}
 .mx-glow{display:none!important}.mx-particles{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.22}
-.mx-ambient{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;isolation:isolate}
+.mx-ambient{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;isolation:isolate}body>:not(.mx-ambient){position:relative;z-index:1}.nav{z-index:20}
 .mx-ambient:before,.mx-ambient:after{content:"";position:absolute;width:min(48vw,620px);aspect-ratio:1;border-radius:50%;filter:blur(100px);opacity:.16;will-change:transform}
 .mx-ambient:before{left:-14vw;top:7vh;background:var(--mx-blurple);animation:mx-drift-a 34s ease-in-out infinite alternate}
 .mx-ambient:after{right:-15vw;top:45vh;background:var(--mx-telegram);animation:mx-drift-b 39s ease-in-out infinite alternate}
