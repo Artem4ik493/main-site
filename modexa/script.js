@@ -302,7 +302,7 @@ ctaKicker:"OPEN BETA / JOIN THE BUILD",ctaTitleA:"Communities connected.",ctaTit
   }
 
   /* Scroll reveals are attached to text/content units rather than a single page-sized wrapper. */
-  var revealSelector = "main h1, main h2, main .section-kicker, main .feature-card, main .step-card, main .discord-card, main .telegram-card, main .service-card, main .faq-item, main .preview-panel, main .signal-item, main .hero-copy, main .hero-actions, main .trust-line, main .hero-note, .legal-hero, .legal-content h2, .legal-content p, .legal-content li";
+  var revealSelector = "main h1, main h2, main .section-kicker, main .section-copy, main .feature-card, main .step-card, main .discord-card, main .telegram-card, main .service-card, main .faq-item, main .preview-panel, main .support-preview, main .support-preview-caption, main .signal-item, main .hero-copy, main .hero-actions, main .trust-line, main .hero-note, main .cta-panel, .legal-hero, .legal-content h2, .legal-content p, .legal-content li";
   var revealItems = Array.prototype.slice.call(document.querySelectorAll(revealSelector));
   revealItems.forEach(function (node, index) {
     node.classList.add("reveal");
