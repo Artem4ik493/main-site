@@ -33,11 +33,11 @@
       stepThreeTitle:"Поделитесь обратной связью",stepThreeCopy:"Опишите ошибку, шаги её воспроизведения и ожидаемый результат в сообществе Discord.",
       integrationKicker:"03 / ИНТЕГРАЦИИ",integrationTitleA:"Сделано для двух площадок.",integrationTitleB:"Со своим характером.",
       integrationCopy:"Каждая интеграция остаётся частью своей платформы. Modexa использует доступные механизмы Discord и Telegram, а не заменяет их аккаунты или правила.",
-      discordIntegrationLabel:"DISCORD / ПРИЛОЖЕНИЕ",discordIntegrationTitleStart:"Родной интерфейс.",discordIntegrationTitleAccent:"Связанные возможности.",
+      discordIntegrationLabel:"DISCORD / ПРИЛОЖЕНИЕ",discordIntegrationTitleStart:"Родной интерфейс.",telegramIntegrationTitleStart:"Быстрый вход.",discordIntegrationTitleAccent:"Связанные возможности.",
       discordIntegrationCopy:"Откройте страницу приложения и добавляйте его в нужные сообщества только с подходящими разрешениями. Макет ниже — визуальное превью, а не живой чат.",
       discordUiSubtitle:"Превью интерфейса · не live-чат",discordMessageOne:"Платформа подключена к этому примеру интерфейса.",bridgePreviewName:"Межплатформенный мост",
       discordMessageTwo:"Межплатформенные функции работают только при соответствующей настройке.",discordChipOne:"/help",discordChipTwo:"Идентичность",discordChipThree:"Сообщество",discordOpenButton:"Открыть приложение Discord",
-      telegramIntegrationLabel:"TELEGRAM / БОТ",telegramIntegrationTitle:"Быстрый вход.",telegramIntegrationTitleAccent:"Команды под рукой.",
+      telegramIntegrationLabel:"TELEGRAM / БОТ",telegramIntegrationTitle:"Быстрый вход.",telegramIntegrationTitleStart:"Быстрый вход.",telegramIntegrationTitleAccent:"Команды под рукой.",
       telegramIntegrationCopy:"Запустите бота в Telegram, посмотрите список доступных команд и проверьте, какие сценарии уже готовы к тестированию.",
       telegramOpenButton:"Открыть Telegram-бота",telegramCaption:"Доступность команд зависит от версии бота.",
       servicesKicker:"04 / СЕРВИСЫ",servicesTitleA:"Важные ссылки.",servicesTitleB:"Без поиска по меню.",
@@ -54,7 +54,7 @@
       ctaCopy:"Откройте подходящего бота, подключайтесь к тестированию и расскажите, какой сценарий стоит улучшить следующим.",ctaTelegram:"Telegram ↗",ctaCommunity:"Сообщество ↗",
       footerRights:"Сообщество и инструменты в разработке.",footerPrivacy:"Конфиденциальность",footerTerms:"Условия использования",footerContact:"Связаться",
       cookieTitle:"Настройки аналитики",cookieCopy:"Яндекс.Метрика необязательна и запускается только после вашего согласия. Выбор можно изменить позднее через настройки браузера.",cookieLearnMore:"Политика конфиденциальности",cookieAccept:"Разрешить",cookieReject:"Не разрешать",
-      menuOpen:"Открыть меню",menuClose:"Закрыть меню",switchLanguage:"Switch language",legalHome:"На главную",legalPrivacy:"Конфиденциальность",legalTerms:"Условия использования",legalFooter:"Правовая информация Modexa",analyticsSettings:"Настройки аналитики"
+      menuOpen:"Открыть меню",menuClose:"Закрыть меню",discordPreviewAria:"Предпросмотр интерфейса Discord",switchLanguage:"Switch language",legalHome:"На главную",legalPrivacy:"Конфиденциальность",legalTerms:"Условия использования",legalFooter:"Правовая информация Modexa",analyticsSettings:"Настройки аналитики"
     },
     en: {
       navPlatform:"Platform",navFeatures:"Features",navFlow:"Get started",navIntegrations:"Integrations",navServices:"Services",navFaq:"FAQ",
@@ -81,11 +81,11 @@
       stepThreeTitle:"Share feedback",stepThreeCopy:"Describe the issue, reproduction steps, and expected result in the Discord community.",
       integrationKicker:"03 / INTEGRATIONS",integrationTitleA:"Built for two platforms.",integrationTitleB:"Each with its own feel.",
       integrationCopy:"Each integration remains part of its platform. Modexa uses the available Discord and Telegram mechanisms rather than replacing their accounts or rules.",
-      discordIntegrationLabel:"DISCORD / APPLICATION",discordIntegrationTitleStart:"A familiar interface.",discordIntegrationTitleAccent:"Connected capabilities.",
+      discordIntegrationLabel:"DISCORD / APPLICATION",discordIntegrationTitleStart:"A familiar interface.",telegramIntegrationTitleStart:"Quick entry.",discordIntegrationTitleAccent:"Connected capabilities.",
       discordIntegrationCopy:"Open the application's page and add it to communities with only the appropriate permissions. The mockup below is a visual preview, not a live chat.",
       discordUiSubtitle:"Interface preview · not live",discordMessageOne:"The platform is connected to this interface preview.",bridgePreviewName:"Cross-platform bridge",
       discordMessageTwo:"Cross-platform features operate only when configured.",discordChipOne:"/help",discordChipTwo:"Identity",discordChipThree:"Community",discordOpenButton:"Open Discord application",
-      telegramIntegrationLabel:"TELEGRAM / BOT",telegramIntegrationTitle:"Quick entry.",telegramIntegrationTitleAccent:"Commands at hand.",
+      telegramIntegrationLabel:"TELEGRAM / BOT",telegramIntegrationTitle:"Quick entry.",telegramIntegrationTitleStart:"Quick entry.",telegramIntegrationTitleAccent:"Commands at hand.",
       telegramIntegrationCopy:"Start the bot in Telegram, review the available commands, and see which scenarios are ready to test.",
       telegramOpenButton:"Open Telegram bot",telegramCaption:"Command availability depends on the bot version.",
       servicesKicker:"04 / SERVICES",servicesTitleA:"Useful links.",servicesTitleB:"No menu hunt required.",
@@ -102,7 +102,7 @@
       ctaCopy:"Open the relevant bot, join the testing process, and tell us which workflow should be improved next.",ctaTelegram:"Telegram ↗",ctaCommunity:"Community ↗",
       footerRights:"Community tools are in development.",footerPrivacy:"Privacy",footerTerms:"Terms of use",footerContact:"Contact",
       cookieTitle:"Analytics preferences",cookieCopy:"Yandex Metrica is optional and starts only after you consent. You can change your choice later in your browser settings.",cookieLearnMore:"Privacy Policy",cookieAccept:"Allow analytics",cookieReject:"Do not allow",
-      menuOpen:"Open menu",menuClose:"Close menu",switchLanguage:"Switch language",legalHome:"Home",legalPrivacy:"Privacy",legalTerms:"Terms of use",legalFooter:"Modexa legal information",analyticsSettings:"Analytics settings"
+      menuOpen:"Open menu",menuClose:"Close menu",discordPreviewAria:"Discord interface preview",switchLanguage:"Switch language",legalHome:"Home",legalPrivacy:"Privacy",legalTerms:"Terms of use",legalFooter:"Modexa legal information",analyticsSettings:"Analytics settings"
     }
   };
 
@@ -140,10 +140,17 @@
     }
     var menu = document.getElementById("menuToggle");
     if (menu) menu.setAttribute("aria-label", document.getElementById("siteHeader") && document.getElementById("siteHeader").classList.contains("is-open") ? words.menuClose : words.menuOpen);
-    var title = language === "ru" ? "Modexa — платформа для сообществ Discord и Telegram" : "Modexa — community tools for Discord and Telegram";
-    document.title = title;
+    var pageKind = document.body.getAttribute("data-page") || "home";
+    var pageTitles = {
+      home: { ru: "Modexa — платформа для сообществ Discord и Telegram", en: "Modexa — community tools for Discord and Telegram" },
+      privacy: { ru: "Политика конфиденциальности — Modexa", en: "Privacy Policy — Modexa" },
+      terms: { ru: "Условия использования — Modexa", en: "Terms of Use — Modexa" },
+      "discord-privacy": { ru: "Политика конфиденциальности — Modexa Discord", en: "Privacy Policy — Modexa Discord Application" },
+      "discord-terms": { ru: "Условия использования — Modexa Discord", en: "Terms of Use — Modexa Discord Application" }
+    };
+    document.title = (pageTitles[pageKind] && pageTitles[pageKind][language]) || "Modexa";
     var description = document.querySelector('meta[name="description"]');
-    if (description) description.setAttribute("content", language === "ru"
+    if (description && pageKind === "home") description.setAttribute("content", language === "ru"
       ? "Modexa объединяет инструменты сообществ Discord и Telegram в развивающейся платформе."
       : "Modexa connects Discord and Telegram community tools in one evolving platform.");
   }
