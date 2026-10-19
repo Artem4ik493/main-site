@@ -333,11 +333,15 @@ ctaKicker:"OPEN BETA / JOIN THE BUILD",ctaTitleA:"Communities connected.",ctaTit
         card.style.setProperty("--tilt-x", ((0.5 - y) * 4.2).toFixed(2) + "deg");
         card.style.setProperty("--tilt-y", ((x - 0.5) * 4.8).toFixed(2) + "deg");
         card.style.setProperty("--spot-x", (x * 100).toFixed(1) + "%");
-        card.style.setProperty("--spot-y", (y * 100).toFixed(1) + "%");\n        card.style.setProperty("--text-pull-x", ((0.5 - x) * -5).toFixed(2) + "px");\n        card.style.setProperty("--text-pull-y", ((0.5 - y) * -5).toFixed(2) + "px");
+        card.style.setProperty("--spot-y", (y * 100).toFixed(1) + "%");
+        card.style.setProperty("--text-pull-x", ((0.5 - x) * -5).toFixed(2) + "px");
+        card.style.setProperty("--text-pull-y", ((0.5 - y) * -5).toFixed(2) + "px");
       });
       card.addEventListener("pointerleave", function () {
         card.style.setProperty("--tilt-x", "0deg");
-        card.style.setProperty("--tilt-y", "0deg");\n        card.style.setProperty("--text-pull-x", "0px");\n        card.style.setProperty("--text-pull-y", "0px");
+        card.style.setProperty("--tilt-y", "0deg");
+        card.style.setProperty("--text-pull-x", "0px");
+        card.style.setProperty("--text-pull-y", "0px");
       });
     });
   }
