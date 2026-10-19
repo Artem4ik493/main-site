@@ -1,17 +1,25 @@
-# Modexa landing page
+# Modexa website
 
-Static landing page for **Modexa**, intended to be served from `https://modexa.artem4ik493.ru`.
+Static bilingual landing page and legal pages for Modexa at https://modexa.artem4ik493.ru.
 
-## Files
+## Structure
 
-- `index.html` — responsive landing page, content structure inspired by the supplied Nexolia example, plus a Russian/English language switch (saved in the browser).
-- `effects.css` — animated backgrounds, card hover effects, scroll progress, and motion styling.
-- `effects.js` — cursor particles, animated node mesh, scroll progress, interactive card tilt, and reveal effects. The cursor-following glow has been removed; the particle trail remains.
+- index.html — rebuilt responsive landing page with Discord and Telegram integration previews.
+- effects.css — shared visual system, responsive layout, liquid-glass panels, reveal transitions, status pulses, and card-tilt styling.
+- script.js — animated metaball background, RU/EN language switch saved in localStorage, scroll reveal, card tilt, mobile navigation, and consent-gated Yandex Metrica.
+- privacy.html and terms.html — full Russian and English legal text for the Modexa service.
+- ../discord/privacy.html and ../discord/terms.html — bilingual policies specific to the Discord application.
+- .htaccess — Apache rules for clean URLs such as /privacy and /terms.
+- nginx.conf — Nginx location snippet for the active aaPanel virtual-host configuration.
 
-The content flow includes a hero, architecture overview, 12 feature cards, a roadmap-stage progress panel, roadmap, FAQ, and CTA. A visible progress indicator reflects the current roadmap stage without inventing a completion percentage. The supplied Nexolia file is used only as a reference for information hierarchy; its branding, styling, metrics, and product claims are not copied. The effects are adapted from the animation system used by the root `main-site`, with Modexa's purple/pink palette. Reduced-motion preferences and mobile performance safeguards are included.
+## Clean URLs and deployment
 
-## Deployment
+The intended document root for modexa.artem4ik493.ru is this modexa/ directory. Use modexa/.htaccess only when the active web server is Apache and mod_rewrite is enabled. If the virtual host runs Nginx, copy the locations from modexa/nginx.conf into that virtual host's server block instead; Nginx does not automatically read configuration files stored with the static site. Do not activate both routing variants in the same virtual host.
 
-Configure the web server's document root for `modexa.artem4ik493.ru` to the repository's `modexa/` directory (or copy the contents of this directory to the subdomain's document root). Enable HTTPS and point the subdomain's DNS record to the hosting server.
+The root .htaccess and nginx.conf provide equivalent routing for the repository-root site and extensionless nested HTML paths. The rules serve a matching .html file internally and redirect direct .html requests to a clean URL.
 
-The page is static and does not require Node.js, a build step, or a backend.
+## Analytics and privacy
+
+Yandex Metrica is loaded only after the visitor explicitly allows analytics in the banner. Rejecting analytics stores the choice and leaves the counter script unloaded. The preference is stored in browser local storage. The Privacy Policy explains data categories, bridge behaviour, retention, requests, and platform API transfers.
+
+This is a static website: no Node.js runtime or build step is needed. The server must still be configured with the appropriate document root and rewrite rules.
