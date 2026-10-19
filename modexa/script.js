@@ -54,7 +54,7 @@
       ctaCopy:"Откройте подходящего бота, подключайтесь к тестированию и расскажите, какой сценарий стоит улучшить следующим.",ctaTelegram:"Telegram ↗",ctaCommunity:"Сообщество ↗",
       footerRights:"Сообщество и инструменты в разработке.",footerPrivacy:"Конфиденциальность",footerTerms:"Условия использования",footerContact:"Связаться",
       cookieTitle:"Настройки аналитики",cookieCopy:"Яндекс.Метрика необязательна и запускается только после вашего согласия. Выбор можно изменить позднее через настройки браузера.",cookieLearnMore:"Политика конфиденциальности",cookieAccept:"Разрешить",cookieReject:"Не разрешать",
-      menuOpen:"Открыть меню",menuClose:"Закрыть меню",discordPreviewAria:"Предпросмотр интерфейса Discord",switchLanguage:"Switch language",legalHome:"На главную",legalPrivacy:"Конфиденциальность",legalTerms:"Условия использования",legalFooter:"Правовая информация Modexa",analyticsSettings:"Настройки аналитики"
+      menuOpen:"Открыть меню",menuClose:"Закрыть меню",mainNavLabel:"Основная навигация",footerNavLabel:"Правовая информация",discordPreviewAria:"Предпросмотр интерфейса Discord",switchLanguage:"Switch language",legalHome:"На главную",legalPrivacy:"Конфиденциальность",legalTerms:"Условия использования",legalFooter:"Правовая информация Modexa",analyticsSettings:"Настройки аналитики"
     },
     en: {
       navPlatform:"Platform",navFeatures:"Features",navFlow:"Get started",navIntegrations:"Integrations",navServices:"Services",navFaq:"FAQ",
@@ -102,7 +102,7 @@
       ctaCopy:"Open the relevant bot, join the testing process, and tell us which workflow should be improved next.",ctaTelegram:"Telegram ↗",ctaCommunity:"Community ↗",
       footerRights:"Community tools are in development.",footerPrivacy:"Privacy",footerTerms:"Terms of use",footerContact:"Contact",
       cookieTitle:"Analytics preferences",cookieCopy:"Yandex Metrica is optional and starts only after you consent. You can change your choice later in your browser settings.",cookieLearnMore:"Privacy Policy",cookieAccept:"Allow analytics",cookieReject:"Do not allow",
-      menuOpen:"Open menu",menuClose:"Close menu",discordPreviewAria:"Discord interface preview",switchLanguage:"Switch language",legalHome:"Home",legalPrivacy:"Privacy",legalTerms:"Terms of use",legalFooter:"Modexa legal information",analyticsSettings:"Analytics settings"
+      menuOpen:"Open menu",menuClose:"Close menu",mainNavLabel:"Main navigation",footerNavLabel:"Legal information",discordPreviewAria:"Discord interface preview",switchLanguage:"Switch language",legalHome:"Home",legalPrivacy:"Privacy",legalTerms:"Terms of use",legalFooter:"Modexa legal information",analyticsSettings:"Analytics settings"
     }
   };
 
@@ -112,7 +112,9 @@
   function safeStorageSet(key, value) {
     try { window.localStorage.setItem(key, value); } catch (error) { /* Storage can be disabled by browser settings. */ }
   }
-  var language = safeStorageGet(LANGUAGE_KEY) === "en" ? "en" : "ru";
+  var savedLanguage = safeStorageGet(LANGUAGE_KEY);
+  var defaultLanguage = document.body.getAttribute("data-default-language") === "en" ? "en" : "ru";
+  var language = savedLanguage === "en" || savedLanguage === "ru" ? savedLanguage : defaultLanguage;
 
   function applyLanguage(nextLanguage) {
     language = nextLanguage === "en" ? "en" : "ru";
@@ -149,10 +151,15 @@
       "discord-terms": { ru: "Условия использования — Modexa Discord", en: "Terms of Use — Modexa Discord Application" }
     };
     document.title = (pageTitles[pageKind] && pageTitles[pageKind][language]) || "Modexa";
+    var descriptions = {
+      home: { ru: "Modexa объединяет инструменты сообществ Discord и Telegram в развивающейся платформе.", en: "Modexa connects Discord and Telegram community tools in one evolving platform." },
+      privacy: { ru: "Политика конфиденциальности Modexa для сервисов Discord и Telegram.", en: "Privacy Policy for Modexa services connected with Discord and Telegram." },
+      terms: { ru: "Условия использования бета-сервисов Modexa для Discord и Telegram.", en: "Terms of Use for Modexa beta services for Discord and Telegram." },
+      "discord-privacy": { ru: "Политика конфиденциальности приложения Modexa для Discord.", en: "Privacy Policy for the Modexa Discord application." },
+      "discord-terms": { ru: "Условия использования приложения Modexa для Discord.", en: "Terms of Use for the Modexa Discord application." }
+    };
     var description = document.querySelector('meta[name="description"]');
-    if (description && pageKind === "home") description.setAttribute("content", language === "ru"
-      ? "Modexa объединяет инструменты сообществ Discord и Telegram в развивающейся платформе."
-      : "Modexa connects Discord and Telegram community tools in one evolving platform.");
+    if (description && descriptions[pageKind]) description.setAttribute("content", descriptions[pageKind][language]);
   }
 
   var languageToggle = document.getElementById("languageToggle");
@@ -178,6 +185,24 @@
 
   var year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
+
+  var progressBar = document.getElementById("scrollProgress");
+  var progressQueued = false;
+  function updateScrollProgress() {
+    if (!progressBar) return;
+    var maximum = document.documentElement.scrollHeight - window.innerHeight;
+    var fraction = maximum > 0 ? Math.max(0, Math.min(1, window.scrollY / maximum)) : 0;
+    progressBar.style.transform = "scaleX(" + fraction + ")";
+    progressQueued = false;
+  }
+  window.addEventListener("scroll", function () {
+    if (!progressQueued) {
+      progressQueued = true;
+      window.requestAnimationFrame(updateScrollProgress);
+    }
+  }, { passive: true });
+  window.addEventListener("resize", updateScrollProgress, { passive: true });
+  updateScrollProgress();
 
   /* Smooth, continuously moving metaballs. The canvas is independent from page layout. */
   var canvas = document.getElementById("metaspheres");
