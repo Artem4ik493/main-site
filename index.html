@@ -1,138 +1,61 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070910">
-  <meta name="description" content="artem4ik493 — завершающий этап работы сайта и связанных проектов. До 1 декабря 2026 года, 09:00 по московскому времени.">
-  <meta name="robots" content="noindex, follow">
-  <title>Последняя глава — artem4ik493</title>
-  <link rel="icon" href="/assets/images/site-logo.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root{color-scheme:dark;--bg:#070910;--fg:#f2f4fa;--muted:#9ba3b5;--line:rgba(255,255,255,.1);--blue:#8ab8ff;--violet:#b49aff;--mono:"Space Mono",monospace;--sans:"DM Sans",sans-serif}
-    *{box-sizing:border-box}
-    html{min-height:100%;background:var(--bg)}
-    body{margin:0;min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 50% 36%,rgba(68,91,151,.18),transparent 48%),radial-gradient(ellipse at 12% 90%,rgba(112,75,160,.11),transparent 38%),var(--bg);color:var(--fg);font-family:var(--sans)}
-    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(#000,transparent 85%)}
-    #stars{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;opacity:.8}
-    .shell{position:relative;z-index:1;width:min(980px,calc(100% - 36px));min-height:100vh;margin:auto;display:flex;flex-direction:column}
-    header{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
-    .brand{font:700 13px var(--mono);letter-spacing:.04em}.brand span{color:var(--blue)}
-    .status{display:flex;align-items:center;gap:9px;color:#aeb8ca;font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase}
-    .status i{width:7px;height:7px;border-radius:50%;background:#d9b879;box-shadow:0 0 14px #d9b879;animation:blink 2s infinite}
-    main{flex:1;display:grid;place-items:center;padding:70px 0 80px}
-    .content{width:100%;text-align:center}
-    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.025);color:#c1c9d8;font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase}
-    .eyebrow:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 13px var(--blue)}
-    h1{margin:25px 0 16px;font-size:clamp(42px,8vw,82px);line-height:.98;letter-spacing:-.065em;font-weight:700}
-    h1 span{display:block;color:transparent;background:linear-gradient(105deg,#fff 15%,#a9caff 55%,#c5a9ff 90%);background-clip:text;-webkit-background-clip:text}
-    .intro{max-width:650px;margin:0 auto;color:var(--muted);font-size:clamp(15px,2vw,18px);line-height:1.8}
-    .count-wrap{margin:48px auto 0;max-width:760px}
-    .count-label{margin-bottom:16px;color:#818da2;font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase}
-    .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .unit{position:relative;padding:22px 10px 18px;border:1px solid rgba(169,196,255,.14);border-radius:18px;background:linear-gradient(145deg,rgba(20,27,43,.78),rgba(11,14,23,.7));box-shadow:inset 0 1px rgba(255,255,255,.04),0 18px 55px rgba(0,0,0,.16);overflow:hidden}
-    .unit:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,rgba(169,196,255,.055),transparent 75%);transform:translateX(-100%);animation:shine 7s ease-in-out infinite}
-    .number{position:relative;display:block;font:700 clamp(34px,6vw,58px)/1 var(--mono);letter-spacing:-.08em;font-variant-numeric:tabular-nums}
-    .unit-label{position:relative;display:block;margin-top:12px;color:#8995aa;font:9px var(--mono);letter-spacing:.14em;text-transform:uppercase}
-    .deadline{margin-top:18px;color:#818da2;font:10px var(--mono);letter-spacing:.06em}
-    .divider{width:64px;height:1px;margin:42px auto 30px;background:linear-gradient(90deg,transparent,var(--blue),var(--violet),transparent);opacity:.8}
-    .message{max-width:700px;margin:auto;text-align:left;padding:25px 28px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.025)}
-    .message h2{margin:0 0 12px;font-size:17px;letter-spacing:-.02em}
-    .message p{margin:0;color:var(--muted);font-size:14px;line-height:1.85}
-    .message p+p{margin-top:10px}
-    .signature{margin-top:25px;color:#d2d9e7;font-size:13px}
-    .signature span{color:var(--blue)}
-    footer{display:flex;justify-content:space-between;gap:20px;padding:22px 0 28px;border-top:1px solid var(--line);color:#687387;font:9px var(--mono);letter-spacing:.06em}
-    .finished{display:none;margin:48px auto 0;max-width:700px;padding:25px;border:1px solid rgba(180,154,255,.22);border-radius:20px;background:rgba(180,154,255,.055);animation:arrive 1.2s both}
-    .finished h2{margin:0 0 10px;font-size:clamp(25px,5vw,38px);letter-spacing:-.05em}
-    .finished p{margin:0;color:var(--muted);line-height:1.8}
-    body.is-finished .count-wrap,body.is-finished .divider,body.is-finished .message{display:none}
-    body.is-finished .finished{display:block}
-    body.is-finished .status i{background:#b49aff;box-shadow:0 0 14px #b49aff}
-    @keyframes blink{50%{opacity:.35}}
-    @keyframes shine{0%,65%,100%{transform:translateX(-110%)}80%{transform:translateX(110%)}}
-    @keyframes arrive{from{opacity:0;transform:translateY(18px) scale(.98);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
-    @media(max-width:600px){.shell{width:calc(100% - 28px)}header{height:68px}.status{font-size:8px}.countdown{gap:7px}.unit{padding:18px 5px 15px;border-radius:13px}.number{font-size:clamp(25px,8vw,40px)}.unit-label{font-size:7px;letter-spacing:.08em}.message{padding:21px}.message p{font-size:13px}footer{font-size:8px;flex-direction:column;gap:8px}main{padding:55px 0 60px}}
-    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}#stars{display:none}}
-  </style>
-</head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08070c"><meta name="description" content="Последняя глава artem4ik493. Обратный отсчёт до завершения работы сайта и связанных проектов — 1 декабря 2026, 09:00 МСК.">
+<meta name="robots" content="noindex,follow"><title>Последняя глава — artem4ik493</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09080d;--fg:#f7f5fb;--muted:#92909e;--pink:#e67bff;--blue:#433bff;--purple:#7900df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;overflow:hidden;background:var(--bg);color:var(--fg);font-family:"DM Sans",sans-serif}
+.ambient{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 77% 6%,rgba(75,0,190,.52),transparent 34%),radial-gradient(ellipse at 100% 52%,rgba(113,0,154,.24),transparent 34%),linear-gradient(110deg,#08080a 0%,#101014 56%,#10091a 100%)}
+.glow{position:absolute;width:540px;height:540px;border-radius:50%;filter:blur(95px);opacity:.75;animation:drift 15s ease-in-out infinite alternate}
+.glow.one{left:-340px;top:26%;background:#1911ff}.glow.two{right:8%;top:-410px;background:#4d00d5;opacity:.55;animation-delay:-5s}.glow.three{right:-340px;bottom:-350px;background:#a000c5;opacity:.38;animation-delay:-9s}
+@keyframes drift{to{transform:translate3d(90px,65px,0) scale(1.18)}}
+.page{position:relative;z-index:1;min-height:100svh;padding:0 clamp(26px,6vw,86px);display:flex;flex-direction:column}
+header{height:112px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:clamp(17px,2vw,23px);font-weight:600;letter-spacing:-.04em}.brand span{color:#c18bff}
+.menu{width:48px;height:48px;border:0;background:transparent;color:white;display:grid;place-items:center;cursor:pointer;border-radius:50%;transition:background .25s}.menu:hover{background:#ffffff12}.menu svg{width:24px;height:24px}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:4vh 0 8vh}
+.heading{margin-bottom:clamp(60px,12vh,130px)}
+h1{font-size:clamp(38px,5.2vw,72px);font-weight:500;letter-spacing:-.055em;line-height:1.05;margin:0 0 10px}
+.subheading{font-size:clamp(16px,2vw,24px);color:#777482;letter-spacing:-.025em}
+.timer{width:100%;display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:center;gap:clamp(9px,2vw,30px);font-variant-numeric:tabular-nums}
+.unit{text-align:center;min-width:0}.digits{font-size:clamp(48px,9.2vw,132px);font-weight:600;line-height:1;letter-spacing:-.075em;white-space:nowrap;background:linear-gradient(110deg,#f8a0ff 0%,#fff 48%,#d1a2ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.unit:nth-of-type(3) .digits{background:linear-gradient(110deg,#c8b4ff,#fff 65%);-webkit-background-clip:text;background-clip:text}
+.unit-label{margin-top:25px;color:#9d91ad;font-size:clamp(12px,1.65vw,22px);font-weight:500;text-transform:uppercase;letter-spacing:.02em}
+.separator{font-size:clamp(35px,6vw,82px);font-weight:500;color:#b68bdb;line-height:1;transform:translateY(-15px)}
+.bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 0 30px;color:#aaa6b2;font-size:clamp(13px,1.6vw,19px)}
+.bottom small{font-size:11px;color:#777280;letter-spacing:.12em;text-transform:uppercase}
+.note{display:flex;align-items:center;gap:20px}.note button{border:0;background:none;color:inherit;font:inherit;cursor:pointer;padding:8px 0}.note button:hover{color:white}
+.modal{position:fixed;inset:0;z-index:5;background:#05040bdc;backdrop-filter:blur(18px);display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;transition:.35s}
+.modal.open{opacity:1;visibility:visible}.modal-card{width:min(650px,100%);padding:clamp(25px,5vw,48px);border:1px solid #ffffff24;background:linear-gradient(135deg,#171321ed,#0d0c14f2);box-shadow:0 30px 100px #0008}
+.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;color:#b9a5d6;font-size:11px;letter-spacing:.15em;text-transform:uppercase}
+.close{border:0;background:none;color:white;font-size:26px;cursor:pointer}
+.modal h2{font-size:clamp(28px,5vw,42px);font-weight:500;letter-spacing:-.05em;margin:0 0 18px}
+.modal p{color:#aaa5b4;font-size:15px;line-height:1.85;margin:12px 0}
+.modal .date{color:#e6c6ff;font-size:12px;letter-spacing:.1em;margin-top:26px}
+@media(max-width:700px){.page{padding:0 22px}header{height:82px}main{padding:5vh 0}.heading{margin-bottom:75px}.timer{gap:5px}.digits{font-size:clamp(34px,9vw,64px)}.unit-label{font-size:9px;margin-top:15px}.separator{font-size:clamp(22px,5vw,36px);transform:translateY(-9px)}.bottom{align-items:flex-end}.bottom small{max-width:120px;line-height:1.6}.note{gap:8px;flex-direction:column;align-items:flex-end;text-align:right}.glow{filter:blur(75px)}}
+@media(max-width:390px){.timer{gap:2px}.digits{font-size:32px}.unit-label{font-size:8px}.separator{font-size:20px}.heading{margin-bottom:60px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style></head>
 <body>
-  <canvas id="stars" aria-hidden="true"></canvas>
-  <div class="shell">
-    <header>
-      <div class="brand">artem4ik493<span>.</span></div>
-      <div class="status"><i></i><span id="statusText">Завершение работы</span></div>
-    </header>
-    <main>
-      <div class="content">
-        <div class="eyebrow">A chapter comes to an end</div>
-        <h1>Последняя <span>глава.</span></h1>
-        <p class="intro">У каждого проекта есть свой жизненный цикл. Для этого пространства он подходит к завершению — спокойно, осознанно и с благодарностью за всё, что удалось создать.</p>
-
-        <section class="count-wrap" aria-label="Обратный отсчёт до закрытия">
-          <div class="count-label">До завершения работы осталось</div>
-          <div class="countdown">
-            <div class="unit"><span class="number" id="days">00</span><span class="unit-label">Дней</span></div>
-            <div class="unit"><span class="number" id="hours">00</span><span class="unit-label">Часов</span></div>
-            <div class="unit"><span class="number" id="minutes">00</span><span class="unit-label">Минут</span></div>
-            <div class="unit"><span class="number" id="seconds">00</span><span class="unit-label">Секунд</span></div>
-          </div>
-          <div class="deadline">01.12.2026 · 09:00 · МОСКОВСКОЕ ВРЕМЯ (UTC+3)</div>
-        </section>
-
-        <section class="finished" id="finished" aria-live="polite">
-          <h2>На этом этапе — точка.</h2>
-          <p>Сайт и связанные с ним проекты завершили работу. Спасибо, что были частью этой небольшой истории. Возможно, однажды здесь появится что-то новое.</p>
-        </section>
-
-        <div class="divider"></div>
-        <section class="message">
-          <h2>Почему я закрываю проекты?</h2>
-          <p>Со временем меняются интересы, приоритеты и планы. Сейчас я хочу освободить время и ресурсы для учёбы, личных задач и новых направлений, а не поддерживать инфраструктуру, которой больше не могу уделять достаточно внимания.</p>
-          <p>Сервер будет переустановлен и перейдёт к моим небольшим личным экспериментам. Поэтому сайт, его сервисы и все связанные подпроекты будут отключены. Это не громкое «навсегда» — скорее пауза без обещаний и конкретных сроков.</p>
-          <p>Если в будущем появится идея, ради которой захочется вернуться, возможно, у этой истории будет продолжение. Но сейчас правильное решение — завершить текущую главу.</p>
-        </section>
-        <div class="signature">Спасибо за этот путь. <span>— artem4ik493</span></div>
-      </div>
-    </main>
-    <footer><span>ARTEM4IK493 · PERSONAL SPACE</span><span>END OF CURRENT CYCLE / 2026</span></footer>
-  </div>
-  <script>
-    (() => {
-      const deadline = new Date('2026-12-01T09:00:00+03:00').getTime();
-      const fields = {days:document.getElementById('days'),hours:document.getElementById('hours'),minutes:document.getElementById('minutes'),seconds:document.getElementById('seconds')};
-      const pad = n => String(n).padStart(2,'0');
-      const tick = () => {
-        const left = deadline - Date.now();
-        if (left <= 0) {
-          Object.values(fields).forEach(el => el.textContent = '00');
-          document.body.classList.add('is-finished');
-          document.getElementById('statusText').textContent = 'Работа завершена';
-          return;
-        }
-        const total = Math.floor(left / 1000);
-        fields.days.textContent = pad(Math.floor(total / 86400));
-        fields.hours.textContent = pad(Math.floor(total % 86400 / 3600));
-        fields.minutes.textContent = pad(Math.floor(total % 3600 / 60));
-        fields.seconds.textContent = pad(total % 60);
-      };
-      tick();
-      window.setInterval(tick, 1000);
-    })();
-
-    (() => {
-      const canvas = document.getElementById('stars');
-      const ctx = canvas.getContext('2d');
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduce || !ctx) return;
-      let w=0,h=0,points=[],raf=0;
-      const resize=()=>{w=canvas.width=window.innerWidth*devicePixelRatio;h=canvas.height=window.innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';points=Array.from({length:Math.min(95,Math.floor(innerWidth/13))},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.35,v:Math.random()*.16+.035,p:Math.random()*6.28}));};
-      const draw=()=>{ctx.clearRect(0,0,w,h);for(const a of points){a.p+=.008;a.y-=a.v*devicePixelRatio;if(a.y<0){a.y=h;a.x=Math.random()*w;}const alpha=.22+Math.sin(a.p)*.22;ctx.beginPath();ctx.arc(a.x,a.y,a.r*devicePixelRatio,0,Math.PI*2);ctx.fillStyle='rgba(184,207,255,'+alpha+')';ctx.fill();}raf=requestAnimationFrame(draw);};
-      resize();draw();window.addEventListener('resize',resize,{passive:true});window.addEventListener('pagehide',()=>cancelAnimationFrame(raf),{once:true});
-    })();
-  </script>
-</body>
-</html>
+<div class="ambient" aria-hidden="true"><i class="glow one"></i><i class="glow two"></i><i class="glow three"></i></div>
+<div class="page">
+<header><div class="brand">artem4ik493<span>.</span></div><button class="menu" id="openInfo" aria-label="Почему проекты закрываются" title="Информация"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></header>
+<main>
+<div class="heading"><h1>Последняя глава.</h1><div class="subheading">Время завершить этот этап.</div></div>
+<div class="timer" role="timer" aria-label="Обратный отсчёт до 1 декабря 2026 года, 9 часов по Москве">
+<div class="unit"><div class="digits" id="days">00</div><div class="unit-label">Дней</div></div><div class="separator">:</div>
+<div class="unit"><div class="digits" id="hours">00</div><div class="unit-label">Часов</div></div><div class="separator">:</div>
+<div class="unit"><div class="digits" id="minutes">00</div><div class="unit-label">Минут</div></div><div class="separator">:</div>
+<div class="unit"><div class="digits" id="seconds">00</div><div class="unit-label">Секунд</div></div>
+</div>
+</main>
+<footer class="bottom"><small>01 / 12 / 2026 &nbsp;·&nbsp; 09:00 MSK</small><div class="note"><span>Узнать, почему</span><button id="openInfo2" aria-label="Подробнее">↗</button></div></footer>
+</div>
+<div class="modal" id="info" role="dialog" aria-modal="true" aria-labelledby="infoTitle"><div class="modal-card"><div class="modal-top"><span>Завершение проекта / 2026</span><button class="close" id="closeInfo" aria-label="Закрыть">×</button></div><h2 id="infoTitle">Почему эта глава заканчивается?</h2><p>Со временем меняются интересы, приоритеты и планы. Сейчас я хочу освободить время и ресурсы для учёбы, личных задач и новых направлений, а не поддерживать инфраструктуру, которой больше не могу уделять достаточно внимания.</p><p>Сервер будет переустановлен и перейдёт к моим небольшим личным экспериментам. Поэтому сайт, его сервисы и все связанные подпроекты будут отключены.</p><p>Это не громкое «навсегда» — скорее пауза без обещаний и конкретных сроков. Возможно, однажды появится идея, ради которой захочется вернуться.</p><div class="date">СПАСИБО ЗА ЭТОТ ПУТЬ. — ARTEM4IK493</div></div></div>
+<script>
+(()=>{const end=new Date('2026-12-01T09:00:00+03:00').getTime();const el={days:document.getElementById('days'),hours:document.getElementById('hours'),minutes:document.getElementById('minutes'),seconds:document.getElementById('seconds')};const pad=n=>String(n).padStart(2,'0');function tick(){let s=Math.max(0,Math.floor((end-Date.now())/1000));el.days.textContent=pad(Math.floor(s/86400));el.hours.textContent=pad(Math.floor(s%86400/3600));el.minutes.textContent=pad(Math.floor(s%3600/60));el.seconds.textContent=pad(s%60);if(s===0)document.querySelector('.subheading').textContent='Этот этап завершён. Спасибо, что были частью истории.'}tick();setInterval(tick,1000);const modal=document.getElementById('info');const open=()=>modal.classList.add('open');const close=()=>modal.classList.remove('open');document.getElementById('openInfo').addEventListener('click',open);document.getElementById('openInfo2').addEventListener('click',open);document.getElementById('closeInfo').addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();
+</script></body></html>
